@@ -5,15 +5,21 @@ public class Personne {
     int mois;
     int annee;
     String rue;
+    String numero;
+    String codePostal;
+    String ville;
     int choixAnnee;
 
-    Personne(String nIdentite, int nJour, int nMois, int nAnnee, String nRue, int nChoixAnnee) {
+    Personne(String nIdentite, int nJour, int nMois, int nAnnee, String nRue, String nNumero, String nCodePostal, String nVille, int nChoixAnnee) {
 
         identite = nIdentite;
         jour = nJour;
         mois = nMois;
         annee = nAnnee;
         rue = nRue;
+        numero = nNumero;
+        codePostal = nCodePostal;
+        ville = nVille;
         choixAnnee = nChoixAnnee;
 
     }
@@ -23,17 +29,12 @@ public class Personne {
     int AgeFinAnneeX() {
         return choixAnnee - annee;
     }
+    String Adresse() { return rue + " " + numero + ", " + codePostal + " " + ville; }
 
     @Override
     public String toString() {
-        return "Personne{" +
-                "identite='" + identite + '\'' +
-                ", jour=" + jour +
-                ", mois=" + mois +
-                ", annee=" + annee +
-                ", rue='" + rue + '\'' +
-                ", choixAnnee=" + choixAnnee +
-                '}';
+        return "Cette personne s'appelle " + identite +
+                " est né(e) le " + jour + " " + mois + " " + annee + " et habite au " + Adresse();
     }
 }
 
