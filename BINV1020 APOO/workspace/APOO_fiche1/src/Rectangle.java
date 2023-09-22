@@ -12,7 +12,7 @@ public class Rectangle {
     double calculerAire() {
         return largeur * longueur;
     }
-    public String toString() {
+    public String toString() { // renvoyer l'etat
         return "Rectangle{" +
                 "longueur=" + longueur +
                 ", largeur=" + largeur +
