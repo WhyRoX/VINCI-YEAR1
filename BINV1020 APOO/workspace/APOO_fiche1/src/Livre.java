@@ -1,13 +1,13 @@
 public class Livre {
 
-    int isbn;
+    String isbn;
     String titre;
     String auteur;
     double prix;
     int anneeEdition;
     int nbrePage;
 
-    Livre(int nIsbn, String nTitre, String nAuteur, double nPrix, int nAnneeEdition, int nNbrePage) {
+    Livre(String nIsbn, String nTitre, String nAuteur, double nPrix, int nAnneeEdition, int nNbrePage) {
         isbn = nIsbn;
         titre = nTitre;
         auteur = nAuteur;

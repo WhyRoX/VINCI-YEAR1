@@ -5,22 +5,26 @@ public class Personne {
     int mois;
     int annee;
     String rue;
+    int choixAnnee;
 
-    Personne(String nIdentite, int nJour, int nMois, int nAnnee, String nRue) {
+    Personne(String nIdentite, int nJour, int nMois, int nAnnee, String nRue, int nChoixAnnee) {
 
         identite = nIdentite;
         jour = nJour;
         mois = nMois;
         annee = nAnnee;
         rue = nRue;
+        choixAnnee = nChoixAnnee;
+
     }
     int AgeFinAnnee() {
         return 2023 - annee;
     }
-    int AgeFin2025() {
-        return AgeFinAnnee() + 2;
+    int AgeFinAnneeX() {
+        return choixAnnee - annee;
     }
 
+    @Override
     public String toString() {
         return "Personne{" +
                 "identite='" + identite + '\'' +
@@ -28,6 +32,7 @@ public class Personne {
                 ", mois=" + mois +
                 ", annee=" + annee +
                 ", rue='" + rue + '\'' +
+                ", choixAnnee=" + choixAnnee +
                 '}';
     }
 }
