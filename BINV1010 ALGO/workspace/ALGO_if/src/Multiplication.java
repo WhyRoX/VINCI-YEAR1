@@ -9,8 +9,13 @@ public class Multiplication{
 		int nombre1 = unEntierAuHasardEntre (0, 10);
 		int nombre2 = unEntierAuHasardEntre (0, 10);
 		System.out.println("Calculez : " + nombre1 + " x " + nombre2 + " = ");
-		
-		// A COMPLETER
+		int produit = scanner.nextInt();
+		if (produit == nombre1 * nombre2) {
+			System.out.print("GJ bonne réponse");
+		}
+		else {
+			System.out.print("Mauvasie rep");
+		}
 	}
 
 	public static int unEntierAuHasardEntre (int valeurMinimale, int valeurMaximale){

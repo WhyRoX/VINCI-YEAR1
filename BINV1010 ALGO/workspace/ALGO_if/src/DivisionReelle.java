@@ -12,3 +12,4 @@ public class DivisionReelle {
 		System.out.println(reel1+"/"+reel2+" = "+quotient);
 	}
 }
+// 8.0/0.0 = infinity

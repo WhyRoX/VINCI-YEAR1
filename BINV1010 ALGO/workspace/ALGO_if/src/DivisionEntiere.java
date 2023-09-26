@@ -8,7 +8,12 @@ public class DivisionEntiere {
 		int entier1 = scanner.nextInt();
 		System.out.print("Entrez l'entier 2 : ");
 		int entier2 = scanner.nextInt();
-		int quotient = entier1/entier2;
-		System.out.println(entier1+"/"+entier2+" = "+quotient);
+		if (entier2 == 0) {
+			System.out.println("Attention division par 0");
+		}
+		else {
+			int quotient = entier1/entier2;
+			System.out.println(entier1+"/"+entier2+" = "+quotient);
+		}
 	}
 }
