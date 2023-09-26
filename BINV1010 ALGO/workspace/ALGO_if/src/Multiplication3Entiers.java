@@ -8,10 +8,15 @@ public class Multiplication3Entiers {
 
         int nombre1 = unEntierAuHasardEntre (0, 10);
         int nombre2 = unEntierAuHasardEntre (0, 10);
-
-        // A COMPLETER
-
-
+        int nombre3 = unEntierAuHasardEntre (0, 10);
+        System.out.println("Calculez : " + nombre1 + " x " + nombre2 + " x " + nombre3 + " = ");
+        int produit = scanner.nextInt();
+        if (produit == nombre1 * nombre2 * nombre3) {
+            System.out.print("GJ bonne réponse");
+        }
+        else {
+            System.out.print("Mauvasie rep");
+        }
     }
 
     public static int unEntierAuHasardEntre (int valeurMinimale, int valeurMaximale){
