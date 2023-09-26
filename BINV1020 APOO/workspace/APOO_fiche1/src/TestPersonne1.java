@@ -1,6 +1,6 @@
-public class TestPersonne {
+public class TestPersonne1 {
     public static void main(String[] args) {
-        Personne pers1 = new Personne("Lolo Caca",
+        Personne1 pers1 = new Personne1("Lolo Caca",
                 25, 6, 2004,
                 "konizzpqdl", "2A", "1853", "Strombeek-Bever",
                 2026);

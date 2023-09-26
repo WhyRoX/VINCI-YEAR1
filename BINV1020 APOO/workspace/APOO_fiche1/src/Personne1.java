@@ -1,4 +1,4 @@
-public class Personne {
+public class Personne1 {
 
     String identite;
     int jour;
@@ -10,7 +10,7 @@ public class Personne {
     String ville;
     int choixAnnee;
 
-    Personne(String nIdentite, int nJour, int nMois, int nAnnee, String nRue, String nNumero, String nCodePostal, String nVille, int nChoixAnnee) {
+    Personne1(String nIdentite, int nJour, int nMois, int nAnnee, String nRue, String nNumero, String nCodePostal, String nVille, int nChoixAnnee) {
 
         identite = nIdentite;
         jour = nJour;
