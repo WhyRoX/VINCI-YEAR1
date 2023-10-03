@@ -6,8 +6,6 @@ public class DeuxMeilleursCotes {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
         double meilleureCote = 0;
         double deuxiemeMeilleureCote = 0;
 
