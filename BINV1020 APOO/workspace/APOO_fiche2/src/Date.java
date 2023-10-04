@@ -20,6 +20,7 @@ public class Date {
     public int getJour() {
         return jour;
     }
+    
     public String toString() {
         return jour + "/" + mois + "/" + annee;
     }

@@ -6,7 +6,7 @@ public class TestPersAdr {
         Date dateDeNaissance1 = new Date(1990, 5,15);
         Personne personne1 = new Personne("Schmidt", "Paul", dateDeNaissance1, adresse);
 
-        Date dateDeNaissance2 = new Date(1985, 4, 32);
+        Date dateDeNaissance2 = new Date(1985, 4, 30);
         Personne personne2 = new Personne("Gobert", "Valérie", dateDeNaissance2, adresse);
 
         personne1.demenager(nouvelleAdresse.getRue(), nouvelleAdresse.getNumero(), nouvelleAdresse.getCodePostal(), nouvelleAdresse.getVille());

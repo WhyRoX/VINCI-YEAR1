@@ -52,7 +52,7 @@ public class Personne {
 
         // Matrice jours
         int[] joursMax = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        // Vérifier si le mois est valide (entre 1 et 12)
+        // Verif mois valide?
         if (mois < 1 || mois > 12) {
             return false;
         }
@@ -68,10 +68,9 @@ public class Personne {
         return true;
     }
 
-
     @Override
     public String toString() {
-        return prenom + " " + nom + " né le " + dateDeNaissance.toString() + " " + domicile.toString();
+        return prenom + " " + nom + " né le " + dateDeNaissance+ " " + domicile;
 
     }
     //@Override
