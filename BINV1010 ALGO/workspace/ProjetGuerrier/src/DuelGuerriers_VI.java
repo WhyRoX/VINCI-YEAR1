@@ -6,13 +6,14 @@ public class DuelGuerriers_VI {
         jeu.afficherInformation("A CogneDur");
         int pointsDeVieCogneDur = jeu.lancerDe();
         jeu.afficherPointsDeVie(1, pointsDeVieCogneDur);
+        jeu.afficherEpee(1);
 
         jeu.afficherInformation("A FrappeFort");
         int pointsDeVieFrappeFort = jeu.lancerDe();
         jeu.afficherPointsDeVie(2, pointsDeVieFrappeFort);
-
-        jeu.afficherEpee(1);
         jeu.afficherBouclier(2);
+
+
 
         /*int degatDeCogneDur = lancerDe();
         int degatDeFrappeFort = lancerDe();

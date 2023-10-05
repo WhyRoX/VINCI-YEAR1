@@ -1,0 +1,37 @@
+________________________________________ ________________________________________
+|                Eleve                 | |                Cours                 |
+________________________________________ ________________________________________
+| - nom: String                        | | - intitule: String                   |
+| - prenom: String                     | | - niveau: String                     |
+| - coursPrincipal: Cours              | | - nbInscrits: int                    |
+| - coursComplementaire: Cours         | | - professeur: Professeur             |
+________________________________________ ________________________________________
+| + Eleve(nom: String, prenom: String, | | + Cours(intitule: String, niveau:    |
+|   coursPrincipal: Cours,             | |   String, professeur: Professeur)    |
+|   coursComplementaire: Cours)        | | + getIntitule(): String              |
+| + getNom(): String                   | | + getNiveau(): String                |
+| + getPrenom(): String                | | + getNbInscrits(): int               |
+| + getCoursPrincipal(): Cours         | | + getProfesseur(): Professeur        |
+| + getCoursComplementaire(): Cours    | | + setProfesseur(professeur:          |
+| + setCoursComplementaire(cours:      | |   Professeur): void                  |
+|   Cours): void                       | | + inscrireEleve(): void              |
+| + toString(): String                 | | + desinscrireEleve(): void           |
+________________________________________ | + toString(): String                 |
+                                         ________________________________________
+________________________________________
+|             Professeur               |
+________________________________________
+| - matricule: String                  |
+| - nom: String                        |
+| - prenom: String                     |
+| - specialisation: String             |
+________________________________________
+| + Professeur(matricule: String,      |
+|   nom: String, prenom: String,       |
+|   specialisation: String)            |
+| + getMatricule(): String             |
+| + getNom(): String                   |
+| + getPrenom(): String                |
+| + getSpecialisation(): String        |
+| + toString(): String                 |
+________________________________________

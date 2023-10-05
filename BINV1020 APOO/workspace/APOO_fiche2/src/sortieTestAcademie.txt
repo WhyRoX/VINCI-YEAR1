@@ -1,0 +1,55 @@
+Affichage des professeurs
+Professeur 1 
+1965-12-23-132 Gilles Marchant
+Specialisation : Chant
+Professeur 2 
+1971-02-04-125 Anne De Coster
+Specialisation : piano
+----------------------------------------------------------------------------------
+Affichage des cours
+Cours 1 
+Chant individuel
+Cours de niveau  3F donné par Gilles Marchant
+Nombre d'élèves inscrits : 2
+Cours 2 
+chant chorale
+Cours de niveau  1Q donné par Gilles Marchant
+Nombre d'élèves inscrits : 2
+Cours 3 
+Piano
+Cours de niveau  3Q donné par Anne De Coster
+Nombre d'élèves inscrits : 0
+----------------------------------------------------------------------------------
+Affichage des élèves
+Eleve 1 
+Jean Durand
+Cours principal : Chant individuel
+Cours complémentaire : chant chorale
+Eleve 2 
+Sébastien Ponant
+Cours principal : chant chorale
+Cours complémentaire : Chant individuel
+----------------------------------------------------------------------------------
+Affichage des cours après changement
+Cours 1 
+Chant individuel
+Cours de niveau  3F donné par Gilles Marchant
+Nombre d'élèves inscrits : 1
+Cours 2 
+chant chorale
+Cours de niveau  1Q donné par Gilles Marchant
+Nombre d'élèves inscrits : 2
+Cours 3 
+Piano
+Cours de niveau  3Q donné par Anne De Coster
+Nombre d'élèves inscrits : 1
+----------------------------------------------------------------------------------
+Affichage des élèves
+Eleve 1 
+Jean Durand
+Cours principal : Chant individuel
+Cours complémentaire : chant chorale
+Eleve 2 
+Sébastien Ponant
+Cours principal : chant chorale
+Cours complémentaire : Piano
