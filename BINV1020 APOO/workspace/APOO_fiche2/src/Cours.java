@@ -33,17 +33,17 @@ public class Cours {
     }
 
     public void inscrireEleve() {
-        nbInscrits +=1;
+        nbInscrits++;
     }
 
     public void desinscrireEleve() {
-        nbInscrits -= 1;
+        nbInscrits--;
 
     }
 
     @Override
     public String toString() {
-        return intitule + "\nCours de niveau " + niveau + " donné par " + professeur.getPrenom() + " " +
-                professeur.getNom() + "\nNombre d'élèves inscrits : " + nbInscrits;
+        return intitule + "\nCours de niveau " + niveau + " donnÃ© par " + professeur.getPrenom() + " " +
+                professeur.getNom() + "\nNombre d'Ã©lÃ¨ves inscrits : " + nbInscrits;
     }
 }
