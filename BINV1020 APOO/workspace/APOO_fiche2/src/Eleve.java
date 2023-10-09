@@ -9,8 +9,8 @@ public class Eleve {
         this.prenom = prenom;
         this.coursPrincipal = coursPrincipal;
         this.coursComplementaire = coursComplementaire;
-        //this.coursPrincipal.inscrireEleve();
-        //this.coursComplementaire.inscrireEleve();
+        this.coursPrincipal.inscrireEleve();
+        this.coursComplementaire.inscrireEleve();
         //this.coursPrincipal.desinscrireEleve();
         //this.coursComplementaire.inscrireEleve();
     }
@@ -36,13 +36,13 @@ public class Eleve {
     public void setCoursComplementaire(Cours coursComplementaire) {
         this.coursComplementaire = coursComplementaire;
         this.coursComplementaire.inscrireEleve();
-        //this.coursComplementaire.desinscrireEleve();
+        this.coursComplementaire.desinscrireEleve();
 
 
     }
     @Override
     public String toString() {
         return nom + " " + prenom + "\nCours principal : " + coursPrincipal.getIntitule() +
-                "\nCours complémentaire : " + coursComplementaire.getIntitule();
+                "\nCours complÃ©mentaire : " + coursComplementaire.getIntitule();
     }
 }
