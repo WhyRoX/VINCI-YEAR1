@@ -23,13 +23,13 @@ public class FenetreCombatGuerriers extends JFrame implements ActionListener{
 
 	private Queue<Integer> listeLancersDes = new LinkedList<Integer>();
 	private Thread listener;
-	private String path = "images/";
-	
-	
+	private String path = "/VINCI/images";
+
+
 	public FenetreCombatGuerriers(){
-		
+
 		listener = Thread.currentThread();
-		
+
 		this.setTitle("Combat entre Cognedur et FrappeFort ");
 		this.setSize(500, 500);
 		this.setLocation(30, 30);
