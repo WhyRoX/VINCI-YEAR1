@@ -17,7 +17,7 @@ public class Multiplication3Essais {
 			essai++;
 		}
 		if (rep != premierNombre * secondNombre) {
-			System.out.println("RATÉ");
+			System.out.println("Tu as raté");
 			System.out.println("La bonne réponse était : " + premierNombre * secondNombre);
 		}
 		else System.out.println("BRAVO");
