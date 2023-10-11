@@ -1,11 +1,10 @@
-
-
-import java.util.*;
-import javax.swing.*; 
-import java.awt.*;   
-import java.awt.image.*;
-import java.awt.event.*;
-import java.awt.geom.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.Line2D;
+import java.awt.image.BufferedImage;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 public class Sheet extends JComponent {
   /* The image and associated graphic in which the turtles draw */ 

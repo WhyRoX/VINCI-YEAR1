@@ -16,7 +16,7 @@ public class Multiplication3Essais {
 			rep = scanner.nextInt();
 			essai++;
 		}
-		System.out.println("La bonne reponse est : " + premierNombre * secondNombre);
+		System.out.println("BRAVO");
 	}
 
 	// A NE PAS MODIFIER

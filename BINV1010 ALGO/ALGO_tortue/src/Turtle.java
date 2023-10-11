@@ -1,10 +1,4 @@
-
-
-import java.awt.*; 
-import java.lang.*;  
-import java.awt.image.*;
-import java.awt.event.*;
-import java.awt.geom.*;
+import java.awt.*;
 
 public class Turtle {
   /* shape and color of this turtle */

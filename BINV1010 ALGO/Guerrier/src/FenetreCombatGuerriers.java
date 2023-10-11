@@ -1,15 +1,9 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.Queue;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 
 
@@ -23,7 +17,7 @@ public class FenetreCombatGuerriers extends JFrame implements ActionListener{
 
 	private Queue<Integer> listeLancersDes = new LinkedList<Integer>();
 	private Thread listener;
-	private String path = "/VINCI/images";
+	private String path = "BINV1010 ALGO/Guerrier/images/";
 
 
 	public FenetreCombatGuerriers(){
