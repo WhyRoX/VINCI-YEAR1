@@ -16,7 +16,12 @@ public class Multiplication3Essais {
 			rep = scanner.nextInt();
 			essai++;
 		}
-		System.out.println("BRAVO");
+		if (rep != premierNombre * secondNombre) {
+			System.out.println("RATÉ");
+			System.out.println("La bonne réponse était : " + premierNombre * secondNombre);
+		}
+		else System.out.println("BRAVO");
+
 	}
 
 	// A NE PAS MODIFIER
