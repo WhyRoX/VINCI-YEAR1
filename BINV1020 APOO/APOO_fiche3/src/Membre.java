@@ -1,12 +1,13 @@
 
 public class Membre {
-	//Ajoutez un attribut pour garder le nom du membre.
+	private String nom;
 
-	//Ajoutez un attribut pour garder le prénom du membre.
+	private String prenom;
 
-	//Ajoutez un attribut pour garder le numéro de téléphone du membre.
+    private double numeroTelephone;
 
 	//Ajoutez un attribut pour garder, s'il y en a un, le membre qui a parrainé le membre courant.
+
 		
 
 	

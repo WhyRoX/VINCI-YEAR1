@@ -1,0 +1,22 @@
+________________________________________
+|             Article                  |
+________________________________________
+| - référence: String                  |
+| - nom: String                        |
+| - description: String                |
+| - prixHorsTva: double                |
+| - tauxDeTva: double                  |
+________________________________________
+| + Article(référence: String,         |
+|   nom: String, description: String,  |
+|   prixHorsTva: double)               |
+| + getRéférence(): String             |
+| + getNom(): String                   |
+| + getDescription(): String           |
+| + setDescription(description         |
+|                      : String): void |
+| + getPrixHorsTva(): double           |
+| + setPrixHorsTva(prix : double) :void|
+| + setTauxDeTva(tva : double) : void  |
+| + toString(): String                 |
+________________________________________

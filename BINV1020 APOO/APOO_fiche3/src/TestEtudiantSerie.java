@@ -1,5 +1,5 @@
 
-public class TestEtudiantSerie {
+/*public class TestEtudiantSerie {
 	public static void main(String[] args) {
 		Serie serie1 = new Serie('1');
 		Serie serie2 = new Serie('2');
@@ -35,4 +35,4 @@ public class TestEtudiantSerie {
 		cap.changerSerie(serie2);
 		System.out.println(cap);
      }
-}
+}*/
