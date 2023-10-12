@@ -1,0 +1,14 @@
+      +------------------------+          +----------------------+
+      |         Serie          |          |      Etudiant        |
+      +------------------------+          +----------------------+
+      | - nom : char           |          | - matricule : String |
+      | - delegue : Etudiant   |<-------O| - nom : String       |
+      +------------------------+          | - prenom : String    |
+      | + Serie(char)          |          | - serie : Serie       |
+      | + getNom() : char      |          +----------------------+
+      | + getDelegue() : Etudiant |<----O| + getMatricule() : String |
+      | + elireDelegue(Etudiant) : boolean | + getNom() : String   |
+      +------------------------+          | + getPrenom() : String|
+                                           | + getSerie() : Serie  |
+                                           | + changerSerie(Serie) : boolean |
+                                           +----------------------+

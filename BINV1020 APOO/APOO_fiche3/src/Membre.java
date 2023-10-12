@@ -6,42 +6,46 @@ public class Membre {
 
     private double numeroTelephone;
 
-	//Ajoutez un attribut pour garder, s'il y en a un, le membre qui a parrainé le membre courant.
+	private Membre parrain;
 
-		
+	public Membre(String nom, String prenom, double numeroTelephone) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.numeroTelephone = numeroTelephone;
+	}
 
-	
-	//Ajoutez un constructeur initialisant le nom, le prénom et le numéro de téléphone du membre. 
+	public String getNom() {
+		return nom;
+	}
 
+	public String getPrenom() {
+		return prenom;
+	}
 
-	
-	//Ajoutez des getters pour tous les attributs
+	public double getNumeroTelephone() {
+		return numeroTelephone;
+	}
 
+	public void setNumeroTelephone(double numeroTelephone) {
+		this.numeroTelephone = numeroTelephone;
+	}
 
+	public boolean creerParrain(Membre parrain) {
+		if (this.parrain != null || this == parrain) {
+			return false;
+		}
+		this.parrain = parrain;
+		return true;
+	}
 
-
-
-
-	//Ajouter un setter pour le numéro de téléphone.
-
-
-
-
-
-
-	//Ajoutez une méthode permettant d'initialiser le parrain.
-	//Cette méthode renvoie false si le membre a déjà un parrain ou si le membre passé en paramètre est le membre lui-même. 
-	//Sinon, elle initialise le parrain et renvoie true.
-
-
-	
-		
-	//Ajoutez une méthode toString qui renverra toutes les informations du membre sous forme textuelle. 
-	//Si le membre a un parrain, il faut uniquement reprendre le prénom et le nom du parrain. Sinon, il faut dire que le membre n'a pas de parrain.
-
-
-
-
-
-
+	@Override
+	public String toString() {
+		if (parrain != null) {
+			return "Nom: " + nom + ", Prénom: " + prenom + ", Numéro de téléphone: " + numeroTelephone +
+					", Parrain: " + parrain.getPrenom() + " " + parrain.getNom();
+		} else {
+			return "Nom: " + nom + ", Prénom: " + prenom + ", Numéro de téléphone: " + numeroTelephone +
+					", Ce membre n'a pas de parrain.";
+		}
+	}
 }
