@@ -15,7 +15,6 @@ public class CalculMoyenne {
             nbrCotes++;
             System.out.println("Encore une cote (Y,y,O,o/N) ? ");
             reponse = scanner.next().charAt(0);
-
         } while (reponse == 'Y' || reponse == 'y' || reponse == 'O' || reponse == 'o');
 
         System.out.println("La moyenne des cotes : " + totalCotes/nbrCotes);

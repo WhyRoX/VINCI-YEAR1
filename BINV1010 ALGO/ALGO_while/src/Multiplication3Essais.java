@@ -8,11 +8,11 @@ public class Multiplication3Essais {
 		System.out.println("Tu as droit a 3 essais");
 		int premierNombre = unEntierAuHasardEntre (0, 10);
 		int secondNombre = unEntierAuHasardEntre (0, 10);
-		System.out.println("Calculez : " + premierNombre + " x " + secondNombre + " = ");
+		System.out.print("Calculez : " + premierNombre + " x " + secondNombre + " = ");
 		int rep = scanner.nextInt();
 		int essai = 0;
 		while(rep != premierNombre * secondNombre && essai < 2) {
-			System.out.println("Calculez : " + premierNombre + " x " + secondNombre + " = ");
+			System.out.print("Calculez : " + premierNombre + " x " + secondNombre + " = ");
 			rep = scanner.nextInt();
 			essai++;
 		}
@@ -24,7 +24,6 @@ public class Multiplication3Essais {
 
 	}
 
-	// A NE PAS MODIFIER
 	public static int unEntierAuHasardEntre (int valeurMinimale, int valeurMaximale){
 		return (int) (Math.random() * (valeurMaximale - valeurMinimale + 1)) + valeurMinimale;
 	}

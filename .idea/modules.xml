@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BINV1010 ALGO/ALGO_for/ALGO_for.iml" filepath="$PROJECT_DIR$/BINV1010 ALGO/ALGO_for/ALGO_for.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BINV1010 ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" filepath="$PROJECT_DIR$/BINV1010 ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010 ALGO/ALGO_if/ALGO_if.iml" filepath="$PROJECT_DIR$/BINV1010 ALGO/ALGO_if/ALGO_if.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010 ALGO/ALGO_tortue/ALGO_tortue.iml" filepath="$PROJECT_DIR$/BINV1010 ALGO/ALGO_tortue/ALGO_tortue.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010 ALGO/ALGO_while/ALGO_while.iml" filepath="$PROJECT_DIR$/BINV1010 ALGO/ALGO_while/ALGO_while.iml" />
