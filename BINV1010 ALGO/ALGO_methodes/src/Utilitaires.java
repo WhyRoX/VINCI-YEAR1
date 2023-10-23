@@ -36,10 +36,13 @@ public class Utilitaires {
      * @return un nombre reel compris entre 2 bornes
      */
     public static double lireReelComprisEntre(double min, double max ){
-       return 0;
-        // TODO
-        //il faut placer une boucle dans cette methode !
-        //procedez comme pour la methode lireReelEntierPositif() donnee ci-dessus
+        double x = scanner.nextDouble();
+        while(x < min || x > max){
+            System.out.println("Attention le reel doit etre compris entre "+min+" et "+max);
+            System.out.print("Recommencez : ");
+            x = scanner.nextDouble();
+        }
+        return x;
     }
 
 
@@ -48,9 +51,12 @@ public class Utilitaires {
      * @return le caractere o un n
      */
     public static char lireOouN(){
+        char c = scanner.next().charAt(0);
+        while(c != 'o' && c != 'n'){
+            System.out.println("Attention le caractere doit etre o ou n");
+            System.out.print("Recommencez : ");
+            c = scanner.next().charAt(0);
+        }
         return 'p';
-        // TODO
-        //il faut placer une boucle dans cette methode !
     }
-
 }
