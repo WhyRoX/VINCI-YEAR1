@@ -19,7 +19,8 @@ public class Dessins {
 					break;
 				case 5: pyramide();
 					break;
-
+				case 6: losange();
+					break;
 				// A COMPLETER
 			}
 			System.out.println();
@@ -62,11 +63,14 @@ public class Dessins {
 		}
 	}
 
-	private static void triangleVersion2() {
+	private static void pyramide() {
 		System.out.print("\nEntrez n : ");
 		int n = scanner.nextInt();
 		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n-i; j++) {
+			for (int j = 0; j < n - i - 1; j++) {
+				System.out.print(" ");
+			}
+			for (int j = 0; j < 2 * i + 1; j++) {
 				System.out.print("X");
 			}
 			System.out.println();
@@ -85,19 +89,57 @@ public class Dessins {
 			System.out.println();
 		}
 	}
-	private static void pyramide() {
+	private static void triangleVersion2() {
 		System.out.print("\nEntrez n : ");
 		int n = scanner.nextInt();
 		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n - i - 1; j++) {
-				System.out.print(" ");
-			}
-			for (int j = 0; j < 2 * i + 1; j++) {
+			for (int j = 0; j < n-i; j++) {
 				System.out.print("X");
 			}
 			System.out.println();
 		}
 	}
+	// XXXXXXXX
+	// XXX  XXX
+	// XX    XX
+	// X      X
+	private static void losange() {
+		System.out.print("\nEntrez n : ");
+		int n = scanner.nextInt();
+		for (int i = 0; i < n; i++) {
+			System.out.println();
+			for (int j = 0; j < n-i; j++) {
+				System.out.print("X");
+			}
+			for (int j = 0; j < i; j++) {
+				System.out.print("  ");
+			}
+			for (int j = 0; j < n-i; j++) {
+				System.out.print("X");
+			}
+			System.out.println();
+		}
+
+		for (int i = 0; i < n+1; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print("X");
+			}
+			for (int j = 0; j < n-i; j++) {
+				System.out.print("  ");
+			}
+			for (int j = 0; j < i; j++) {
+				System.out.print("X");
+			}
+			System.out.println();
+		}
+	}
+	//public static char chooseRand() {
+	//	char[] tab = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n'};
+	//	int rand = (int)(Math.random()*tab.length);
+	//	return tab[rand];
+	//}
+
+
 
 
 
