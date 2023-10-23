@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class NombreMystereInverse {
+public class NombreMystereInverseV2 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -19,7 +19,7 @@ public class NombreMystereInverse {
             int proposition = (min + max) / 2;
             essais++;
             System.out.println("Est-ce que le nombre a deviner est " + proposition + " ? (+, -, =)");
-            reponse = scanner.next().charAt(0);
+            reponse = Utilitaires.lireCharPermis("+-=");
 
             if (reponse == '+') {
                 min = proposition + 1;

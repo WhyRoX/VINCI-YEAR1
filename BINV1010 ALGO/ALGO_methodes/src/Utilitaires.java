@@ -101,4 +101,24 @@ public class Utilitaires {
         }
         return x;
     }
+
+    /**
+     * Cette méthode demande à l'utilisateur d'entrer un caractère au clavier.
+     * Ce caractère doit être contenu dans la chaîne de caractères passée en paramètre à la méthode.
+     * Si l'utilisateur se trompe, on lui repose la question jusqu'à avoir une bonne réponse.
+     *
+     * @param caracteresPermis La chaîne de caractères contenant les caractères permis.
+     * @return Le caractère entré par l'utilisateur.
+     */
+    public static char lireCharPermis(String caracteresPermis) {
+        char c;
+        do {
+            c = scanner.next().charAt(0);
+            if (caracteresPermis.indexOf(c) == -1) {
+                System.out.println("Caractère non autorisé. Veuillez réessayer : ");
+            }
+        } while (caracteresPermis.indexOf(c) == -1);
+        return c;
+    }
+
 }
