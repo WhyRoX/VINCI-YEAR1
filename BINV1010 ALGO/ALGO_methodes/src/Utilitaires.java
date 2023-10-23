@@ -59,4 +59,46 @@ public class Utilitaires {
         }
         return 'p';
     }
+
+    /**
+     * lit un entier non nul
+     * @return un entier positif
+     */
+    public static int lireEntierNonNul(){
+        int x = scanner.nextInt();
+        while(x == 0){
+            System.out.println("Attention le reel doit etre non nul");
+            System.out.print("Recommencez : ");
+            x = scanner.nextInt();
+        }
+        return x;
+    }
+
+    /**
+     * lit si l'utilisateur a écrit quelque chose
+     * @return ce qui a été écrit
+     */
+    public static String lireStringNonVide() {
+        String s = scanner.nextLine();
+        while (s.isEmpty()) {
+            System.out.println("Attention, la chaîne ne doit pas être vide");
+            System.out.print("Recommencez : ");
+            s = scanner.nextLine();
+        }
+        return s;
+    }
+
+    /**
+     * lit un entier positif
+     * @return un entier positif
+     */
+    public static int lireEntierPositif() {
+        int x = scanner.nextInt();
+        while (x <= 0) {
+            System.out.println("Attention, l'entier doit être positif");
+            System.out.print("Recommencez : ");
+            x = scanner.nextInt();
+        }
+        return x;
+    }
 }

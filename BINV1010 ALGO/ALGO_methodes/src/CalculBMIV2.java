@@ -7,16 +7,19 @@ public class CalculBMIV2 {
         double poids= Utilitaires.lireReelPositif();
         System.out.print(("Entrez votre taille : "));
         double taille = Utilitaires.lireReelPositif();
-        double bmi = calculerBmi(poids,taille);
-        System.out.println("Votre bmi : "+ bmi);
-        String etat = donnerEtat(bmi);
-        System.out.println("Votre etat : "+etat);
+        System.out.println("Votre bmi : "+ calculerBmi(poids,taille));
+        System.out.println("Votre etat : "+ donnerEtat(calculerBmi(poids,taille)));
+
+        // double bmi = calculerBmi(poids,taille);
+        // System.out.println("Votre bmi : "+bmi);
+        // String etat = donnerEtat(bmi);
+        //System.out.println("Votre etat : "+etat);
     }
 
     /**
      * calcule le bmi
      * @param poids le poids exprime en kg
-     * @param taille la taille exprimee en m
+     * @param taille la taille exprimee en mètre
      * @return le bmi
      */
     public static double calculerBmi(double poids, double taille){

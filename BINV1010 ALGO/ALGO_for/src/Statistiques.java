@@ -6,7 +6,7 @@ public class Statistiques {
 	public static void main(String[] args) {
 		System.out.print("Entrez le nombre de cotes : ");
 		int nombreCotes = scanner.nextInt();
-		double coteMax = 0;
+		double coteMax = -1;
 		double coteMin = Double.MAX_VALUE;
 		double sommeCotes = 0;
 		for (int i = 1; i <= nombreCotes ; i++) {
