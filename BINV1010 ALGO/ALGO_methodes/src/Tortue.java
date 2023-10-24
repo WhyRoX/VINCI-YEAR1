@@ -55,6 +55,13 @@ public class Tortue {
 		}
 	}
 
+	public void dessinerUnTriangle(double longueur){
+		for (int i = 0; i < 3; i++) {
+			avancer(longueur);
+			tournerADroite(120);
+		}
+	}
+
 
 
 	

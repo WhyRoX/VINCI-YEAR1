@@ -12,6 +12,20 @@ public class Multiplication3 {
 		System.out.println("Tu recevras la reponse, si tu la rate");
 		// A NE PAS COMPLETER
 	}
+	public static boolean faireUneMultiplication(){
+		int min = 1;
+		int max = 10;
+		int nombre1 = unEntierAuHasardEntre(min, max);
+		int nombre2 = unEntierAuHasardEntre(min, max);
+		System.out.println("Combien font " + nombre1 + " * " + nombre2 + " ?");
+		int reponse = scanner.nextInt();
+		if (reponse == nombre1 * nombre2) {
+			return true;
+		} else {
+			System.out.println("La bonne réponse était " + (nombre1 * nombre2));
+			return false;
+		}
+	}
 
 
 
