@@ -112,13 +112,15 @@ public class Utilitaires {
      */
     public static char lireCharPermis(String caracteresPermis) {
         char c;
-        do {
+        while (true) {
             c = scanner.next().charAt(0);
-            if (caracteresPermis.indexOf(c) == -1) {
-                System.out.println("Caractère non autorisé. Veuillez réessayer : ");
+            if (caracteresPermis.indexOf(c) != -1) {
+                break;
             }
-        } while (caracteresPermis.indexOf(c) == -1);
+            System.out.println("Caractère non autorisé. Veuillez réessayer : ");
+        }
         return c;
     }
+
 
 }

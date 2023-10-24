@@ -13,30 +13,40 @@ public class Multiplication2 {
 		System.out.println("Le programme termine lorsque tu auras reussi 3 multiplications du premier coup");
 	
 		// A NE PAS COMPLETER
-		System.out.println("Entre la valeur minimale des nombres a multiplier ensuite la valeure maximale : ");
+		int valeurMinimale = 0;
+		int valeurMaximale = demanderValeurMaximale();
+		int nombreDeBonnesReponses = faireMultiplications(valeurMinimale, valeurMaximale);
+
+		System.out.println("Félicitations, tu as réussi " + nombreDeBonnesReponses + " multiplications du premier coup !");
+	}
+
+	public static int demanderValeurMaximale() {
+		System.out.println("Entre la valeur maximale des nombres à multiplier : ");
+		return scanner.nextInt();
+	}
+	public static int faireMultiplications(int valeurMinimale, int valeurMaximale) {
 		int nombreDeBonnesReponses = 0;
-		while(nombreDeBonnesReponses < 3){
-			if (faireUneMultiplication()) {
-				nombreDeBonnesReponses++;
+
+		while (nombreDeBonnesReponses < 3) {
+			int nombre1 = unEntierAuHasardEntre(valeurMinimale, valeurMaximale);
+			int nombre2 = unEntierAuHasardEntre(valeurMinimale, valeurMaximale);
+			boolean reponseCorrecte = false;
+
+			while (!reponseCorrecte) {
+				System.out.println("Combien font " + nombre1 + " * " + nombre2 + " ?");
+				int reponse = scanner.nextInt();
+
+				if (reponse == nombre1 * nombre2) {
+					System.out.println("Bonne réponse !");
+					reponseCorrecte = true;
+					nombreDeBonnesReponses++;
+				} else {
+					System.out.println("Mauvaise réponse");
+				}
 			}
 		}
 
-	}
-	public static boolean faireUneMultiplication(){
-		int min = 0;
-		int max = 10;
-		int nombre1 = unEntierAuHasardEntre(min, max);
-		int nombre2 = unEntierAuHasardEntre(min, max);
-		System.out.println("Combien font " + nombre1 + " * " + nombre2 + " ?");
-		int reponse = scanner.nextInt();
-		if (reponse == nombre1 * nombre2) {
-			return true;
-		} else {
-			System.out.println("La bonne réponse était " + (nombre1 * nombre2));
-			return false;
-		}
-
-
+		return nombreDeBonnesReponses;
 	}
 
 
