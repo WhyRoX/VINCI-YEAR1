@@ -10,13 +10,7 @@ public class Multiplication1{
 		System.out.println("Tu recevras la reponse, si tu la rate");
 		System.out.println("A la fin, le programme affichera le nombre de bonnes reponses.");
 		// A NE PAS COMPLETER
-		int nombreDeBonnesReponses = 0;
-		for (int i = 0; i < 5; i++) {
-			if (faireUneMultiplication()) {
-				nombreDeBonnesReponses++;
-			}
-		}
-		System.out.println("Vous avez obtenu " + nombreDeBonnesReponses + " bonnes réponses.");
+		faireUneMultiplication();
 	}
 
 	/**
@@ -25,21 +19,24 @@ public class Multiplication1{
 	 * demande à l'utilisateur de multiplier ces deux nombres,
 	 * et vérifie si la réponse de l'utilisateur est correcte.
 	 *
-	 * @return vrai si la réponse de l'utilisateur est correcte, faux sinon.
-	 */
-	public static boolean faireUneMultiplication() {
+     */
+	public static void faireUneMultiplication() {
 		int min = 0;
 		int max = 10;
-		int nombre1 = unEntierAuHasardEntre(min, max);
-		int nombre2 = unEntierAuHasardEntre(min, max);
-		System.out.println("Combien font " + nombre1 + " * " + nombre2 + " ?");
-		int reponse = scanner.nextInt();
-		if (reponse == nombre1 * nombre2) {
-			return true;
-		} else {
-			System.out.println("La bonne réponse était " + (nombre1 * nombre2));
-			return false;
+		int nombreDeBonnesReponses = 0;
+		for (int i = 0; i < 5; i++) {
+			int nombre1 = unEntierAuHasardEntre(min, max);
+			int nombre2 = unEntierAuHasardEntre(min, max);
+			System.out.println("Combien font " + nombre1 + " * " + nombre2 + " ?");
+			int reponse = scanner.nextInt();
+			if (reponse == nombre1 * nombre2) {
+				System.out.println("Bonne réponse !");
+				nombreDeBonnesReponses++;
+			} else {
+				System.out.println("Faux, la bonne réponse était " + (nombre1 * nombre2));
+			}
 		}
+		System.out.println("Vous avez obtenu " + nombreDeBonnesReponses + " bonnes réponses.");
 	}
 
 
