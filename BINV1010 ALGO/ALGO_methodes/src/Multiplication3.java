@@ -7,14 +7,21 @@ public class Multiplication3 {
 		
 		System.out.println("Tu vas faire 5 multiplications");
 		System.out.println("Au depart la valeur minimale des nombres a multiplier est 1 et la valeur maximale est 10");
-		System.out.println("Ces 2 bornes augmenteront de 10 a chaque multiplication reussie");
+		System.out.println("Ces 2 bornes augmenteront de 10 a chaque multiplication réussie");
 		System.out.println("Pour chaque multiplication, tu as droit a 1 essai");
-		System.out.println("Tu recevras la reponse, si tu la rate");
+		System.out.println("Tu recevras la réponse, si tu la rate");
 		// A NE PAS COMPLETER
-		faireMultiplications();
+		int bonneRep = faireMultiplications();
+		System.out.println("Félicitations, tu as réussi " + bonneRep + " multiplication(s) du premier coup !");
+
 	}
 
-	public static void faireMultiplications() {
+	/**
+	 * Methode qui demande à l'utilisateur de faire 5 multiplications
+	 * @return le nombre de bonnes réponses afin de pouvoir afficher le message de fin.
+	 */
+	public static int faireMultiplications() {
+		int bonneRep = 0;
 		int valeurMinimale = 1;
 		int valeurMaximale = 10;
 		for (int i = 0; i < 5; i++) {
@@ -26,6 +33,7 @@ public class Multiplication3 {
 			int reponseUtilisateur = scanner.nextInt();
 
 			if (reponseUtilisateur == reponseAttendue) {
+				bonneRep++;
 				System.out.println("Bonne réponse !");
 			} else {
 				System.out.println("Mauvaise réponse. La réponse correcte est : " + reponseAttendue);
@@ -34,6 +42,7 @@ public class Multiplication3 {
 			valeurMinimale += 10;
 			valeurMaximale += 10;
 		}
+		return bonneRep;
 	}
 
 	public static int unEntierAuHasardEntre (int valeurMinimale, int valeurMaximale){

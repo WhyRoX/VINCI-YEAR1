@@ -12,8 +12,7 @@ public static java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.println("Le plus grand entier est " +
                 max3(entier1, entier2, entier3));
     }
-
-    @SuppressWarnings("ManualMinMaxCalculation")
+    @SuppressWarnings("all")
     public static int max3(int a, int b, int c){
         if(a > b && a > c){
             return a;
