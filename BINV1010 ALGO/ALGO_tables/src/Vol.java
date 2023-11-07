@@ -3,7 +3,7 @@
  *  Classe permettant de memoriser et de traiter les coordonnees d'un vol
  *  
  *   
- * @author ... <----- !!!!!!! renseignez votre nom ici !!!!!
+ * @author Enes Yumer
  * 
  *  
  */
@@ -56,10 +56,7 @@ public class Vol {
 	 * @return les coordonnees du lieu d'arrivee
 	 */
 	public Coordonnees lieuArrivee(){
-		
-		//TODO
-		
-		return null;
+		return tableCoordonnees[tableCoordonnees.length-1];
 	}
 
 
@@ -70,12 +67,7 @@ public class Vol {
 	 * @return true si les coordonnees du lieu de depart sont identiques a celles du lieu d'arrivee, false sinon
 	 */
 	public boolean estUnTour(){
-		
-		// pensez a utiliser la methode equals() de la classe Coordonnee
-		
-		//TODO
-		
-		return false;
+		return tableCoordonnees[0].equals(tableCoordonnees[tableCoordonnees.length-1]);
 	}
 
 
@@ -87,16 +79,16 @@ public class Vol {
 	 * @param n le nombre d'unites de temps
 	 * @return les coordonnees demandees ou null si un tel lieu n'existe pas car le vol n'est pas assez long
 	 */
-	public Coordonnees niemeLieu(int n){	
-		
+	public Coordonnees niemeLieu(int n){
+
 		// !!!!!!Pas de boucle for!!!!!! REFLECHISSEZ !
 
 		//TODO
-		
+
 		return null;
 
 	}
-	
+
 
 	// choix 4
 	/**

@@ -1,3 +1,4 @@
+
 import java.util.Arrays;
 
 public class Temperatures {
@@ -30,8 +31,11 @@ public class Temperatures {
 	 * @return la moyenne
 	 */
 	public double moyenne(){
-		//TODO
-		return 0;
+		double somme = 0;
+		for (double temp : tableDesTemperatures) {
+			somme += temp;
+		}
+		return somme / tableDesTemperatures.length;
 	}
 
 
@@ -41,8 +45,11 @@ public class Temperatures {
 	 * @return la temperature la plus basse
 	 */
 	public double temperatureMin(){
-		// TODO
-		return 0;
+		double tempMin = Double.MAX_VALUE;
+		for (double temp : tableDesTemperatures)
+			if (temp < tempMin)
+				tempMin = temp;
+		return tempMin;
 	}
 
 
@@ -51,8 +58,11 @@ public class Temperatures {
 	 * @return le nombre de jours de gel
 	 */
 	public int nombreJoursDeGel(){
-		// TODO
-		return 0;
+		int count = 0;
+		for (double temp : tableDesTemperatures)
+			if (temp < 0)
+				count++;
+		return count;
 	}
 
 
@@ -61,9 +71,20 @@ public class Temperatures {
 	 * @return une table avec les jours de gel, la dimension de cette table correspond a ce nombre de jours
 	 */
 	public int[] joursDeGel(){
-		//TODO
-		// Attention, la dimension des tables renvoyees doivent TOUJOURS correspondre au nombre de donnees
-		return null;
+		int count = 0;
+		for (double temp : tableDesTemperatures)
+			if (temp < 0)
+				count++;
+		int[] joursDeGelArray = new int[count];
+		int index = 0;
+		for (int i = 0; i < tableDesTemperatures.length; i++) {
+			if (tableDesTemperatures[i] < 0){
+				joursDeGelArray[index] = i+1;
+				index++;
+			}
+		}
+
+		return joursDeGelArray;
 	}
 
 
@@ -72,10 +93,12 @@ public class Temperatures {
 	 * @return true si toutes les temperatures sont positives, false sinon
 	 */
 	public boolean toutesPositives(){
-		//TODO
-		// Pour une question d'efficacite, n'utilisez pas la methode nombreJoursDeGel()!
-		// Il n'est peut-etre pas necessaire de parcourir toute la table pour cette methode
-		return false;
+		for (double temperature : tableDesTemperatures) {
+			if (temperature < 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 
@@ -84,10 +107,7 @@ public class Temperatures {
 	 * @return true si la table contient au moins une temperature negative, false sinon
 	 */
 	public boolean contientAuMoinsUnJourDeGel(){
-		//TODO
-		// Pour une question d'efficacite, n'utilisez pas la methode nombreJoursDeGel()!
-		// Par contre, reflechissez ! Ne serait-il pas possible d'utiliser la methode toutesPositives() ?
-		return false;
+		return !toutesPositives();
 	}
 
 
@@ -96,11 +116,15 @@ public class Temperatures {
 	 * @param temperature la temperature qui sert a cette recherche
 	 * @return true si la table contient au moins une temperature superieure a temperature, false sinon
 	 */
-	public boolean contientAuMoinsUneTemperatureSuperieureA(double temperature){
-		//TODO
-		// Ex supplementaire
+	public boolean contientAuMoinsUneTemperatureSuperieureA(double temperature) {
+		for (double temp : tableDesTemperatures) {
+			if (temp > temperature) {
+				return true;
+			}
+		}
 		return false;
 	}
+
 
 
 	/**
@@ -108,10 +132,14 @@ public class Temperatures {
 	 * precondition (a ne pas verifier) la table des temperatures est non vide
 	 * @return la temperature la plus elevee
 	 */
-	public double temperatureMax(){
-		//TODO
-		// Ex supplementaire
-		return 0;
+	public double temperatureMax() {
+		double max = tableDesTemperatures[0];
+		for (double temperature : tableDesTemperatures) {
+			if (temperature > max) {
+				max = temperature;
+			}
+		}
+		return max;
 	}
 
 
@@ -119,10 +147,23 @@ public class Temperatures {
 	 * remplit une table avec les numeros des jours correspondant a la temperature la plus elevee
 	 * @return une table avec les jours de haute temperature, la dimension de cette table correspond à ce nombre de jours
 	 */
-	public int[] joursMax(){
-		// TODO
-		// Ex supplementaire
-		return null;
+	public int[] joursMax() {
+		double maxTemperature = temperatureMax();
+		int count = 0;
+		for (double temperature : tableDesTemperatures) {
+			if (temperature == maxTemperature) {
+				count++;
+			}
+		}
+		int[] joursMaxArray = new int[count];
+		int index = 0;
+		for (int i = 0; i < tableDesTemperatures.length; i++) {
+			if (tableDesTemperatures[i] == maxTemperature) {
+				joursMaxArray[index] = i;
+				index++;
+			}
+		}
+		return joursMaxArray;
 	}
 
 
@@ -133,14 +174,23 @@ public class Temperatures {
 	 * remplit une table avec les numeros des jours correspondant a la temperature la plus basse
 	 * @return une table avec les jours de basse temperature, la dimension de cette table correspond à ce nombre de jours
 	 */
-	public int[] joursMin(){
-
-		//TODO
-		// Ex supplementaire
-		// Suggestion : introduisez la methode nombreJours(double temperature)
-		// Les methodes joursDeGel(), joursMax() peuvent aussi utiliser cette methode
-		//
-		return null;
+	public int[] joursMin() {
+		double minTemperature = temperatureMin();
+		int count = 0;
+		for (double temperature : tableDesTemperatures) {
+			if (temperature == minTemperature) {
+				count++;
+			}
+		}
+		int[] joursMinArray = new int[count];
+		int index = 0;
+		for (int i = 0; i < tableDesTemperatures.length; i++) {
+			if (tableDesTemperatures[i] == minTemperature) {
+				joursMinArray[index] = i;
+				index++;
+			}
+		}
+		return joursMinArray;
 	}
 
 }
