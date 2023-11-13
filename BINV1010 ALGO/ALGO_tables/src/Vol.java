@@ -73,22 +73,17 @@ public class Vol {
 
 	// choix 3
 	/**
-	 * renvoie le lieu survole apres n unites de temps
-	 * (n = 0 --> lieu de depart)
+	 * Renvoie le lieu survole apres n unités de temps
+	 * (n = 0 → lieu de depart)
 	 * precondition (a ne pas verifier) la table de coordonnees n'est pas vide
 	 * @param n le nombre d'unites de temps
-	 * @return les coordonnees demandees ou null si un tel lieu n'existe pas car le vol n'est pas assez long
+	 * @return les coordonnees demandees ou null si un tel lieu n'existe pas, car le vol n'est pas assez long
 	 */
-	public Coordonnees niemeLieu(int n){
-
-		// !!!!!!Pas de boucle for!!!!!! REFLECHISSEZ !
-
-		//TODO
-
-		return null;
-
-	}
-
+	public Coordonnees niemeLieu(int n) {
+		if (n < 0 || n >= tableCoordonnees.length)
+			return null;
+		return tableCoordonnees[n];
+    }
 
 	// choix 4
 	/**
@@ -99,8 +94,6 @@ public class Vol {
 	 * @return les coordonnees du lieu le plus au sud
 	 */
 	public Coordonnees lieuLePlusAuSud() {
-
-		//TODO
 		
 		return null;
 	}
