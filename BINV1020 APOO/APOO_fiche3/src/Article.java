@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Article {
     private String reference;
     private String nom;
@@ -61,4 +63,16 @@ public class Article {
         return getNom() + " " + getReference() + "\n Reference" + getReference();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Article article = (Article) o;
+        return reference.equals(article.reference);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(reference);
+    }
 }

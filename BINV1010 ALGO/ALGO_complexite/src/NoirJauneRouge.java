@@ -1,4 +1,4 @@
-public class NoirJauneRouge {
+/*public class NoirJauneRouge {
 	
 	private Ecolier[] tableTriee;   // table triee d'abord les noirs puis les jaunes puis les rouges
 									// cette table ne peut pas contenir d'homonyme.
@@ -19,7 +19,7 @@ public class NoirJauneRouge {
 	 * determine le nombre d ecoliers contenu dans la table
 	 * @return le nombre d ecoliers
 	 */
-	public int nombreEcoliers(){
+	/*public int nombreEcoliers(){
 		return nombreNoirs + nombreJaunes + nombreRouges;
 	}
 	
@@ -45,7 +45,7 @@ public class NoirJauneRouge {
 	 * @return l'indice de la table avec un ecolier de ce nom recherche
 	 *         ou -1 si la table ne contient pas d'ecolier avec ce nom
 	 */
-	private int trouverIndiceEcolier(String nom){
+	/*private int trouverIndiceEcolier(String nom){
 
 		for (int i = 0; i < nombreEcoliers(); i++) {
 			if(tableTriee[i].getNom().equals(nom))
@@ -53,7 +53,7 @@ public class NoirJauneRouge {
 		}
 		return -1;
 
-	}
+	}*/
 
 
 	/**
@@ -64,7 +64,7 @@ public class NoirJauneRouge {
 	 * @throws IllegalArgumentException en cas de parametre invalide
 	 */
 
-	public boolean ajouter(String nom, char couleur){
+	/*public boolean ajouter(String nom, char couleur){
 		
 		if(nom == null||nom.equals(""))
 			throw new IllegalArgumentException();
@@ -93,7 +93,7 @@ public class NoirJauneRouge {
 	 * @return true si le ecolier a ete supprime, false sinon
 	 * @throws IllegalArgumentException en cas de parametre invalide
 	 */
-	public boolean supprimer(String nom){
+	/*public boolean supprimer(String nom){
 		
 		if(nom == null||nom.equals(""))
 			throw new IllegalArgumentException();
@@ -133,4 +133,4 @@ public class NoirJauneRouge {
 		return aRenvoyer;
 	}
 
-}
+}*/

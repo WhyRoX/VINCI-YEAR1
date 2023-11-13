@@ -1,5 +1,5 @@
 
-public class Test6casNoirJauneRouge {
+/*public class Test6casNoirJauneRouge {
 	
 	public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
@@ -13,7 +13,7 @@ public class Test6casNoirJauneRouge {
 	 * @param recu
 	 *            la valeur qu'on a recu en realite
 	 */
-	private static void assertEquals(String messageErreur, Object attendu, Object recu) {
+	/*private static void assertEquals(String messageErreur, Object attendu, Object recu) {
 		if (attendu == null) {
 			if (recu != null) {
 				System.out.println(messageErreur);
@@ -270,3 +270,4 @@ public class Test6casNoirJauneRouge {
 	
 	
 }
+*/
