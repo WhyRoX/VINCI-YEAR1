@@ -15,12 +15,12 @@ class Serie {
         return delegue;
     }
 
-    public boolean elireDelegue(Etudiant etudiant) {
+    public void elireDelegue(Etudiant etudiant) {
         if (etudiant.getSerie() == this && delegue == null) {
             delegue = etudiant;
-            return true;
+        } else {
+            throw new IllegalArgumentException("Paramètre invalide pour l'élection du délégué.");
         }
-        return false;
     }
 
     @Override

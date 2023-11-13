@@ -27,12 +27,16 @@ class Etudiant {
         return serie;
     }
 
-    public boolean changerSerie(Serie nouvelleSerie) {
-        if (nouvelleSerie != serie && serie.getDelegue() != this) {
-            serie = nouvelleSerie;
-            return true;
+    public void changerSerie(Serie nouvelleSerie) {
+        if (nouvelleSerie != serie) {
+            if (serie.getDelegue() == null || !serie.getDelegue().equals(this)) {
+                serie = nouvelleSerie;
+            } else {
+                throw new IllegalStateException("L'étudiant est délégué de sa série actuelle.");
+            }
+        } else {
+            throw new IllegalArgumentException("La nouvelle série est identique à la série actuelle.");
         }
-        return false;
     }
 
     @Override
