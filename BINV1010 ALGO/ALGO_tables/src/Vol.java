@@ -94,8 +94,13 @@ public class Vol {
 	 * @return les coordonnees du lieu le plus au sud
 	 */
 	public Coordonnees lieuLePlusAuSud() {
-		
-		return null;
+		Coordonnees lieuLePlusSud = tableCoordonnees[0];
+		for (Coordonnees coord : tableCoordonnees) {
+			if (coord.getLatitude() < lieuLePlusSud.getLatitude()) {
+				lieuLePlusSud = coord;
+			}
+		}
+		return lieuLePlusSud;
 	}
 
 
@@ -106,14 +111,19 @@ public class Vol {
 	 * precondition (a ne pas verifier) la table de coordonnees n'est pas vide
 	 * @return les coordonnees du lieu le plus eloigne du lieu de depart
 	 */
-	public Coordonnees lieuLePlusEloigne(){
-		
-		// pensez a utiliser la methode distance() de la classe Coordonnee
-		// la distance est un reel (double)
-		
-		//TODO
-		
-		return null;
+	public Coordonnees lieuLePlusEloigne() {
+		Coordonnees lieuDepart = tableCoordonnees[0];
+		Coordonnees lieuLePlusEloigne = tableCoordonnees[0];
+
+		for (Coordonnees coord : tableCoordonnees) {
+			double distanceActuelle = lieuDepart.distance(coord);
+			double distanceMax = lieuDepart.distance(lieuLePlusEloigne);
+
+			if (distanceActuelle > distanceMax) {
+				lieuLePlusEloigne = coord;
+			}
+		}
+		return lieuLePlusEloigne;
 	}
 	
 	
@@ -124,15 +134,16 @@ public class Vol {
 	 * @return true si on trouve au moins une fois des coordonnees d'un lieu survole identiques aux coordonnees de la cible, false sinon
 	 * @throws IllegalArgumentException si la cible est null
 	 */
-	public boolean cibleAtteinte(Coordonnees cible){
-		
-		if(cible==null)
+	public boolean cibleAtteinte(Coordonnees cible) {
+		if (cible == null) {
 			throw new IllegalArgumentException("la cible est null");
-		
-		// pensez a utiliser la methode equals() de la classe Coordonnee
-		
-		//TODO
-		
+		}
+
+		for (Coordonnees coord : tableCoordonnees) {
+			if (coord.equals(cible)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -147,16 +158,14 @@ public class Vol {
 	 * @return le nombre demande
 	 * @throws IllegalArgumentException si la table de cibles est null
 	 */
-	public int nombreCiblesAtteintes(Coordonnees[] cibles){
-
-		if(cibles==null)
-			throw new IllegalArgumentException();
-
-		// pensez a utiliser la methode cibleAtteinte()
-
-		//TODO
-
-		return 0;
+	public int nombreCiblesAtteintes(Coordonnees[] cibles) {
+		int count = 0;
+		for (Coordonnees coord : cibles) {
+			if (cibleAtteinte(coord)) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 
@@ -167,13 +176,11 @@ public class Vol {
 	 * @return distance parcourue.
 	 */
 	public double distance() {
-		
-		// pensez a utiliser la methode distance() de la classe Coordonnee
-		// la distance est un reel (double)
-	
-		//TODO
-		
-		return 0;
+		double totalDistance = 0.0;
+		for (int i = 0; i < tableCoordonnees.length - 1; i++) {
+			totalDistance += tableCoordonnees[i].distance(tableCoordonnees[i + 1]);
+		}
+		return totalDistance;
 	}
 
 
@@ -187,12 +194,13 @@ public class Vol {
 	 * @return true si un meme lieu a ete survole plusieurs fois, false sinon
 	 */
 	public boolean aSurvoleUnMemeLieu() {
-		// Cette methode est proposee en DEFI!
-		// pensez a utiliser la methode equals() de la classe Coordonnee
-		
-		//TODO
-		// Ex defi !!!
-		
+		for (int i = 0; i < tableCoordonnees.length - 1; i++) {
+			for (int j = i + 1; j < tableCoordonnees.length; j++) {
+				if (tableCoordonnees[i].equals(tableCoordonnees[j])) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 	
@@ -204,21 +212,27 @@ public class Vol {
 	 * @return true si le parcours a bien ete suivi, false sinon
 	 * @throws IllegalArgumentException si la table de cibles est null
 	 */
-	public boolean parcoursSuivi(Coordonnees[] cibles){
-		// Cette methode est proposee en DEFI!
-		if(cibles==null)
-			throw new IllegalArgumentException();
-		
-		// pensez a utiliser la methode equals() de la classe Coordonnee
-	
-		//TODO
-		// Ex Defi !!!
-		
-		return false;
+	public boolean parcoursSuivi(Coordonnees[] cibles) {
+		if (cibles == null) {
+			throw new IllegalArgumentException("la table de cibles est null");
+		}
+
+		if (cibles.length != tableCoordonnees.length) {
+			return false;
+		}
+
+		for (int i = 0; i < cibles.length; i++) {
+			if (!tableCoordonnees[i].equals(cibles[i])) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 
-	
+
+
 	// DEFI (amelioration choix 9)
 	/**
 	 * verifie si le parapentiste a croise son propre
@@ -228,11 +242,14 @@ public class Vol {
 	 * @return true s'il a croise au moins une fois son parcours, false sinon
 	 */
 	public boolean aCroiseSonParcours() {
-		
-		// Cette methode est proposee en DEFI!
-		// cfr enonce
-	
+		for (int i = 0; i < tableCoordonnees.length - 1; i++) {
+			for (int j = i + 2; j < tableCoordonnees.length - 1; j++) {
+				if (Coordonnees.segmentsCroises(tableCoordonnees[i], tableCoordonnees[i + 1], tableCoordonnees[j], tableCoordonnees[j + 1])) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 	
-} 
+}
