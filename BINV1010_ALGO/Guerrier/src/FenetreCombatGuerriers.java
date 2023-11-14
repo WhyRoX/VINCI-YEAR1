@@ -17,7 +17,7 @@ public class FenetreCombatGuerriers extends JFrame implements ActionListener{
 
 	private Queue<Integer> listeLancersDes = new LinkedList<Integer>();
 	private Thread listener;
-	private String path = "BINV1010 ALGO/Guerrier/images/";
+	private String path = "BINV1010_ALGO/Guerrier/images/";
 
 
 	public FenetreCombatGuerriers(){
