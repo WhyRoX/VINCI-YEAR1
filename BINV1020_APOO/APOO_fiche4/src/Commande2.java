@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+/*import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
@@ -32,4 +32,4 @@ public class Commande2 {
         infosCommande += "Prix total : " + calculerPrixTotal() + "\n";
         return infosCommande;
     }
-}
+}*/
