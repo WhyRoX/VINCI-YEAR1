@@ -1,4 +1,4 @@
-/*public class NoirJauneRouge {
+public class NoirJauneRouge {
 	
 	private Ecolier[] tableTriee;   // table triee d'abord les noirs puis les jaunes puis les rouges
 									// cette table ne peut pas contenir d'homonyme.
@@ -19,7 +19,7 @@
 	 * determine le nombre d ecoliers contenu dans la table
 	 * @return le nombre d ecoliers
 	 */
-	/*public int nombreEcoliers(){
+	public int nombreEcoliers(){
 		return nombreNoirs + nombreJaunes + nombreRouges;
 	}
 	
@@ -45,7 +45,7 @@
 	 * @return l'indice de la table avec un ecolier de ce nom recherche
 	 *         ou -1 si la table ne contient pas d'ecolier avec ce nom
 	 */
-	/*private int trouverIndiceEcolier(String nom){
+	private int trouverIndiceEcolier(String nom){
 
 		for (int i = 0; i < nombreEcoliers(); i++) {
 			if(tableTriee[i].getNom().equals(nom))
@@ -53,7 +53,7 @@
 		}
 		return -1;
 
-	}*/
+	}
 
 
 	/**
@@ -64,7 +64,7 @@
 	 * @throws IllegalArgumentException en cas de parametre invalide
 	 */
 
-	/*public boolean ajouter(String nom, char couleur){
+	public boolean ajouter(String nom, char couleur){
 		
 		if(nom == null||nom.equals(""))
 			throw new IllegalArgumentException();
@@ -81,7 +81,27 @@
 
 		//Si l'ajout est possible, il faudra creer un ecolier --> new Ecolier()
 
-		// TODO
+		Ecolier ecolier = new Ecolier(nom, couleur);
+
+		if(trouverIndiceEcolier(nom) == -1){
+			if (couleur == 'r'){
+				tableTriee[NOMBRE_MAX_ECOLIERS-1] = ecolier; //NOMBRE_MAX_ECOLIERS-1 car
+				nombreRouges++;								 // 0,1,2,3,4,5,6,7,8,9
+			} else if (couleur == 'j') {
+				Ecolier ecolier1 = tableTriee[NOMBRE_MAX_ECOLIERS-1-nombreRouges];
+				tableTriee[NOMBRE_MAX_ECOLIERS-1-nombreRouges] = ecolier;
+				tableTriee[NOMBRE_MAX_ECOLIERS-1] = ecolier1;
+				nombreJaunes++;
+			} else if (couleur == 'n') {
+				Ecolier ecolier2 = tableTriee[NOMBRE_MAX_ECOLIERS-1-nombreRouges];
+				Ecolier ecolier3 = tableTriee[NOMBRE_MAX_ECOLIERS-1-nombreRouges-nombreJaunes];
+				tableTriee[NOMBRE_MAX_ECOLIERS-1] = ecolier2;
+				tableTriee[NOMBRE_MAX_ECOLIERS-1-nombreRouges] = ecolier3;
+				tableTriee[NOMBRE_MAX_ECOLIERS-1-nombreRouges-nombreJaunes] = ecolier;
+				nombreNoirs++;
+			}
+			return true;
+		}
 		return false;
 
 	}
@@ -93,7 +113,7 @@
 	 * @return true si le ecolier a ete supprime, false sinon
 	 * @throws IllegalArgumentException en cas de parametre invalide
 	 */
-	/*public boolean supprimer(String nom){
+	public boolean supprimer(String nom){
 		
 		if(nom == null||nom.equals(""))
 			throw new IllegalArgumentException();
@@ -106,8 +126,25 @@
 		
 		// Utilisez l'algorithme de suppression explique dans le document DrapeauBelge
 		
-		// TODO
-		return false;
+		int indiceEcolier = trouverIndiceEcolier(nom);
+		if (indiceEcolier == -1){
+			return false;
+		}
+		char couleurEco = tableTriee[indiceEcolier].getCouleur();
+		if (couleurEco == 'r'){
+			tableTriee[indiceEcolier] = tableTriee[nombreEcoliers() -1];
+			nombreRouges--;
+		} else if (couleurEco == 'j') {
+			tableTriee[indiceEcolier] = tableTriee[nombreNoirs+nombreJaunes-1];
+			tableTriee[nombreNoirs+nombreJaunes-1] = tableTriee[nombreEcoliers() -1];
+			nombreJaunes--;
+		} else if (couleurEco == 'n') {
+			tableTriee[indiceEcolier] = tableTriee[nombreNoirs-1];
+			tableTriee[nombreNoirs -1] = tableTriee[nombreNoirs + nombreJaunes -1];
+			tableTriee[nombreNoirs + nombreJaunes -1] = tableTriee[nombreEcoliers()-1];
+			nombreNoirs--;
+		}
+		return true;
 
 	}
 
@@ -133,4 +170,4 @@
 		return aRenvoyer;
 	}
 
-}*/
+}

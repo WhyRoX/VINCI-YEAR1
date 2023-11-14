@@ -1,5 +1,6 @@
+import java.util.Arrays;
 
-/*public class Test6casNoirJauneRouge {
+public class Test6casNoirJauneRouge {
 	
 	public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
@@ -13,7 +14,7 @@
 	 * @param recu
 	 *            la valeur qu'on a recu en realite
 	 */
-	/*private static void assertEquals(String messageErreur, Object attendu, Object recu) {
+	private static void assertEquals(String messageErreur, Object attendu, Object recu) {
 		if (attendu == null) {
 			if (recu != null) {
 				System.out.println(messageErreur);
@@ -112,6 +113,7 @@
 		assertEquals("ko : contenu",njrEnonceCas1.toString(),njrEnonce1.toString());
 		
 		System.out.println("cas 1 : ok");
+
 		
 		
 		System.out.println();
@@ -238,6 +240,7 @@
 		assertEquals("ko : contenu",njrEnonceCas2.toString(),njrEnonce2.toString());
 		
 		System.out.println("cas 2 : ok");
+        System.out.println(Arrays.toString(tableTrieeCas2));
 		
 		System.out.println();
 		System.out.print("Test 3 : exemple du document DrapeauBelge : suppression - cas 3  ");
@@ -270,4 +273,4 @@
 	
 	
 }
-*/
+
