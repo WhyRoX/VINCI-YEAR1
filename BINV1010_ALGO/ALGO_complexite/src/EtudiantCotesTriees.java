@@ -47,7 +47,10 @@ public class EtudiantCotesTriees {
         for (double cote : tableCotes) {
             if (cote < 10) {
                 nbrEchecs++;
+                //continue;
             }
+            else return nbrEchecs;
+            // return nbrEchecs;
         }
         return nbrEchecs;
     }
@@ -59,6 +62,7 @@ public class EtudiantCotesTriees {
      */
     public boolean aucunEchec(){
         return tableCotes[0] >= 10;
+        // nombreEchecs() == 0;
     }
 
 

@@ -113,6 +113,7 @@ public class Test6casNoirJauneRouge {
 		assertEquals("ko : contenu",njrEnonceCas1.toString(),njrEnonce1.toString());
 		
 		System.out.println("cas 1 : ok");
+		System.out.println(Arrays.toString(tableCas1));
 
 		
 		

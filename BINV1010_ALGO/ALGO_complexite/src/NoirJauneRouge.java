@@ -65,17 +65,17 @@ public class NoirJauneRouge {
 	 */
 
 	public boolean ajouter(String nom, char couleur){
-		
+
 		if(nom == null||nom.equals(""))
 			throw new IllegalArgumentException();
-		
+
 		if(couleur!='n' && couleur!='j' && couleur!='r')
 			throw new IllegalArgumentException();
-		
+
 		// Pensez a utiliser la methode trouverIndiceEcolier() donnee ci-dessus
 		// pour verifier que le nom n'est pas encore present
 		// (les doublons sont refuses)
-		
+
 		// CONTRAINTE :
 		// Utilisez l'algorithme d'ajout explique dans le document DrapeauBelge
 
@@ -92,7 +92,7 @@ public class NoirJauneRouge {
 				tableTriee[NOMBRE_MAX_ECOLIERS-1-nombreRouges] = ecolier;
 				tableTriee[NOMBRE_MAX_ECOLIERS-1] = ecolier1;
 				nombreJaunes++;
-			} else if (couleur == 'n') {
+			} else {
 				Ecolier ecolier2 = tableTriee[NOMBRE_MAX_ECOLIERS-1-nombreRouges];
 				Ecolier ecolier3 = tableTriee[NOMBRE_MAX_ECOLIERS-1-nombreRouges-nombreJaunes];
 				tableTriee[NOMBRE_MAX_ECOLIERS-1] = ecolier2;
@@ -114,18 +114,18 @@ public class NoirJauneRouge {
 	 * @throws IllegalArgumentException en cas de parametre invalide
 	 */
 	public boolean supprimer(String nom){
-		
+
 		if(nom == null||nom.equals(""))
 			throw new IllegalArgumentException();
-		
+
 		// Pensez a utiliser la methode trouverIndiceEcolier() donnee ci-dessus
 		// L'indice est necessaire pour savoir ou faire des decalages!
 
 		// Grace a l'indice, il est possible de recuperer un ecolier.
 		// Pour connaitre sa couleur, pensez a utiliser la methode getCouleur() de la classe Ecolier
-		
+
 		// Utilisez l'algorithme de suppression explique dans le document DrapeauBelge
-		
+
 		int indiceEcolier = trouverIndiceEcolier(nom);
 		if (indiceEcolier == -1){
 			return false;
