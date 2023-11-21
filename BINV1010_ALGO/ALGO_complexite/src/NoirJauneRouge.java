@@ -123,7 +123,7 @@ public class NoirJauneRouge {
 
 		// Grace a l'indice, il est possible de recuperer un ecolier.
 		// Pour connaitre sa couleur, pensez a utiliser la methode getCouleur() de la classe Ecolier
-
+		
 		// Utilisez l'algorithme de suppression explique dans le document DrapeauBelge
 
 		int indiceEcolier = trouverIndiceEcolier(nom);
