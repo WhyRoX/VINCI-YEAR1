@@ -109,20 +109,23 @@ public class TableauNonTrieDEntiers {
 	 * @return le nombre de suppressions effectuees
 	 */
 	public int supprimerToutesLesOccurrences(int entier) {
+		int indice = 0;
+		int indiceEcrire = 0;
 		int count = 0;
-		for (int i = 0; i < nombreEntiers; i++) {
-			if (t[i] == entier){
-				t[i] = t[nombreEntiers-1];
-				nombreEntiers--;
+
+		while (indice < nombreEntiers) {
+			if (t[indice] == entier) {
 				count++;
+			} else {
+				t[indiceEcrire] = t[indice];
+				indiceEcrire++;
 			}
+
+			indice++;
 		}
+
+		nombreEntiers -= count;
 		return count;
-
-		// Remarque : il est possible d'ecrire cette methode en un seul parcours de la table
-
-		// Evitez une solution qui appelle plusieurs fois la methode supprimerUneOccurrence(),
-		// car a chaque appel la table est parcourue depuis le debut.
 	}
 
 	/**
@@ -130,9 +133,12 @@ public class TableauNonTrieDEntiers {
 	 * @return true si la table est triee, false sinon
 	 */
 	public boolean estTrie() {
-		// TODO
-		return false;
-
+		for (int i = 0; i < nombreEntiers-1; i++) {
+			if (t[i] > t[i+1]){
+				return false;
+			}
+		}
+		return true;
 	}
 
 
@@ -141,9 +147,14 @@ public class TableauNonTrieDEntiers {
 	 * @return true si la table contient des ex-aequos, false sinon
 	 */
 	public boolean contientExAequo() {
-		//TODO
+		for (int i = 0; i < nombreEntiers - 1; i++) {
+			for (int j = i + 1; j < nombreEntiers; j++) {
+				if (t[i] == t[j]) {
+					return true;
+				}
+			}
+		}
 		return false;
-
 	}
 
 	/**
@@ -152,9 +163,21 @@ public class TableauNonTrieDEntiers {
 	 * @return int le nombre de suppressions effectuees
 	 */
 	public int supprimerTousLesExAequos() {
-		// TODO
-		return 0;
+		int count = 0;
 
+		for (int i = 0; i < nombreEntiers - 1; i++) {
+			for (int j = i + 1; j < nombreEntiers; j++) {
+				if (t[i] == t[j]) {
+					for (int k = j; k < nombreEntiers - 1; k++) {
+						t[k] = t[k + 1];
+					}
+					nombreEntiers--;
+					count++;
+					j--;
+				}
+			}
+		}
+		return count;
 	}
 
 	//A NE PAS MODIFIER
