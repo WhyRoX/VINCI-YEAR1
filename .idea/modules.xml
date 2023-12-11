@@ -7,10 +7,12 @@
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_if/ALGO_if.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_if/ALGO_if.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_methodes/ALGO_methodes.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_methodes/ALGO_methodes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_table2dim/ALGO_table2dim.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_table2dim/ALGO_table2dim.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tables/ALGO_tables.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tables/ALGO_tables.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tablesNonTriees/ALGO_tablesNonTriees.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tablesNonTriees/ALGO_tablesNonTriees.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tablesTriees/ALGO_tablesTriees.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tablesTriees/ALGO_tablesTriees.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tortue/ALGO_tortue.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tortue/ALGO_tortue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tri/ALGO_tri.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tri/ALGO_tri.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_while/ALGO_while.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_while/ALGO_while.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/APOO_fiche1/APOO_fiche1.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/APOO_fiche1/APOO_fiche1.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/APOO_fiche2/APOO_fiche2.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/APOO_fiche2/APOO_fiche2.iml" />
@@ -21,6 +23,7 @@
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/BINV1010_ALGO.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/BINV1010_ALGO.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/BINV1020_APOO.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/BINV1020_APOO.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/Guerrier/Guerrier.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/Guerrier/Guerrier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/JeuDeLaVie/JeuDeLaVie.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/JeuDeLaVie/JeuDeLaVie.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/JeuPendu/JeuPendu.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/JeuPendu/JeuPendu.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/Quizz/Quizz.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/Quizz/Quizz.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/VINCI.iml" filepath="$PROJECT_DIR$/.idea/VINCI.iml" />
