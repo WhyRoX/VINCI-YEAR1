@@ -11,7 +11,7 @@ public class RecicationTableDeMultiplication {
         boolean erreurs = false;
         int i = 1;
 
-        while (i <= 10) {
+        while (!erreurs && i <= 10) {
             System.out.print(i + " x " + nombre + " = ");
             int reponse = scanner.nextInt();
             int resultatAttendu = i * nombre;
@@ -19,7 +19,6 @@ public class RecicationTableDeMultiplication {
             if (reponse != resultatAttendu) {
                 System.out.println("Non, c'est faux, la bonne réponse est " + resultatAttendu);
                 erreurs = true;
-                break;
             }
 
             i++;

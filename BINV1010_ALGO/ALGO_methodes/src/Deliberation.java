@@ -3,7 +3,7 @@ import javax.swing.text.Utilities;
 public class Deliberation {
 
     public static void main(String[] args) {
-        int nbrEtudiants = 25;
+        int nbrEtudiants = 5;
         double moyenneClasse = 0;
         for (int i = 1; i < nbrEtudiants; i++) {
             System.out.println("Calul de la moyenne de l'étudiant " + i);
@@ -15,7 +15,6 @@ public class Deliberation {
     }
     /**
      * Cette méthode calcule la moyenne des notes d'un étudiant.
-     *
      * @return La moyenne des notes de l'étudiant.
      */
     public static double calculerMoyenneEtudiant(){

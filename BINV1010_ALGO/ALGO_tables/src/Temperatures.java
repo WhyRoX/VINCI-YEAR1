@@ -71,15 +71,14 @@ public class Temperatures {
 	 * @return une table avec les jours de gel, la dimension de cette table correspond a ce nombre de jours
 	 */
 	public int[] joursDeGel(){
-		int count = 0;
-		for (double temp : tableDesTemperatures)
-			if (temp < 0)
-				count++;
-		int[] joursDeGelArray = new int[count];
+
+		int[] joursDeGelArray = new int[nombreJoursDeGel()];
+		System.out.println(Arrays.toString(joursDeGelArray));
 		int index = 0;
 		for (int i = 0; i < tableDesTemperatures.length; i++) {
 			if (tableDesTemperatures[i] < 0){
 				joursDeGelArray[index] = i+1;
+				System.out.println(Arrays.toString(joursDeGelArray));
 				index++;
 			}
 		}

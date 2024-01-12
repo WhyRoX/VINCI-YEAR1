@@ -5,26 +5,28 @@ public class LimitationDepenses {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Entrez le montant maximum que vous pouvez dépenser : ");
-        int montantMaximum = scanner.nextInt();
+        System.out.print("Entrez le montant maximum que vous pouvez dï¿½penser : ");
 
-        int montantRestant = montantMaximum;
-
-        System.out.print("Entrez le montant de vos achats : ");
+        int montantRestant = scanner.nextInt();
 
         while (true) {
+            System.out.print("Entrez le montant de vos achats : ");
             int achat = scanner.nextInt();
 
             if (achat <= montantRestant) {
                 montantRestant -= achat;
-                System.out.print("Montant restant : " + montantRestant);
+                System.out.println("Montant restant : " + montantRestant);
             } else {
-                System.out.print("Montant de l'achat trop élevé.");
+                System.out.print("Montant de l'achat trop ï¿½levï¿½.");
+                break;
+            }
+            if (montantRestant == 0){
+                System.out.println("Il ne vous reste plus d'argent");
                 break;
             }
         }
 
-        System.out.println("Montant restant : " + montantRestant);
-        scanner.close();
+        //System.out.println("Montant restant : " + montantRestant);
+        //scanner.close();
     }
 }

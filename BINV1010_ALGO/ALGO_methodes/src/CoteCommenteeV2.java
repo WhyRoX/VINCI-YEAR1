@@ -4,7 +4,7 @@ public class CoteCommenteeV2 {
     public static void main(String[] args) {
         System.out.println("Entrez votre cote : ");
         double cote = Utilitaires.lireReelPositif();
-        System.out.println(donnerCommentaire(cote));
+        System.out.print(donnerCommentaire(cote));
     }
 
     /**

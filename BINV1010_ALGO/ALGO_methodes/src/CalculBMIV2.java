@@ -3,9 +3,9 @@ public class CalculBMIV2 {
     public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.print("Entrez votre poids : ");
+        System.out.print("Entrez votre poids (en kg) : ");
         double poids= Utilitaires.lireReelPositif();
-        System.out.print(("Entrez votre taille : "));
+        System.out.print(("Entrez votre taille (en m) : "));
         double taille = Utilitaires.lireReelPositif();
         System.out.println("Votre bmi : "+ calculerBmi(poids,taille));
         System.out.println("Votre etat : "+ donnerEtat(calculerBmi(poids,taille)));

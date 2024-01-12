@@ -148,7 +148,7 @@ public class TableauTrieDEntiers{
 	 * @return int le nombre de suppressions effectuees
 	 */
 	public int supprimerTousLesExAequos(){
-		int nombreExSupp = 0;
+		int nombreExSupp;
 		int nombreExASupp = 0;
 		for(int i=1; i<nombreEntiers; i++) {
 			if(t[i] == t[i-1]) {
