@@ -12,19 +12,16 @@ public class TriParComptage {
 	 */
 	public static void triSelf (int[] t, int borneSup) {
 		int[] nombres = new int[borneSup +1];
-		for (int k : t) {
-			nombres[k]++;
-		}
+        for (int k : t) {
+            nombres[k]++;
+        }
 
-		int i = 0;
-		int j = 0;
-
-		while (i < t.length || j < nombres.length) {
-			if (nombres[j] == 0) j++;
-			else {
-				t[i] = j;
-				nombres[j]--;
-				i++;
+		int n = 0;
+		for (int i = 0; i < nombres.length; i++) {
+			while (nombres[i] >= 1) {
+				t[n] = i;
+				n++;
+				nombres[i]--;
 			}
 		}
 	}

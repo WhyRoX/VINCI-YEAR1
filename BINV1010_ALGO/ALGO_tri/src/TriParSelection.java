@@ -1,6 +1,9 @@
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public class TriParSelection {
+	private int[] table;
+	private int nbEntiers;
 	
 	public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
@@ -9,19 +12,41 @@ public class TriParSelection {
 	 * @param t table a trier
 	 */
 	public static void triSelf (int[] t) {
-		int index = 0;
-		int minimum = 0;
+		int minimum;
 		for (int i = 0; i < t.length -1; i++) {
 			minimum = t[i];
 			for (int j = i+1; j < t.length; j++) {
 				if (t[j] < minimum) {
 					minimum = t[j];
-					index = t[i];
-					t[i] = t[j];
-					t[j] = index;
+					t[j] = t[i];
+					t[i] = minimum;
 				}
 			}
 		}
+
+	}
+	public int[] troisPlusPetitsEntiers(){
+		if (nbEntiers<3)
+			throw new NoSuchElementException();
+		int[] tableTemp = new int[table.length];
+		for (int i = 0; i < nbEntiers; i++) {
+			tableTemp[i]=table[i];
+		}
+		int[] table3PPetits = new int[3];
+		int min;
+		int index=0;
+		for (int i = 0; i < 3; i++) {
+			min=Integer.MAX_VALUE;
+			for (int j = 0; j < nbEntiers; j++) {
+				if (tableTemp[j] < min) {
+					min = tableTemp[j];
+					index=j;
+				}
+			}
+			table3PPetits[i]=min;
+			tableTemp[index]=Integer.MAX_VALUE;
+		}
+		return table3PPetits;
 	}
 	
 	/**
@@ -46,41 +71,27 @@ public class TriParSelection {
 	 * @return une table contenant les 5 plus petits elements de t
 	 */
 	public static int[] tri5(int[] t) {
-		int[] copie = new int[t.length];
-
-		// Copie de la table originale pour éviter de la modifier
+		int[] tableTemp = new int[t.length];
 		for (int i = 0; i < t.length; i++) {
-			copie[i] = t[i];
+			tableTemp[i]=t[i];
 		}
-
-		// Tri de la copie dans l'ordre croissant
-		for (int i = 0; i < copie.length - 1; i++) {
-			for (int j = 0; j < copie.length - i - 1; j++) {
-				if (copie[j] > copie[j + 1]) {
-					int temp = copie[j];
-					copie[j] = copie[j + 1];
-					copie[j + 1] = temp;
+		// extraction des 3 minima de tableTemp
+		int[] table5Min = new int[3];
+		for (int i = 0; i < 5; i++) {
+			// recherche minimum dans tableTemp
+			int min = tableTemp[0];
+			int indiceMin = 0;
+			for (int j = 0; j < tableTemp.length; j++) {
+				if (tableTemp[j] < min){
+					min = tableTemp[j];
+					indiceMin = j;
 				}
 			}
+			// sauvegarde du minimum dans table3Min
+			table5Min[i]=min;
+			tableTemp[indiceMin]=Integer.MAX_VALUE;
 		}
-
-		// Création de la table à renvoyer avec les 5 plus petits éléments
-		int[] resultat = new int[Math.min(5, t.length)];
-
-		for (int i = 0; i < resultat.length; i++) {
-			resultat[i] = copie[i];
-		}
-
-		return resultat;
-
-		// La table passee en parametre ne peut etre modifiee.
-		// POUR UNE QUESTION D'EFFICACITE : IL NE FAUT PAS TRIER TOUTE LA TABLE ET
-		// ENSUITE PRENDRE LES 5 PREMIERS!!!
-
-		//version simple : utilisez t, une table intermediaire et la table a renvoyer
-
-		//version defi : n'utilisez pas de table intermediaire :
-		//utilisez uniquement t et la table a renvoyer
+		return table5Min;
 	}
 	public static int[] tri52(int[] t) {
 		// Initialisation avec les 5 premiers éléments de la table (si elle contient plus de 5 éléments)

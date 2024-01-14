@@ -25,6 +25,7 @@
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/APOO_fiche6_1_bar/APOO_fiche6_1_bar.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/APOO_fiche6_1_bar/APOO_fiche6_1_bar.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/BINV1010_ALGO.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/BINV1010_ALGO.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/BINV1020_APOO.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/BINV1020_APOO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EXAM_ALGO/EXAM_ALGO.iml" filepath="$PROJECT_DIR$/EXAM_ALGO/EXAM_ALGO.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/Guerrier/Guerrier.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/Guerrier/Guerrier.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/JeuDeLaVie/JeuDeLaVie.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/JeuDeLaVie/JeuDeLaVie.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/JeuDePlateau/JeuDePlateau.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/JeuDePlateau/JeuDePlateau.iml" />
@@ -37,12 +38,18 @@
       <module fileurl="file://$PROJECT_DIR$/MATH/examssuite2/examssuite2.iml" filepath="$PROJECT_DIR$/MATH/examssuite2/examssuite2.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/fiche3exam/fiche3exam.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/fiche3exam/fiche3exam.iml" />
       <module fileurl="file://$PROJECT_DIR$/MATH/j2023/j2023.iml" filepath="$PROJECT_DIR$/MATH/j2023/j2023.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EXAM_ALGO/janv22/janv22.iml" filepath="$PROJECT_DIR$/EXAM_ALGO/janv22/janv22.iml" />
       <module fileurl="file://$PROJECT_DIR$/MATH/janvier2022/janvier2022.iml" filepath="$PROJECT_DIR$/MATH/janvier2022/janvier2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EXAM_ALGO/janvier21/janvier21.iml" filepath="$PROJECT_DIR$/EXAM_ALGO/janvier21/janvier21.iml" />
       <module fileurl="file://$PROJECT_DIR$/MATH/juin22/juin22.iml" filepath="$PROJECT_DIR$/MATH/juin22/juin22.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EXAM_ALGO/juin22a/juin22a.iml" filepath="$PROJECT_DIR$/EXAM_ALGO/juin22a/juin22a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EXAM_ALGO/juin23/juin23.iml" filepath="$PROJECT_DIR$/EXAM_ALGO/juin23/juin23.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EXAM_ALGO/moree/moree.iml" filepath="$PROJECT_DIR$/EXAM_ALGO/moree/moree.iml" />
       <module fileurl="file://$PROJECT_DIR$/MATH/poly/poly.iml" filepath="$PROJECT_DIR$/MATH/poly/poly.iml" />
       <module fileurl="file://$PROJECT_DIR$/MATH/suitejuin23/suitejuin23.iml" filepath="$PROJECT_DIR$/MATH/suitejuin23/suitejuin23.iml" />
       <module fileurl="file://$PROJECT_DIR$/MATH/suitesept22/suitesept22.iml" filepath="$PROJECT_DIR$/MATH/suitesept22/suitesept22.iml" />
       <module fileurl="file://$PROJECT_DIR$/MATH/suiutesexams/suiutesexams.iml" filepath="$PROJECT_DIR$/MATH/suiutesexams/suiutesexams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EXAM_ALGO/tests/tests.iml" filepath="$PROJECT_DIR$/EXAM_ALGO/tests/tests.iml" />
     </modules>
   </component>
 </project>

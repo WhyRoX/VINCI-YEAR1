@@ -85,18 +85,18 @@ public class TableEntiersNonNuls {
         }
         // extraction des 3 minima de tableTemp
         int[] table3Min = new int[3];
-        for (int i = 0; i < 3; i++) {
+        for (int e = 0; e < 3; e++) {
             // recherche minimum dans tableTemp
-            int min = Integer.MAX_VALUE;
+            int min = tableTemp[0];
             int indiceMin = 0;
-            for (int j = 0; j < nbEntiers; j++) {
-                if (tableTemp[j] < min){
-                    min = tableTemp[j];
-                    indiceMin = j;
+            for (int i = 0; i < nbEntiers; i++) {
+                if (tableTemp[i] < min){
+                    min = tableTemp[i];
+                    indiceMin = i;
                 }
             }
             // sauvegarde du minimum dans table3Min
-            table3Min[i]=min;
+            table3Min[e]=min;
             tableTemp[indiceMin]=Integer.MAX_VALUE;
         }
         return table3Min;
