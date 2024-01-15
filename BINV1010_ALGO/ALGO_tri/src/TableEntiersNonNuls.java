@@ -87,7 +87,7 @@ public class TableEntiersNonNuls {
         int[] table3Min = new int[3];
         for (int i = 0; i < 3; i++) {
             // recherche minimum dans tableTemp
-            int min = Integer.MAX_VALUE;
+            int min = tableTemp[0];
             int indiceMin = 0;
             for (int j = 0; j < nbEntiers; j++) {
                 if (tableTemp[j] < min){
