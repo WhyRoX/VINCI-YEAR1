@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class TableauNonTrieDEntiers {
@@ -108,7 +109,7 @@ public class TableauNonTrieDEntiers {
 	 * @param entier l'entier a supprimer
 	 * @return le nombre de suppressions effectuees
 	 */
-	public int supprimerToutesLesOccurrences(int entier) {
+	/*public int supprimerToutesLesOccurrences(int entier) {
 		int indice = 0;
 		int indiceEcrire = 0;
 		int count = 0;
@@ -120,10 +121,24 @@ public class TableauNonTrieDEntiers {
 				t[indiceEcrire] = t[indice];
 				indiceEcrire++;
 			}
-
 			indice++;
 		}
+		nombreEntiers -= count;
+		return count;
+	}*/
+	public int supprimerToutesLesOccurrences(int entier) {
+		int indice = 0;
+		int indiceEcrire = 0;
+		int count = 0;
 
+		for (int i = indice; i < nombreEntiers; i++) {
+			if (t[indice] == entier) {
+				count++;
+			} else {
+				t[indiceEcrire] = t[indice];
+				indiceEcrire++;
+			}
+		}
 		nombreEntiers -= count;
 		return count;
 	}
@@ -140,6 +155,14 @@ public class TableauNonTrieDEntiers {
 		}
 		return true;
 	}
+	/*public boolean estTrie() {
+		for (int i = 1; i < nombreEntiers; i++) {
+			if (t[i-1] > t[i]){
+				return false;
+			}
+		}
+		return true;
+	}*/
 
 
 	/**
@@ -162,7 +185,7 @@ public class TableauNonTrieDEntiers {
 	 * Notez que cette methode laisse exactement une occurence de chaque entier qui se trouvait dans le tableau initial.
 	 * @return int le nombre de suppressions effectuees
 	 */
-	public int supprimerTousLesExAequos() {
+	/*public int supprimerTousLesExAequos() {
 		int count = 0;
 
 		for (int i = 0; i < nombreEntiers - 1; i++) {
@@ -178,7 +201,23 @@ public class TableauNonTrieDEntiers {
 			}
 		}
 		return count;
+	}*/
+	public int supprimerTousLesExAequos() {
+		int count = 0;
+		int index = 0;
+		// ici le boolean
+		// avec un if found qqpart
+		
+		for (int i = 0; i < nombreEntiers - 1; i++) {
+			for (int j = i + 1; j < nombreEntiers; j++) {
+				if (t[i] == t[j]) {
+					//faire avec boolean found
+				}
+			}
+		}
+		return count;
 	}
+
 
 	//A NE PAS MODIFIER
 	//VA SERVIR POUR LES TESTS

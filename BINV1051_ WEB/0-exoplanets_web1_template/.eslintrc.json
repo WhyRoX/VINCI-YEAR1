@@ -1,0 +1,65 @@
+{
+    "root": true,
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+
+    "extends": [
+        "eslint:recommended",
+        "prettier"
+    ],
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "plugins": [
+        "hbs"
+    ],
+    "rules": {
+        /*"no-console": "error",*/
+        // pas de var 
+        "no-var": "error",
+        // toujours ; à la fin d'une ligne
+        "semi": "error",
+        //Require const declarations for variables that are never reassigned after declared
+        "prefer-const": "error",
+        //Disallow declarations in the global scope
+        //Set "lexicalBindings" to true if you want this rule to check const, let and class declarations as well.
+        "no-implicit-globals": "error",
+        //Disallow the use of undeclared variables unless mentioned in /*global */ comments
+        "no-undef": "error",
+        //Disallow unused variables
+        "no-unused-vars": "warn",
+        //Disallow the use of variables before they are defined
+        "no-use-before-define": "error",
+        //Require return statements to either always or never specify values
+        "consistent-return": "error",
+        //Require the use of === and !==
+        "eqeqeq": "error",
+        //Variables must be initialized at declaration
+        "init-declarations": [
+            "error",
+            "always"
+        ],
+        "brace-style": [
+            "error",
+            "stroustrup"
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "one-var": [
+            "off"
+        ],
+        "hbs/check-hbs-template-literals": "error",
+        // custom checks ----> eslint-rules directory
+        "avoid-foo-variables": "error",
+        "use-req-body-with-get": "error",
+        "use-req-query-with-post":"error",
+        "render-variables-not-in-hbs":"error"
+        
+        
+    }
+}

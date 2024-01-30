@@ -47,7 +47,7 @@ public class ParticipantsV3 {
      * @return true si le participant est present, false sinon
      */
     public boolean contientParticipant(String participant){
-        //TODO
+        //
 
         //Prenez connaissance de la methode trouverIndice()
         // ET UTILISEZ-LA !
@@ -120,6 +120,34 @@ public class ParticipantsV3 {
         } else {
             return false;
         }
+    }
+    public boolean ajouterUnParticipant3(String participant) {
+        if(participant==null||participant.length()==0)
+            throw new IllegalArgumentException();
+        // TODO
+
+        if(nombreInscrits >= tableParticipants.length)
+            return false;
+
+        if (contientParticipant(participant)) {
+            return false;
+        }
+        tableParticipants[nombreInscrits] = participant;
+        for (int i = nombreInscrits-1; i >= 0; i--) {
+            String last = tableParticipants[i];
+            if(last.compareTo(participant) > 0){
+                tableParticipants[i+1] = last;
+            }else {
+                tableParticipants[i+1] = participant;
+                nombreInscrits++;
+                return true;
+            }
+            System.out.println("Toujours détécté comme plus grand + Sortie de la boucle donc il faut l'insérer en premier :)");
+        }
+
+        tableParticipants[0] = participant;
+        nombreInscrits++;
+        return true;
     }
 
     /**

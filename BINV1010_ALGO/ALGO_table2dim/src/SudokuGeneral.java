@@ -16,11 +16,10 @@ public class SudokuGeneral {
 	 */
 	public boolean estPresentDansLigne(int nombre, int indiceLigne) {
 
-		for (int j = 0; j < grille.length; j++) {
+		for (int j = 0; j < grille[0].length; j++) {
 			if (grille[indiceLigne][j] == nombre) return true;
 		}
 		return false;
-
 	}
 
 	/**
@@ -48,8 +47,8 @@ public class SudokuGeneral {
 	 * @return true si le nombre est dans la region, false sinon
 	 */
 	public boolean estPresentDansRegion(int nombre, int indiceLigneSupGauche, int indiceColonneSupGauche) {
-		for (int i = indiceLigneSupGauche; i < indiceLigneSupGauche + Math.sqrt(grille.length); i++) {
-			for (int j = indiceColonneSupGauche; j < indiceColonneSupGauche + Math.sqrt(grille.length); j++) {
+		for (int i = indiceLigneSupGauche; i < indiceLigneSupGauche + (int)Math.sqrt(grille.length); i++) {
+			for (int j = indiceColonneSupGauche; j < indiceColonneSupGauche + (int)Math.sqrt(grille[0].length); j++) {
 				if (grille[i][j] == nombre) return true;
 			}
 
@@ -77,8 +76,10 @@ public class SudokuGeneral {
 
 		if (estPresentDansLigne(nombre, indiceLigne)) return false;
 		if (estPresentDansColonne(nombre, indiceColonne)) return false;
-        return !estPresentDansRegion(nombre, indiceLigneSupGauche, indiceColonneSupGauche);
+        if (estPresentDansRegion(nombre, indiceLigneSupGauche, indiceColonneSupGauche)) return false;
 
+		return true;
+		//return !(estPresentDansLigne(nombre, indiceLigne)) && !(estPresentDansColonne(nombre, indiceColonne)) && !(estPresentDansRegion(nombre, indiceLigneSupGauche, indiceColonneSupGauche));
     }
 	
 	/**
@@ -87,14 +88,14 @@ public class SudokuGeneral {
 	 * @return le nombre le plus present dans la grille ou -1 si la grille est vide
 	 */
 	public int nombreLePlusPresent() {
-		int[] entiers = new int[grille.length + 1];
+		int[] entiers = new int[grille.length+1];
 
 		boolean grilleNonVide = false;
 
 		for (int i = 0; i < grille.length; i++) {
-			for (int j = 0; j < grille.length; j++) {
+			for (int j = 0; j < grille[0].length; j++) {
 				if (grille[i][j] != 0){
-					entiers[grille[i][j]] += 1;
+					entiers[grille[i][j]]++; //+1
 					grilleNonVide = true;
 				}
 			}
@@ -102,9 +103,8 @@ public class SudokuGeneral {
 
 		if (!grilleNonVide) return -1;
 
-
 		int index = 0;
-		for (int i = 0; i < entiers.length; i++) {
+		for (int i = 1; i < entiers.length; i++) {
 			if (entiers[i] > entiers[index]) index = i;
 		}
 		return index;

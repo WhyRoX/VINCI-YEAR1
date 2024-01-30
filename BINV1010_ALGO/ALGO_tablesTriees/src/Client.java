@@ -25,9 +25,18 @@ public class Client {
 	 * @return true si le montant a ete ajoute, false sinon
 	 */
 	public boolean ajouter (double montant){
-	
-		// TODO
-		return false;
+
+		for (int i = TAILLE-2; i >= 0; i--) {
+			if (tableMontants[i] < montant){
+				tableMontants[i+1] = tableMontants[i];
+			}
+			else {
+				tableMontants[i+1] = montant;
+				return true;
+			}
+		}
+		tableMontants[0] = montant;
+		return true;
 	}
 
 	
@@ -40,11 +49,4 @@ public class Client {
 		return aRenvoyer;
 
 	}
-	
-	
-	
-	
-	
-	
-	
 }

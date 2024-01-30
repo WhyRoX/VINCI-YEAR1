@@ -17,16 +17,22 @@ public class TableauTrieDEntiersPlus {
     /**
      * methode qui recherche l'indice correspondant a une occurrence
      * de l'entier passe en parametre
-     * si l’entier se trouve plusieurs fois, l’indice correspond a une
+     * si lï¿½entier se trouve plusieurs fois, lï¿½indice correspond a une
      * occurrence quelconque (pas necessairement la premiere)
      * @param entier l'entier recherche
      * @return indice correspondant a entier, -1 s'il n'est pas dans la table
      */
     private int trouverIndiceDicho(int entier){
 
-        // TODO
-        
-        return 0 ;
+        int low = 0;
+        int high = nombreEntiers-1;
+        while (low <= high){
+            int mid = (low + high)/2;
+            if (t[mid] == entier) return mid;
+            if (t[mid] > entier) high = mid-1;
+            else low = mid+1;
+        }
+        return -1;
 
         //recherche dichotomique cout O(logN)
 
@@ -57,9 +63,18 @@ public class TableauTrieDEntiersPlus {
      */
     public int supprimerToutesLesOccurrences(int entier){
 
-        // TODO
-
-        return 0;
+        int nbrSuppr;
+        int nbrASuppr = 0;
+        for(int i=0; i<nombreEntiers; i++) {
+            if(t[i] == entier) {
+                nbrASuppr++;
+            }else {
+                t[i-nbrASuppr] = t[i];
+            }
+        }
+        nombreEntiers = nombreEntiers - nbrASuppr;
+        nbrSuppr = nbrASuppr;
+        return nbrSuppr;
 
 
         // cout O(N)
@@ -124,9 +139,18 @@ public class TableauTrieDEntiersPlus {
      */
     public int supprimerTousLesExAequos(){
 
-        // TODO
-
-        return 0;
+        int nombreExSupp;
+        int nombreExASupp = 0;
+        for(int i=1; i<nombreEntiers; i++) {
+            if(t[i] == t[i-1]) {
+                nombreExASupp++;
+            }else {
+                t[i-nombreExASupp] = t[i];
+            }
+        }
+        nombreExSupp = nombreExASupp;
+        nombreEntiers = nombreEntiers - nombreExASupp;
+        return nombreExSupp;
 
         // cout O(N)
 
@@ -166,18 +190,18 @@ public class TableauTrieDEntiersPlus {
      */
     public int supprimerEntre(int borneInf, int borneSup) {
 
-        //TODO
-
-        // Ex supplementaire
-        // Faites d'abord la classe Client !
-
-        return 0 ;
-
-        //cout O(N)
-
-        // Piste :
-        // algorithme assez similaire a l'algorithme supprimerToutesLesOccurrences()
-
+        int nbrSuppr;
+        int nbrASuppr = 0;
+        for(int i=0; i<nombreEntiers; i++) {
+            if(t[i] >= borneInf && t[i] <= borneSup) {
+                nbrASuppr++;
+            }else {
+                t[i-nbrASuppr] = t[i];
+            }
+        }
+        nombreEntiers = nombreEntiers - nbrASuppr;
+        nbrSuppr = nbrASuppr;
+        return nbrSuppr;
     }
 
     public String toString(){

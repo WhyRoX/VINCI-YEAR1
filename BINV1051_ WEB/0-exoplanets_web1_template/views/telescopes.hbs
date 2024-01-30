@@ -1,0 +1,28 @@
+<section>
+    <h1>
+        Liste des Téléscopes
+    </h1>
+    <table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Pays</th>
+            <th>Diametre</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each listetelescopes}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{location}}</td>
+            <td>{{size}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{#each qqch}}
+    <p>
+        {{txt}}
+    </p>
+{{/each}}
+</section>
