@@ -29,23 +29,57 @@ public class Ens2 extends EnsembleAbstrait {
 	}
 
 	public void ajouter(Elt e) {
-		
+		if (e == null) throw new IllegalArgumentException();
+		if (!this.contient(e)){
+			elements[cardinal] = e;
+			cardinal++;
+			//elements[e.val()] = e;
+			//cardinal++;
+		}
 	}
 
 	public void enlever(Elt e) {
-		//TODO
-		
+		if (e == null) throw new IllegalArgumentException();
+		int index = -1;
+		for (int i = 0; i < cardinal; i++) {
+			if (e.equals(elements[i])) {
+				index = i;
+				break;
+			}
+		}
+		if (index != -1) {
+			elements[index] = elements[cardinal - 1];
+			cardinal--;
+		}
 	}
+
 
 	public int cardinal() {
 		//TODO
-		return 0;
+		return cardinal;
 	}
 
 	public void complementer() {
-		//TODO;
-		
+		Elt[] tabComp = new Elt[MAX];
+		cardinal = 0;
+
+		for (int i = 1; i <= MAX; i++) {
+			Elt elt = new Elt(i);
+
+			//
+			if (!contient(elt)) {
+				tabComp[cardinal] = elt;
+				cardinal++;
+			}
+		}
+		for (int i = 0; i < cardinal; i++) {
+			elements[i] = tabComp[i];
+		}
 	}
+
+
+
+
 
 	public String toString() {
 		//TODO
