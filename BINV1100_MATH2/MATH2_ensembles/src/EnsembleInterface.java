@@ -13,43 +13,42 @@ public interface EnsembleInterface {
 	// lance une MathException si l'ensemble est vide
 	public Elt unElement();
 
-	// renvoie true ssi e appartient à l'ensemble courant
-	// lance une IllegalArgumentException en cas de paramètre invalide
+	// renvoie true ssi e appartient ï¿½ l'ensemble courant
+	// lance une IllegalArgumentException en cas de paramï¿½tre invalide
 	public boolean contient(Elt e);
 
-	// ajoute e (éventuellement) à l'ensemble courant
-	// lance une IllegalArgumentException en cas de paramètre invalide
+	// ajoute e (ï¿½ventuellement) ï¿½ l'ensemble courant
+	// lance une IllegalArgumentException en cas de paramï¿½tre invalide
 	public void ajouter(Elt e);
 
-	// enlève e (éventuellement) de l'ensemble courant
-	// lance une IllegalArgumentException en cas de paramètre invalide
+	// enlï¿½ve e (ï¿½ventuellement) de l'ensemble courant
+	// lance une IllegalArgumentException en cas de paramï¿½tre invalide
 	public void enlever(Elt e);
 
-	// this <- complém. de this
+	// this <- complï¿½m. de this
 	public void complementer();
 
 	// renvoie le cardinal de l'ensemble courant
 	public int cardinal();
 
-	// renvoie une chaîne de caractère décrivant this en extension
+	// renvoie une chaï¿½ne de caractï¿½re dï¿½crivant this en extension
 	public String toString();
 
 	// remplace this par this union a
-	// lance une IllegalArgumentException en cas de paramètre invalide
+	// lance une IllegalArgumentException en cas de paramï¿½tre invalide
 	public default void ajouter(EnsembleInterface a) {
-		//TODO
-		
+
 	}
 
 	// remplace this par this moins a
-	// lance une IllegalArgumentException en cas de paramètre invalide
+	// lance une IllegalArgumentException en cas de paramï¿½tre invalide
 	public default void enlever(EnsembleInterface a) {
 		//TODO
 		
 	}
 
 	// remplace this par this inter a
-	// lance une IllegalArgumentException en cas de paramètre invalide
+	// lance une IllegalArgumentException en cas de paramï¿½tre invalide
 	public default void intersecter(EnsembleInterface a) {
 		//TODO
 		
