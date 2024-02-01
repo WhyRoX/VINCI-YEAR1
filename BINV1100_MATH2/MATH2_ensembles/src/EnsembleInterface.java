@@ -37,6 +37,16 @@ public interface EnsembleInterface {
 	// remplace this par this union a
 	// lance une IllegalArgumentException en cas de param�tre invalide
 	public default void ajouter(EnsembleInterface a) {
+		if (a == null) {
+			throw new IllegalArgumentException("Ensemble a est null");
+		}
+        for (int i = 0; i < a.cardinal(); i++) {
+			Elt e = a.unElement();
+			if (!this.contient(e)) {
+				this.ajouter(e);
+            }
+
+		}
 
 	}
 

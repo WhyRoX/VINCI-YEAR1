@@ -77,38 +77,59 @@ public class VecteurDeCaracteresImpl implements VecteurDeCaracteres{
 
 	
 	public char element(int rang) throws VecteurOutException {
-		return 0;
+		if (rang >= taille || rang < 0) throw new VecteurOutException();
+
+		return table[rang];
 		// TODO 
 		// PENSEZ A CONSULTER LA JAVADOC (cfr Interface VecteurDeCaracteres)
-	} 
-	
+	}
+
 	public void insere(int rang, char caractere) throws VecteurOutException {
-		// TODO 
-		// l'ordre des caracteres doit etre conserve --> decalages!!!
-		// il ne peut y avoir des trous
-		// Si la table est pleine, il faut doubler sa capacite
-		// PENSEZ A CONSULTER LA JAVADOC (cfr Interface VecteurDeCaracteres)
-	}	
-	
+		if (rang < 0 || rang > taille) throw new VecteurOutException();
+
+		if (table.length == taille) {
+			char[] newTable = new char[table.length * 2];
+
+			for (int i = 0; i < taille; i++) {
+				newTable[i] = table[i];
+			}
+			table = newTable;
+
+		}
+		for (int i = taille - 1; i >= rang; i--) {
+			table[i + 1] = table[i];
+		}
+		table[rang] = caractere;
+		taille++;
+	}
+
 	public void ajoute(char caractere) {
-		// TODO 
-		// Pensez à utiliser la methode insere()!	
-		// PENSEZ A CONSULTER LA JAVADOC (cfr Interface VecteurDeCaracteres)
+		insere(taille, caractere);
 	}
 
 	public char remplace(int rang, char caractere)throws VecteurOutException {
-		return 0;
-		// TODO 
-		// PENSEZ A CONSULTER LA JAVADOC (cfr Interface VecteurDeCaracteres)
+		if (rang < 0 || rang > taille || table[rang]==0) throw new VecteurOutException();
+		char old = table[rang];
+		table[rang] = caractere;
+		return old;
 	}
 
 	public char supprime(int rang) throws VecteurOutException {
-		return 0;
-		// TODO 
-		// l'ordre des caracteres doit etre conserve --> decalages!!!
-		// il ne peut y avoir des trous
-		// PENSEZ A CONSULTER LA JAVADOC (cfr Interface VecteurDeCaracteres)
+		if (rang < 0 || rang >= taille || table[rang] == 0) {
+			throw new VecteurOutException();
+		}
 
+		char suppr = table[rang];
+
+		for (int i = rang; i < taille - 1; i++) {
+			table[i] = table[i + 1];
+		}
+		table[taille - 1] = 0;
+		taille--;
+
+		return suppr;
 	}
+
+
 
 }
