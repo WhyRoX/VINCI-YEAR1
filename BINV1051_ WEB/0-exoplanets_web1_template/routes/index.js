@@ -24,6 +24,7 @@ router.get('/exolunes', (req, res) => {
 
 });
 router.get('/telescopes', (req, res) => {
+  
   let listetelescopes = [];
   let grantelescopio = {
     name: "Gran Telescopio Canarias",

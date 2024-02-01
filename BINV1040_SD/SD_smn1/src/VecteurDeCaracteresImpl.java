@@ -124,9 +124,8 @@ public class VecteurDeCaracteresImpl implements VecteurDeCaracteres{
 		for (int i = rang; i < taille - 1; i++) {
 			table[i] = table[i + 1];
 		}
-		table[taille - 1] = 0;
+		//table[taille - 1] = 0;
 		taille--;
-
 		return suppr;
 	}
 
