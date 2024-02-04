@@ -1,13 +1,18 @@
 public abstract class EnsembleAbstrait implements EnsembleInterface {
 
 	// renvoie true ssi this est inclus dans a
-	// lance une IllegalArgumentException en cas de paramètre invalide
+	// lance une IllegalArgumentException en cas de paramï¿½tre invalide
 	public boolean inclusDans(EnsembleAbstrait a) {
-		//TODO
-		return false ;
+		if(a== null) throw new IllegalArgumentException();
+		for (int i = 1; i < MAX+1; i++) {
+			if(this.contient(new Elt(i)) && !a.contient(new Elt(i)))
+				return false;
+		}
+		return true;
 	}
 
-	// renvoie true ssi this est égal à a o
+
+	// renvoie true ssi this est ï¿½gal ï¿½ a o
 	public final boolean equals(Object o) {
 		if (o == null)
 			return false;

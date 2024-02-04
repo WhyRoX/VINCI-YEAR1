@@ -53,7 +53,7 @@ public class Ens1 extends EnsembleAbstrait {
 		boolean[] tabComp = new boolean[MAX+1];
 		cardinal = 0;
 		for (int i = 1; i <= MAX; i++) {
-			if (tabB[i] == false) {
+			if (!tabB[i]) {
 				tabComp[i] = true;
 				cardinal++;
 			}
@@ -65,5 +65,24 @@ public class Ens1 extends EnsembleAbstrait {
 		// TODO
 		return null;
 	}
-	
+	public Ens1 (EnsembleInterface a){
+		if (a == null) throw new IllegalArgumentException();
+		tabB = new boolean[MAX+1];
+		for (int i = 1; i <= MAX; i++) {
+			Elt e = new Elt(i);
+			if (a.contient(e)) {
+				tabB[i] = true;
+				cardinal++;
+			}
+		}
+	}
+	// fait de this le singleton {e}.
+	public Ens1 (Elt e){
+		if (e == null) throw new IllegalArgumentException();
+		tabB = new boolean[MAX+1];
+		tabB[e.val()] = true;
+		cardinal = 1;
+	}
+
+
 }

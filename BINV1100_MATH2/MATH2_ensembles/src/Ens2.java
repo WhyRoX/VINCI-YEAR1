@@ -85,5 +85,22 @@ public class Ens2 extends EnsembleAbstrait {
 		//TODO
 		return null ;
 	}
+	public Ens2 (EnsembleInterface a) {
+		if (a == null) throw new IllegalArgumentException();
+		elements = new Elt[MAX];
+		for (int i = 1; i <= MAX; i++) {
+			Elt e = new Elt(i);
+			if (a.contient(e)) {
+				elements[cardinal] = e;
+				cardinal++;
+			}
+		}
+	}
+	public Ens2 (Elt e) {
+		if (e == null) throw new IllegalArgumentException();
+		elements = new Elt[MAX];
+		elements[0] = e;
+		cardinal = 1;
+	}
 
 }
