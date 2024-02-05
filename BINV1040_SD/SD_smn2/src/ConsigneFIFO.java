@@ -12,7 +12,13 @@ public class ConsigneFIFO {
 	 * @throws IllegalArgumentException si le nombre de casiers est negatif ou nul
 	 */
 	public ConsigneFIFO(int nombreCasiers){
-		// TODO
+		if (nombreCasiers <= 0) throw new IllegalArgumentException();
+		casiersLibres = new ArrayList<>();
+		tousLesCasiers = new Casier[nombreCasiers];
+		for (int i = 0; i < nombreCasiers; i++) {
+			tousLesCasiers[i] = new Casier(i);
+			casiersLibres.add(tousLesCasiers[i]);
+		}
 
 	}
 
@@ -21,8 +27,7 @@ public class ConsigneFIFO {
 	 * @return true s'il reste au moins un casier de libre, false sinon
 	 */
 	public boolean resteUnCasierLibre() {
-		// TODO
-		return false;
+		return !casiersLibres.isEmpty();
 	}
 
 	
@@ -33,8 +38,11 @@ public class ConsigneFIFO {
 	 * @throws IllegalArgumentException si le mot de passe est vide ou null
 	 */
 	public int attribuerCasierLibre(String motDePasse) {
-		// TODO		
-		return 0;
+		if (motDePasse == null || motDePasse.isEmpty()) throw new IllegalArgumentException();
+		if (casiersLibres.isEmpty()) return -1;
+		Casier casier = casiersLibres.remove(0);
+		casier.setMotDePasse(motDePasse);
+		return casier.getNumero();
 
 	}
 
@@ -48,7 +56,14 @@ public class ConsigneFIFO {
 	 *                                  et/ou si le mot de passe est vide ou null
 	 */
 	public boolean libererCasier(int numeroCasier, String motDePasse) {
-		// TODO
+		if (numeroCasier >= tousLesCasiers.length || numeroCasier<0 ||
+				motDePasse == null || motDePasse.isEmpty()) throw new IllegalArgumentException();
+		Casier casier = tousLesCasiers[numeroCasier];
+		if (casier.getMotDePasse().equals(motDePasse)){
+			casiersLibres.add(casier);
+			casier.setMotDePasse("");
+			return true;
+		}
 		return false;
 
 	}
