@@ -40,9 +40,9 @@ public interface EnsembleInterface {
 		if (a == null) {
 			throw new IllegalArgumentException("Ensemble a est null");
 		}
-        for (int i = 1; i <= MAX; i++) {
-			Elt e = new Elt(i);
-			if (a.contient(e)) {
+        for (int i = 0; i < a.cardinal(); i++) {
+			Elt e = a.unElement();
+			if (!this.contient(e)) {
 				this.ajouter(e);
             }
 
@@ -53,29 +53,15 @@ public interface EnsembleInterface {
 	// remplace this par this moins a
 	// lance une IllegalArgumentException en cas de param�tre invalide
 	public default void enlever(EnsembleInterface a) {
-		if (a == null) {
-			throw new IllegalArgumentException("Ensemble a est null");
-		}
-		for (int i = 1; i <= MAX; i++) {
-			Elt e = new Elt(i);
-			if (a.contient(e)) {
-				this.enlever(e);
-			}
-		}
+		//TODO
 		
 	}
 
 	// remplace this par this inter a
 	// lance une IllegalArgumentException en cas de param�tre invalide
-	public default void intersecter(EnsembleInterface a){
-		if (a == null) throw new IllegalArgumentException("Ensemble a est null");
-
-		for (int i = 1; i <= MAX; i++) {
-			Elt e = new Elt(i);
-			if (!a.contient(e)) {
-				this.enlever(e);
-			}
-		}
+	public default void intersecter(EnsembleInterface a) {
+		//TODO
+		
 	}
 	
 } // interface
