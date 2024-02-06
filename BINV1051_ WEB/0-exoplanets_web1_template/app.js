@@ -2,6 +2,32 @@ const express = require('express');
 const createError = require('http-errors');
 const path = require('path');
 const logger = require('morgan');
+const hbs = require('hbs');
+
+/**
+ * The {{#exists}} helper checks if a variable is defined.
+ */
+hbs.registerHelper('exists', function (variable, options) {
+  if (typeof variable !== 'undefined') {
+    return options.fn(this);
+  }
+  else {
+    // options.inverse == else block
+    return options.inverse(this);
+  }
+});
+
+/**
+ * eq checks if value are equal
+ */
+hbs.registerHelper('eq', function (a, b) {
+  if (a === b) {
+    return true;
+  }
+  else {
+    return false;
+  }
+});
 
 // TODO Require your controllers here
 const indexRouter = require("./routes/index.js");
