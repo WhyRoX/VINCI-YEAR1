@@ -23,7 +23,7 @@ public class Consigne{
 	 */
 	public boolean resteUnCasierLibre() {
 
-		return casiersLibres.taille()>=1;
+		return !casiersLibres.estVide();
 	}
 
 	

@@ -64,7 +64,5 @@ public class ConsigneLIFO {
 			return true;
 		}
 		return false;
-
 	}
-
 }

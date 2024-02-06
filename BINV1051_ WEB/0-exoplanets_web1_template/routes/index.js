@@ -53,5 +53,40 @@ router.get('/telescopes', (req, res) => {
 
 });
 
+let listeExoplanetes = [];
+let trappist = { id: 1, name: "TRAPPIST-1", hClass: "Mésoplanète", year: "2016" };
+let koi = { id: 2, name: "KOI-1686.01", hClass: "Mésoplanète", year: "2011" };
+let lhs = { id: 3 , name: "LHS 1723 b", hClass: "Mésoplanète", year: "2017" };
+listeExoplanetes.push(trappist, koi, lhs);
+let searchResult = null;
+router.get('/exoplanets', (req, res) => {
+  const found = searchResult !== null;
+  res.render('exoplanets.hbs', {listeExoplanetes, searchResult ,found});
+});
+
+router.post('/exoplanets/add', (req, res) => {
+  const newExoplanet = {
+    id: listeExoplanetes.length + 1,
+    name: req.body.name,
+    hClass: req.body.hClass,
+    year: req.body.year
+  };
+  listeExoplanetes.push(newExoplanet);
+  res.redirect('/exoplanets');
+});
+router.get('/exoplanets/search', (req, res) => {
+  searchResult = null;
+  for (planet of listeExoplanetes) {
+    if(planet.name.toLocaleLowerCase().startsWith(req.query.name.toLocaleLowerCase())){  
+      console.log("trouvé")
+      found = planet;
+      searchResult = planet.name;
+      break;
+    }
+  }
+  res.redirect('/exoplanets');
+});
+
+
 
 module.exports = router;

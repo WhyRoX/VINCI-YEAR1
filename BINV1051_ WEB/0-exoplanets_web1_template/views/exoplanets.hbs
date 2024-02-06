@@ -1,0 +1,54 @@
+<section>
+    <br>
+        <h1> Liste des Exoplanète découverte</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id Exoplanète</th>
+                <th>Nom Exoplanèete</th>
+                <th>hClass</th>
+                <th>Année de découverte</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each listeExoplanetes}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{hClass}}</td>
+                    <td>{{year}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <h1> Ajouter une Exoplanète découverte</h1>
+    <form action="/exoplanets/add" method="post">
+        <label> Nom de l'exoplanète découverte</label>
+        <input type="text" name="name">
+        <label>hClass</label>
+        <select class="hClass" name="hClass">
+            <option value="Mésoplanète">Mésoplanète</option>
+            <option value="Psychroplanète">Psychroplanète</option>
+            <option value="Thermoplanète">Thermoplanète</option>
+            <option value="Non habitable">Non habitable</option>
+        </select>           
+        <label>Année de découverte</label>
+        <input type="number" name="year">
+        <input type="submit" value="Envoyer">
+    </form>
+    <br>
+    <h1> Recherche d'une Exoplanète déjà découverte </h1>
+    <form action="/exoplanets/search" method="get">
+        <input type="text" minlength="3"  name="name">
+        <input type="submit" value="Rechercher">
+    </form>
+    {{#if found}}
+        <p>
+            {{searchResult}}
+        </p>
+    {{else}}    
+        <p>
+            Non trouvé
+        </p>
+    {{/if}}
+</section>
