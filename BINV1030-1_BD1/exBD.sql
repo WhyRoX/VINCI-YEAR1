@@ -1,5 +1,5 @@
 --1.1
-SELECT * FROM bd1.albums
+SELECT * FROM bd1.albums;
 
 --1.2
 SELECT DISTINCT isbn, titre, scenariste, dessinateur, date_edition
@@ -112,3 +112,5 @@ SELECT DISTINCT isbn, titre, prix
 FROM bd1.albums
 WHERE editeur = 'Dupuis'
 ORDER BY prix DESC;
+
+--1.21
