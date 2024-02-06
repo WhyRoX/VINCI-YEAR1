@@ -114,3 +114,139 @@ WHERE editeur = 'Dupuis'
 ORDER BY prix DESC;
 
 --1.21
+SELECT MIN(date_edition)
+FROM bd1.albums;
+
+--1.22
+SELECT MAX(prix)
+FROM bd1.albums
+WHERE dessinateur <> 'Uderzo';
+
+--1.23
+SELECT COUNT(*)
+FROM bd1.albums
+WHERE editeur = 'Casterman';
+
+--1.24
+SELECT AVG(prix)
+FROM bd1.albums
+WHERE editeur = 'Blake et Mortimer' AND
+      (date_part('year', date_edition) >= '1990' AND date_part('year', date_edition) <= '1999');
+
+--1.25
+SELECT SUM(prix)
+FROM bd1.albums
+WHERE serie = 'Spirou';
+
+--1.26
+SELECT DISTINCT titre
+FROM bd1.albums
+WHERE LOWER(titre) LIKE '%mystère%';
+
+--1.27
+SELECT (3*SUM(prix)-(3*SUM(prix)*25/100))
+FROM bd1.albums
+WHERE editeur = 'Blake et Mortimer';
+
+--1.28
+SELECT MAX(date_part('year', date_edition)) - MIN(date_part('year', date_edition))
+FROM bd1.albums;
+
+--1.29
+SELECT DISTINCT editeur
+FROM bd1.albums
+WHERE editeur LIKE '% %';
+
+--1.30
+SELECT DISTINCT scenariste
+FROM bd1.albums
+WHERE (serie = 'Astérix' OR serie = 'Blake et Mortimer') AND date_part('year', date_edition) >= '2000' AND scenariste IS NOT NULL
+ORDER BY scenariste;
+
+--1.31
+SELECT COUNT(DISTINCT serie)
+FROM bd1.albums;
+
+--1.32
+SELECT COUNT(*)
+FROM bd1.albums
+WHERE serie IS NOT NULL;
+
+--1.32 2
+SELECT COUNT(CASE WHEN serie IS NOT NULL THEN 1 END)
+FROM bd1.albums;
+
+--1.33
+SELECT COUNT(*)
+FROM bd1.albums
+WHERE serie IS NULL;
+--1.33 2
+SELECT COUNT(CASE WHEN serie IS NULL THEN 1 END)
+FROM bd1.albums;
+
+--1.34
+SELECT * --DISTINCT USELESS CAR ISBN TJRS DIFF NO?
+FROM bd1.albums
+WHERE LOWER(isbn) LIKE '2%x';
+
+--1.35
+SELECT COUNT(DISTINCT editeur)
+FROM bd1.albums
+WHERE serie = 'Astérix';
+
+--1.35 2
+SELECT COUNT(DISTINCT CASE WHEN serie = 'Astérix' THEN editeur END)
+FROM bd1.albums;
+
+--1.36
+SELECT DISTINCT coloriste
+FROM bd1.albums
+WHERE LOWER(coloriste) LIKE 'de%' AND coloriste IS NOT NULL;
+
+--1.37
+SELECT COUNT(*), MIN(date_edition), MAX(date_edition)
+FROM bd1.albums
+WHERE coloriste = 'Uderzo' OR dessinateur = 'Uderzo' OR scenariste = 'Uderzo';
+
+--1.38
+SELECT AVG(prix)
+FROM bd1.albums
+WHERE editeur = 'Dupuis' AND NOT (date_part('year', date_edition) >= '1990' AND date_part('year', date_edition) <= '1999');
+
+--1.39
+SELECT *
+FROM bd1.albums
+WHERE isbn LIKE '%00%'
+ORDER BY prix DESC, editeur;
+
+--1.40
+SELECT DISTINCT editeur
+FROM bd1.albums
+WHERE (pays_edition = 'be' OR pays_edition IS NULL) AND (date_part('year', date_edition) >= '2000' AND date_part('year', date_edition) <= '2020');
+
+--1.41
+SELECT DISTINCT isbn, titre, serie, date_edition
+FROM bd1.albums
+WHERE (date_part('year', date_edition) >= '1980' AND date_part('year', date_edition) <= '1990')
+ORDER BY serie, date_edition DESC;
+
+--1.41 2
+SELECT DISTINCT isbn, titre, serie, date_edition
+FROM bd1.albums
+WHERE date_part('year', date_edition) BETWEEN 1980 AND 1990
+ORDER BY serie, date_edition DESC;
+
+--1.42
+SELECT SUM(prix)
+FROM bd1.albums
+WHERE scenariste = 'Goscinny' OR dessinateur = 'Uderzo';
+
+--1.43
+SELECT SUM(prix)
+FROM bd1.albums
+WHERE scenariste <> 'Goscinny' AND scenariste <> 'Uderzo';
+
+--1.43
+SELECT isbn, titre, scenariste, scenariste
+FROM bd1.albums
+WHERE LOWER(titre) LIKE '%' || LOWER(serie) || '%';
