@@ -101,8 +101,11 @@ form input {
 
 }
 
-.error-message {
+.error-message1 {
   background-color: firebrick;
+}
+.error-message2 {
+  background-color: rgb(255, 238, 0);
 }
 
 .error-message ul {

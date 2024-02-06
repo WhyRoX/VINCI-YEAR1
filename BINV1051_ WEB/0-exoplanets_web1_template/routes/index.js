@@ -58,10 +58,12 @@ let trappist = { id: 1, name: "TRAPPIST-1", hClass: "Mésoplanète", year: "2016
 let koi = { id: 2, name: "KOI-1686.01", hClass: "Mésoplanète", year: "2011" };
 let lhs = { id: 3 , name: "LHS 1723 b", hClass: "Mésoplanète", year: "2017" };
 listeExoplanetes.push(trappist, koi, lhs);
+
 let searchResult = null;
+let searched = false;
 router.get('/exoplanets', (req, res) => {
   const found = searchResult !== null;
-  res.render('exoplanets.hbs', {listeExoplanetes, searchResult ,found});
+  res.render('exoplanets.hbs', { listeExoplanetes, searchResult, found, searched });
 });
 
 router.post('/exoplanets/add', (req, res) => {
@@ -76,16 +78,47 @@ router.post('/exoplanets/add', (req, res) => {
 });
 router.get('/exoplanets/search', (req, res) => {
   searchResult = null;
-  for (planet of listeExoplanetes) {
-    if(planet.name.toLocaleLowerCase().startsWith(req.query.name.toLocaleLowerCase())){  
-      console.log("trouvé")
-      found = planet;
-      searchResult = planet.name;
-      break;
+  searched = false;
+  if (req.query.nam) {
+    searched = true;
+    for (planet of listeExoplanetes) {
+      if(planet.name.toLocaleLowerCase().startsWith(req.query.name.toLocaleLowerCase())){  
+        console.log("trouvé")
+        found = planet;
+        searchResult = planet.name;
+        break;
+      }
     }
   }
+  
   res.redirect('/exoplanets');
 });
+
+router.get('/exoplanets/details', (req, res) => {
+  let errorType = null;
+  let id = parseInt(req.query.id);
+  if (isNaN(id)) {
+    errorType = "entier";
+    res.render('error.hbs', {message: "Erreur l'id n'est pas un entier", errorType: errorType});
+  } else {
+    let found = false;
+    let details = null;
+    for (planet of listeExoplanetes) {
+      if (planet.id === id) {
+        found = true;
+        details = planet;
+        break;
+      }
+    }
+    if (found) {
+      res.render('exoplanets.hbs', {details: details, found: true});
+    } else {
+      errorType = "inexistant"; // i'm not actually using it, since I just use an else in the error.hbs
+      res.render('error.hbs', {message: "Aucune Exoplanète correspondante à cet ID !", errorType: errorType});
+    }
+  }
+});
+
 
 
 
