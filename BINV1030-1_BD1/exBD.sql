@@ -144,7 +144,7 @@ FROM bd1.albums
 WHERE LOWER(titre) LIKE '%mystère%';
 
 --1.27
-SELECT (3*SUM(prix)-(3*SUM(prix)*25/100))
+SELECT 3*SUM(prix) * 0.75
 FROM bd1.albums
 WHERE editeur = 'Blake et Mortimer';
 
@@ -172,14 +172,23 @@ SELECT COUNT(*)
 FROM bd1.albums
 WHERE serie IS NOT NULL;
 
+--1.32 1
+SELECT COUNT(serie)
+FROM bd1.albums;
+
 --1.32 2
 SELECT COUNT(CASE WHEN serie IS NOT NULL THEN 1 END)
 FROM bd1.albums;
 
 --1.33
-SELECT COUNT(*)
+SELECT COUNT(serie)
 FROM bd1.albums
 WHERE serie IS NULL;
+
+--1.33 1
+SELECT COUNT(*) - COUnt(serie)
+FROM bd1.albums;
+
 --1.33 2
 SELECT COUNT(CASE WHEN serie IS NULL THEN 1 END)
 FROM bd1.albums;

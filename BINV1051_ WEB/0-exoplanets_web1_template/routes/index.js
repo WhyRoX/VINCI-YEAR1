@@ -5,9 +5,34 @@ const router = express.Router();
 router.get('/', (req, res) => {
   res.render('index.hbs');
 });
+
+let listeCommentaires = [];
+let testttt = {
+  message: "Bonjour, je suis un message",
+  auteur: "Moi"
+};
+listeCommentaires.push(testttt);
 router.get("/forum", (req, res) => {
-  console.log("Je suis sur la route /forum");
-  res.render("forum.hbs");
+  res.render("forum.hbs", {listeCommentaires});
+});
+router.post("/forum/add", (req, res) => {
+  const newCom = {
+    message: req.body.message,
+    auteur: req.body.auteur
+  };
+  listeCommentaires.push(newCom);
+  res.redirect("/forum");
+});
+
+router.post('/exoplanets/add', (req, res) => {
+  const newExoplanet = {
+    id: listeExoplanetes.length + 1,
+    name: req.body.name,
+    hClass: req.body.hClass,
+    year: req.body.year
+  };
+  listeExoplanetes.push(newExoplanet);
+  res.redirect('/exoplanets');
 });
 router.get('/exolunes', (req, res) => {
   let listeexolunes = [];
@@ -66,16 +91,7 @@ router.get('/exoplanets', (req, res) => {
   res.render('exoplanets.hbs', { listeExoplanetes, searchResult, found, searched });
 });
 
-router.post('/exoplanets/add', (req, res) => {
-  const newExoplanet = {
-    id: listeExoplanetes.length + 1,
-    name: req.body.name,
-    hClass: req.body.hClass,
-    year: req.body.year
-  };
-  listeExoplanetes.push(newExoplanet);
-  res.redirect('/exoplanets');
-});
+
 router.get('/exoplanets/search', (req, res) => {
   searchResult = null;
   searched = false;
@@ -118,6 +134,8 @@ router.get('/exoplanets/details', (req, res) => {
     }
   }
 });
+
+
 
 
 
