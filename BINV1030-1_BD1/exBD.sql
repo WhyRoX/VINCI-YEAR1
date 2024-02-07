@@ -155,7 +155,7 @@ FROM bd1.albums;
 --1.29
 SELECT DISTINCT editeur
 FROM bd1.albums
-WHERE editeur LIKE '% %';
+WHERE editeur LIKE '_% %_';
 
 --1.30
 SELECT DISTINCT scenariste
@@ -177,8 +177,8 @@ SELECT COUNT(serie)
 FROM bd1.albums;
 
 --1.32 2
-SELECT COUNT(CASE WHEN serie IS NOT NULL THEN 1 END)
-FROM bd1.albums;
+--SELECT COUNT(CASE WHEN serie IS NOT NULL THEN 1 END)
+--FROM bd1.albums;
 
 --1.33
 SELECT COUNT(serie)
@@ -190,8 +190,8 @@ SELECT COUNT(*) - COUnt(serie)
 FROM bd1.albums;
 
 --1.33 2
-SELECT COUNT(CASE WHEN serie IS NULL THEN 1 END)
-FROM bd1.albums;
+--SELECT COUNT(CASE WHEN serie IS NULL THEN 1 END)
+--FROM bd1.albums;
 
 --1.34
 SELECT * --DISTINCT USELESS CAR ISBN TJRS DIFF NO?
@@ -204,13 +204,13 @@ FROM bd1.albums
 WHERE serie = 'Astérix';
 
 --1.35 2
-SELECT COUNT(DISTINCT CASE WHEN serie = 'Astérix' THEN editeur END)
-FROM bd1.albums;
+--SELECT COUNT(DISTINCT CASE WHEN serie = 'Astérix' THEN editeur END)
+--FROM bd1.albums;
 
 --1.36
 SELECT DISTINCT coloriste
 FROM bd1.albums
-WHERE LOWER(coloriste) LIKE 'de%' AND coloriste IS NOT NULL;
+WHERE LOWER(coloriste) LIKE 'de%';
 
 --1.37
 SELECT COUNT(*), MIN(date_edition), MAX(date_edition)
@@ -240,10 +240,10 @@ WHERE (date_part('year', date_edition) >= '1980' AND date_part('year', date_edit
 ORDER BY serie, date_edition DESC;
 
 --1.41 2
-SELECT DISTINCT isbn, titre, serie, date_edition
-FROM bd1.albums
-WHERE date_part('year', date_edition) BETWEEN 1980 AND 1990
-ORDER BY serie, date_edition DESC;
+--SELECT DISTINCT isbn, titre, serie, date_edition
+--FROM bd1.albums
+--WHERE date_part('year', date_edition) BETWEEN 1980 AND 1990
+--ORDER BY serie, date_edition DESC;
 
 --1.42
 SELECT SUM(prix)
