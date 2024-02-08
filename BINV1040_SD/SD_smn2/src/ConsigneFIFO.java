@@ -1,9 +1,10 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 
 public class ConsigneFIFO {
 	
-	private ArrayList<Casier> casiersLibres;
+	private ArrayDeque<Casier> casiersLibres;
 	private Casier[] tousLesCasiers;
 	
 	/**
@@ -13,7 +14,7 @@ public class ConsigneFIFO {
 	 */
 	public ConsigneFIFO(int nombreCasiers){
 		if (nombreCasiers <= 0) throw new IllegalArgumentException();
-		casiersLibres = new ArrayList<>();
+		casiersLibres = new ArrayDeque<>();
 		tousLesCasiers = new Casier[nombreCasiers];
 		for (int i = 0; i < nombreCasiers; i++) {
 			tousLesCasiers[i] = new Casier(i);
@@ -40,10 +41,9 @@ public class ConsigneFIFO {
 	public int attribuerCasierLibre(String motDePasse) {
 		if (motDePasse == null || motDePasse.isEmpty()) throw new IllegalArgumentException();
 		if (casiersLibres.isEmpty()) return -1;
-		Casier casier = casiersLibres.remove(0);
+		Casier casier = casiersLibres.removeFirst();
 		casier.setMotDePasse(motDePasse);
 		return casier.getNumero();
-
 	}
 
 

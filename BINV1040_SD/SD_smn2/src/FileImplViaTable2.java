@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 // implementation de l'interface File via une table circulaire
 
 /**
@@ -7,7 +5,7 @@ import java.util.Arrays;
  *
  */
 
-public class FileImplViaTable<E> implements File<E>{
+public class FileImplViaTable2<E> implements File<E>{
 
 	private Object[] table;  // ne modifiez pas cet identifiant, la classe test l'utilise					
 	private int indiceTete;  // ne modifiez pas cet identifiant, la classe test l'utilise			
@@ -15,7 +13,7 @@ public class FileImplViaTable<E> implements File<E>{
 	// N'ajoutez pas d'autres attributs, la classe test risquerait de ne pas fonctionner
 	
 
-	public FileImplViaTable(){
+	public FileImplViaTable2(){
 		table = new Object[4];
 		taille = 0;
 		indiceTete = 0;
@@ -31,38 +29,38 @@ public class FileImplViaTable<E> implements File<E>{
 		return taille;
 	}
 
-	public E premier()throws FileVideException{
+	public E premier() throws FileVideException {
 		if (estVide()) throw new FileVideException();
-        return (E) table[indiceTete];
-
-		
+		return (E) table[indiceTete];
 	}
 
-
-	public E defile() throws FileVideException{
+	public E defile() throws FileVideException {
 		if (estVide()) throw new FileVideException();
-		E el = (E) table[indiceTete];
-		indiceTete = (indiceTete+1)%table.length;
+		E element = (E) table[indiceTete];
+
+		indiceTete = (indiceTete + 1) % table.length;
 		taille--;
-		return el;
-
+		return element;
 	}
 
-
-	public void enfile(E element){
-		if (taille == table.length)
+	public void enfile(E element) {
+		if (taille == table.length) {
 			agrandirTable();
-		int i = (indiceTete+taille)% table.length;
-		table[i] = element;
+		}
+		int index = (indiceTete + taille) % table.length;
+		table[index] = element;
 		taille++;
 	}
-	private void agrandirTable(){
-		Object[] newTable = new Object[table.length*2];
+
+	private void agrandirTable() {
+		Object[] nouvelleTable = new Object[table.length * 2];
+
 		for (int i = 0; i < taille; i++) {
-			newTable[i] = table[(indiceTete+i)%table.length];
+			nouvelleTable[i] = table[(indiceTete + i) % table.length];
 		}
-		table = newTable;
+		table = nouvelleTable;
 		indiceTete = 0;
 	}
+
 
 } 
