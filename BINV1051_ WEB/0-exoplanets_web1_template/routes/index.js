@@ -95,7 +95,7 @@ router.get('/exoplanets', (req, res) => {
 router.get('/exoplanets/search', (req, res) => {
   searchResult = null;
   searched = false;
-  if (req.query.nam) {
+  if (req.query.name) {
     searched = true;
     for (planet of listeExoplanetes) {
       if(planet.name.toLocaleLowerCase().startsWith(req.query.name.toLocaleLowerCase())){  
