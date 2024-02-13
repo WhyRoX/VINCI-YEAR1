@@ -24,16 +24,7 @@ router.post("/forum/add", (req, res) => {
   res.redirect("/forum");
 });
 
-router.post('/exoplanets/add', (req, res) => {
-  const newExoplanet = {
-    id: listeExoplanetes.length + 1,
-    name: req.body.name,
-    hClass: req.body.hClass,
-    year: req.body.year
-  };
-  listeExoplanetes.push(newExoplanet);
-  res.redirect('/exoplanets');
-});
+
 router.get('/exolunes', (req, res) => {
   let listeexolunes = [];
   let dhtauri = {
@@ -77,67 +68,6 @@ router.get('/telescopes', (req, res) => {
   res.render('telescopes.hbs', { listetelescopes, qqch });
 
 });
-
-let listeExoplanetes = [];
-let trappist = { id: 1, name: "TRAPPIST-1", hClass: "Mésoplanète", year: "2016", IST: 0.9, pClass: "Sous-terrienne chaude"};
-let koi = { id: 2, name: "KOI-1686.01", hClass: "Mésoplanète", year: "2011", IST: 0.89, pClass: "Super-terrienne chaude" };
-let lhs = { id: 3 , name: "LHS 1723 b", hClass: "Mésoplanète", year: "2017", IST: 0.89, pClass: "Super-terrienne chaude" };
-listeExoplanetes.push(trappist, koi, lhs);
-
-let searchResult = null;
-let searched = false;
-router.get('/exoplanets', (req, res) => {
-  const found = searchResult !== null;
-  res.render('exoplanets.hbs', { listeExoplanetes, searchResult, found, searched });
-});
-
-
-router.get('/exoplanets/search', (req, res) => {
-  searchResult = null;
-  searched = false;
-  if (req.query.name) {
-    searched = true;
-    for (planet of listeExoplanetes) {
-      if(planet.name.toLocaleLowerCase().startsWith(req.query.name.toLocaleLowerCase())){  
-        console.log("trouvé")
-        found = planet;
-        searchResult = planet.name;
-        break;
-      }
-    }
-  }
-  
-  res.redirect('/exoplanets');
-});
-
-router.get('/exoplanets/details', (req, res) => {
-  let errorType = null;
-  let id = parseInt(req.query.id);
-  if (isNaN(id)) {
-    errorType = "entier";
-    res.render('error.hbs', {message: "Erreur l'id n'est pas un entier", errorType: errorType});
-  } else {
-    let found = false;
-    let details = null;
-    for (planet of listeExoplanetes) {
-      if (planet.id === id) {
-        found = true;
-        details = planet;
-        break;
-      }
-    }
-    if (found) {
-      res.render('exoplanets.hbs', {details: details, found: true});
-    } else {
-      errorType = "inexistant"; // i'm not actually using it, since I just use an else in the error.hbs
-      res.render('error.hbs', {message: "Aucune Exoplanète correspondante à cet ID !", errorType: errorType});
-    }
-  }
-});
-
-
-
-
 
 
 module.exports = router;
