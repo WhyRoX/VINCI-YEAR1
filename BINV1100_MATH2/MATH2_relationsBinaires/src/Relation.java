@@ -2,6 +2,7 @@
 	 Fournit des outils de manipulation des relations entre sous-ensembles de l'Univers
  */
 
+import java.math.MathContext;
 import java.util.*;
 
 public class Relation extends RelationDeBase {
@@ -112,8 +113,18 @@ public class Relation extends RelationDeBase {
 	// si possible, renvoie la composée : this après r
 	//sinon, lance une IllegalArgumentException
 	public Relation apres(RelationInterface r) {
+		if (r == null || !r.arrivee().equals(this.depart())) throw new IllegalArgumentException();
+		Relation rel = new Relation(r.depart(), this.arrivee());
+		for (Couple c1 : r) {
+			for (Couple c2 : this) {
+				if (c1.getY().equals(c2.getX())){
+					rel.ajouter(c1.getX(), c2.getY());
 
-		return null;
+				}
+				iter++;
+			}
+		}
+		return rel;
 	}
 
 
@@ -127,18 +138,76 @@ public class Relation extends RelationDeBase {
 		
 	// Clôture la Relation courante pour la réflexivité
 	public void cloReflex() {
-		//TODO
+		if (!depart().equals(arrivee())) throw new MathException();
+		for(Elt e : depart()){
+			ajouter(e,e);
+		}
 	}
-
 	// Clôture la Relation courante pour la symétrie
 	public void cloSym() {
-		//TODO
+		if (!depart().equals(arrivee())) throw new MathException();
+		for (Couple c : clone()) {
+			/*if (!c.getX().equals(c.getY())){ //V1
+				ajouter(c.getY(), c.getX());
+			}*/
+			ajouter(c.getY(), c.getX()); // V2, BEST
+			//ajouter(c.reciproque()); //V3
+
+		}
+		//ajouter(reciproque()); //V4 (sans le iter dcp)
 	}
 
 	// Clôture la Relation courante pour la transitivité (Warshall)
-	public void cloTrans() {
-		//TODO
+	public void cloTrans3() {
+		if (!depart().equals(arrivee())) throw new MathException();
+		for (Elt k : arrivee()) {
+			for (Elt i : arrivee()) {
+				for (Elt j : arrivee()) {
+					if (contient(i, k) && contient(k, j)) {
+						ajouter(i, j);
+					}
+				}
+			}
+		}
 	}
+	public void cloTrans2() {
+        if (!depart().equals(arrivee())) {
+            throw new MathException();
+        }
+        //methode warshall
+        // 1) regarder flèche qui rentre
+        for (Couple c1 : this) {
+            Elt x1 = c1.getX();
+            Elt y1 = c1.getY();
+            // exemple (3 -> 2)
+            // on garde 3 (x) et on garde 2 (y)
+            for (Couple c2 : this) {
+                // on reparcoure les couples et on check si l'ancien y (2) == x du nouveau couple
+                if (c2.getX().equals(y1)) {
+                    Elt y2 = c2.getY();
+                    if (!contient(x1, y2)) {
+                        ajouter(x1, y2);
+                        // Si réussi on reparcoure tout de zero pour rafraichir les potentiels changements
+                        cloTrans2();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+	int iter = 0;
+	public void cloTrans(){
+		if (!depart().equals(arrivee())) throw new MathException();
+		for (int i = 0; i < MAX; i++) {
+			ajouter(apres(this));
+			iter++;
+		}
+		System.out.println("yo");
+		System.out.println(iter);
+		//archi pas opti 90 000 itération et 21 000
+	}
+
+	/*
 	
 	
 	//Ex 5
@@ -148,26 +217,37 @@ public class Relation extends RelationDeBase {
 	 */
 	// renvoie true ssi this est réflexive
 	public boolean reflexive(){
-		//TODO
-		return false;
+		if (!depart().equals(arrivee())) throw new MathException();
+		for (Elt e : arrivee()) {
+			if (!contient(e,e)) return false;
+		}
+		return true;
 	}
 
 	// renvoie true ssi this est antiréflexive
 	public boolean antireflexive(){
-		//TODO
-		return false;
+		if (!depart().equals(arrivee())) throw new MathException();
+		for (Elt e : arrivee())
+			if (contient(e,e)) return false;
+		return true;
 	}
 
 	// renvoie true ssi this est symétrique
 	public boolean symetrique(){
-		//TODO
-		return false;
+		if (!depart().equals(arrivee())) throw new MathException();
+		for (Couple c : clone()){
+			if (!contient(c.getY(),c.getX())) return false;
+		}
+		return true;
 	}
 
 	// renvoie true ssi this est antisymétrique
 	public boolean antisymetrique(){
-		//TODO
-		return false;
+		if (!depart().equals(arrivee())) throw new MathException();
+		for (Couple c : clone()){
+			if (contient(c.getY(),c.getX())) return false;
+		}
+		return true;
 	}
 
 	// renvoie true ssi  this est transitive
