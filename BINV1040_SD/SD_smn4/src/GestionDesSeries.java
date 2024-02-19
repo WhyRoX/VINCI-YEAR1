@@ -1,10 +1,9 @@
-import java.util.Scanner;
 import java.util.HashSet;
 
 public class GestionDesSeries {
 	
 	//private static Scanner scanner = new Scanner(System.in);
-	private static MonScanner scanner = new MonScanner("inputGestionDesSeries.txt");
+	private static MonScanner scanner = new MonScanner("BINV1040_SD/SD_smn4/inputGestionDesSeries.txt");
 	private static ClasseEtudiants classe;
 
 	public static void main(String[] args) {	
@@ -30,7 +29,7 @@ public class GestionDesSeries {
 			}
 			String[] noms = new String[nombreEtudiants];
 			for (int i = 0; i < noms.length; i++) {
-				System.out.print("Entrez le nom de l'etudiant n°"+ (i+1)+" ");
+				System.out.print("Entrez le nom de l'etudiant nï¿½"+ (i+1)+" ");
 				noms[i]=scanner.nextLine();
 				if(noms[i].length()==0){
 					System.out.println("L'application a rencontre un probleme");
@@ -90,9 +89,12 @@ public class GestionDesSeries {
 		System.out.print("Entrez l'etudiant : ");
 		scanner.nextLine();
 		String nom = scanner.nextLine();
-		//TODO
-		System.out.println("Dans la classe GestionDesSeries : ");
-		System.out.println("Vous devez completer la methode rechercherSerie()");
+		int numeroSerie = classe.numeroSerie(nom);
+		if(numeroSerie==-1){
+			System.out.println("l'etudiant n'appartient a aucune serie");
+		}else{
+			System.out.println("l'etudiant appartient a la serie "+numeroSerie);
+		}
 
 	}
 	
@@ -119,9 +121,10 @@ public class GestionDesSeries {
 	}
 	
 	private static void afficherTailleSeries() {
-		//TODO
-		System.out.println("Dans la classe GestionDesSeries : ");
-		System.out.println("Vous devez completer la methode afficherTailleSeries()");
+		System.out.println(	"Nombre d'etudiants dans chaque serie : ");
+		for (int i = 1; i <= classe.nombreSeries(); i++) {
+			System.out.println("serie "+i+" : "+classe.getSerieEtudiants(i).nombreEtudiants());
+		}
 
 	}
 

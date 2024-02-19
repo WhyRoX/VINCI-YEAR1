@@ -14,9 +14,29 @@ public class ClasseEtudiants{
 	 * @param noms table contenant les noms des etudiants a repartir parmi les differentes series
 	 * @throws IllegalArgumentException si le nombre de series est <= 0 ou si la table noms est null 
 	 */
-	public ClasseEtudiants(int nombreSeries,String[] noms){
-		// TODO
+	/*public ClasseEtudiants(int nombreSeries,String[] noms){
+		if (nombreSeries <= 0 || noms == null) throw new IllegalArgumentException();
+		tableSeries = new SerieEtudiants[nombreSeries];
+		int repartition = noms.length / nombreSeries;
+		int nomIndex = 0;
+		for (int i = 0; i < noms.length-1; i++) {
+			tableSeries[i] = new SerieEtudiants(i+1);
+			for (int j = 0; j < repartition; j++) {
+				tableSeries[i].ajouterEtudiant(noms[nomIndex]);
+				nomIndex++;
+			}
+		}
 
+	}*/
+	public ClasseEtudiants(int nombreSeries,String[] noms){
+		if (nombreSeries <= 0 || noms == null) throw new IllegalArgumentException();
+		tableSeries = new SerieEtudiants[nombreSeries];
+		for (int i = 0; i < tableSeries.length; i++) {
+			tableSeries[i] = new SerieEtudiants(i+1);
+		}
+		for (int i = 0; i < noms.length; i++) {
+			tableSeries[i%nombreSeries].ajouterEtudiant(noms[i]);
+		}
 	}
 	
 	
@@ -27,8 +47,8 @@ public class ClasseEtudiants{
 	 * @throws IllegalArgumentException si le numero de serie n'existe pas
 	 */
 	public SerieEtudiants getSerieEtudiants(int numeroSerie)throws IllegalArgumentException{
-		// TODO
-		return null;
+		if (numeroSerie > tableSeries.length || numeroSerie <= 0) throw new IllegalArgumentException();
+		return new SerieEtudiants(numeroSerie+1);
 	}
 	
 	
@@ -37,8 +57,7 @@ public class ClasseEtudiants{
 	 * @return le nombre de series
 	 */
 	public int nombreSeries(){
-		// TODO
-		return 0;
+		return tableSeries.length;
 	}
 		
 	/**
@@ -48,8 +67,14 @@ public class ClasseEtudiants{
 	 * @throws IllegalArgumentException si le nom est null ou vide
 	 */
 	public int numeroSerie(String nom){
-		// TODO
-		return 0;
+		if (nom.isEmpty()) throw new IllegalArgumentException();
+		for (int i = 0; i < tableSeries.length; i++) {
+			if (tableSeries[i].contientEtudiant(nom)) return i+1;
+		}
+		/*for (SerieEtudiants tableSerie : tableSeries) {
+			if (tableSerie.contientEtudiant(nom)) return tableSerie.getNumeroSerie();
+		}*/
+		return -1;
 
 	}
 	
@@ -63,7 +88,15 @@ public class ClasseEtudiants{
 	 * @throws IllegalArgumentException si le nom est null ou vide ou si le nouveauNumeroSerie n'existe pas
 	 */
 	public boolean changerSerie(String nom, int nouveauNumeroSerie){
-		// TODO
+		if (nom.isEmpty() || nouveauNumeroSerie > tableSeries.length || nouveauNumeroSerie <= 0) throw new IllegalArgumentException();
+		for (SerieEtudiants tableSerie : tableSeries) {
+			if (tableSerie.contientEtudiant(nom)) {
+				//if (tableSerie.getNumeroSerie() == nouveauNumeroSerie) return false;
+				tableSerie.supprimerEtudiant(nom);
+				tableSeries[nouveauNumeroSerie-1].ajouterEtudiant(nom);
+				return true;
+			}
+		}
 		return false;
 	}
 	

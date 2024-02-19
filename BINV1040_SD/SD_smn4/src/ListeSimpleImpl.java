@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * implementation de l'interface ListeSimple avec une liste simplement chainee
@@ -25,30 +26,44 @@ public class ListeSimpleImpl<E> implements ListeSimple<E> {
 
 	// renvoie l element contenu dans le noeud de tete
 	public E premier()throws ListeVideException{
-		return null;
-		// TODO
-
+		if (estVide())
+			throw new ListeVideException();
+		return tete.element;
 	}
 
 
 	// insere un nouveau noeud en tete de liste avec l element 
 	public void insererEnTete(E element) {
-		// TODO
-
+        tete = new Noeud(element, tete);
+		taille++;
 	}
 	
 
 	// verifie la presence d un noeud contenant l element passe en parametre
 	public boolean contient(E element){
-		// TODO
+		Noeud baladeur = tete;
+		while(baladeur!=null) {
+			if(baladeur.element.equals(element))
+				return true;
+			baladeur=baladeur.suivant;
+		}
 		return false;
-
 	}
 
 
 	// insere un nouveaud noeud apres le noeud contenant la premiere occurrence de l'element passe en parametre
 	public boolean insererApres(E element, E elementAInserer){
-		// TODO
+		Noeud nouveauNoeud = new Noeud(elementAInserer, null);
+		Noeud baladeur = tete;
+		while(baladeur!=null) {
+			if(baladeur.element.equals(element)) {
+				nouveauNoeud.suivant = baladeur.suivant;
+				baladeur.suivant = nouveauNoeud;
+				taille++;
+				return true;
+			}
+			baladeur=baladeur.suivant;
+		}
 		return false;
 	
 	}
@@ -56,7 +71,21 @@ public class ListeSimpleImpl<E> implements ListeSimple<E> {
 
 	//supprime le noeud contenant la premiere occurrence de l'element passe en parametre
 	public boolean supprimer(E element){
-		// TODO
+		Noeud baladeur = tete;
+		Noeud precedent = null;
+		while(baladeur!=null) {
+			if(baladeur.element.equals(element)) {
+				if(precedent==null) {
+					tete = baladeur.suivant;
+				}else {
+					precedent.suivant = baladeur.suivant;
+				}
+				taille--;
+				return true;
+			}
+			precedent = baladeur;
+			baladeur=baladeur.suivant;
+		}
 		return false;
 		
 	}
@@ -80,7 +109,12 @@ public class ListeSimpleImpl<E> implements ListeSimple<E> {
 		@Override
 		// verifie si le noeud "next" est null
 		public boolean hasNext() {
-			// TODO
+			Noeud baladeur = noeudNext;
+			while (baladeur != null) {
+				if (baladeur.element != null)
+					return true;
+				baladeur = baladeur.suivant;
+			}
 			return false;
 		}
 
@@ -88,10 +122,13 @@ public class ListeSimpleImpl<E> implements ListeSimple<E> {
 		@Override
 		// renvoie l element qui se trouve dans le noeud "next"
 		// le noeud "next" passe au noeud suivant
-		public E next() {	  
-		   // TODO
+		public E next() {
+			if (!hasNext())
+				throw new NoSuchElementException();
+			Noeud baladeur = noeudNext;
+			noeudNext = baladeur.suivant;
+			return baladeur.element;
 		   // pensez a consulter la JAVADOC de la classe Iterator!!!
-		   return null;
 		}
 
 		
