@@ -1,17 +1,17 @@
-const { search } = require("../routes/exoplanets");
+const db = require('../models/db_conf'); 
 
-const listeExoplanetes = [];
-let trappist = { id: 1, name: "TRAPPIST-1", hClass: "Mésoplanète", year: "2016", IST: 0.9, pClass: "Sous-terrienne chaude"};
-let koi = { id: 2, name: "KOI-1686.01", hClass: "Mésoplanète", year: "2011", IST: 0.89, pClass: "Super-terrienne chaude" };
-let lhs = { id: 3, name: "LHS 1723 b", hClass: "Mésoplanète", year: "2017", IST: 0.89, pClass: "Super-terrienne chaude" };
-listeExoplanetes.push(trappist,koi,lhs);
+let listeExoplanetes = []
 
 module.exports.list = () => {
-    return listeExoplanetes;
+    const stmt_all = db.prepare("SELECT exoplanet_id, unique_name , hclass, discovery_year, ist, pclass FROM exoplanets;");
+    return stmt_all.all();
 };
+
   
-module.exports.add = (data) => {
-    listeExoplanetes.push(data);
+module.exports.add = (exoplanet) => {
+    const stmt_insert = db.prepare('INSERT INTO exoplanets (unique_name, hclass, discovery_year, ist, pclass) VALUES (?, ?, ?, ? ,?)');
+    //run -> return infos about changes made
+    const info = stmt_insert.run(exoplanet.unique_name, exoplanet.hclass, exoplanet.discovery_year, exoplanet.ist, exoplanet.pclass);
 };
 
 

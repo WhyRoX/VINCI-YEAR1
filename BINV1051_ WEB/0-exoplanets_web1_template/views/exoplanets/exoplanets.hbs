@@ -15,12 +15,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{details.id}}</td>
-                    <td>{{details.name}}</td>
-                    <td>{{details.hClass}}</td>
+                    <td>{{details.exoplanet_id}}</td>
+                    <td>{{details.unique_name}}</td>
+                    <td>{{details.hclass}}</td>
                     <td>{{details.year}}</td>
-                    <td>{{details.IST}}</td>
-                    <td>{{details.pClass}}</td>
+                    <td>{{details.ist}}</td>
+                    <td>{{details.pclass}}</td>
                 </tr>
             </tbody>
         </table>
@@ -32,15 +32,19 @@
                     <th>Nom Exoplanète</th>
                     <th>hClass</th>
                     <th>Année de découverte</th>
+                    <th>IST</th>
+                    <th>pClass</th>
                 </tr>
             </thead>
             <tbody>
                 {{#each listeExoplanetes}}
                     <tr>
-                        <td>{{this.id}}</td>
-                        <td><a href="/exoplanets/details?id={{this.id}}">{{this.name}}</a></td>
-                        <td>{{this.hClass}}</td>
-                        <td>{{this.year}}</td>
+                        <td>{{this.exoplanet_id}}</td>
+                        <td><a href="/exoplanets/details?id={{this.discovery_id}}">{{this.unique_name}}</a></td>
+                        <td>{{this.hclass}}</td>
+                        <td>{{this.discovery_year}}</td>
+                        <td>{{this.ist}}</td>
+                        <td>{{this.pclass}}</td>
                     </tr>
                 {{/each}}
             </tbody>
@@ -48,16 +52,20 @@
         <h1> Ajouter une Exoplanète découverte</h1>
         <form action="/exoplanets/add" method="post">
             <label> Nom de l'exoplanète découverte</label>
-            <input type="text" name="name">
+            <input type="text" name="unique_name">
             <label>hClass</label>
-            <select class="hClass" name="hClass">
+            <select class="hClass" name="hclass">
                 <option value="Mésoplanète">Mésoplanète</option>
                 <option value="Psychroplanète">Psychroplanète</option>
                 <option value="Thermoplanète">Thermoplanète</option>
                 <option value="Non habitable">Non habitable</option>
             </select>           
             <label>Année de découverte</label>
-            <input type="number" name="year">
+            <input type="number" name="discovery_year">
+            <label>IST</label>
+            <input type="number" name="ist" min="0" max="1">
+            <label>pClass</label>
+            <input type="text" name="pclass">
             <input type="submit" value="Envoyer">
         </form>
         <br>

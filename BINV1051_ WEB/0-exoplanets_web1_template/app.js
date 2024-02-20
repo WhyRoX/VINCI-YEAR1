@@ -32,6 +32,8 @@ hbs.registerHelper('eq', function (a, b) {
 // TODO Require your controllers here
 const indexRouter = require("./routes/index.js");
 const exoplanetsRouter = require("./routes/exoplanets.js");
+const forumRouter = require("./routes/forum.js");
+const exoluneRouter = require("./routes/exolunes.js");
 
 const app = express();
 const port = 3000;
@@ -48,6 +50,8 @@ app.use(express.static(path.join(__dirname, 'public'))); // Get static files fro
 // TODO Call your controllers here
 app.use("/", indexRouter);
 app.use("/exoplanets", exoplanetsRouter);
+app.use("/forum", forumRouter);
+app.use("/exolunes", exoluneRouter);
 
 
 // Create error on page not found
