@@ -30,7 +30,7 @@ module.exports.search = (name) => {
 module.exports.findById = (id) => {
     let details = null;
     for (planet of listeExoplanetes) {
-        if (planet.id === id) {
+        if (planet.exoplanet_id === id) {
             details = planet;
             break;
         }
