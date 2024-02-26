@@ -8,9 +8,9 @@ module.exports.list = () => {
 
   
 module.exports.save = (data) => {
-    const stmt_insert = db.prepare('INSERT INTO EXOPLANETS(unique_name, hclass, discovery_year) VALUES (?, ?, ?)');
+    const stmt_insert = db.prepare('INSERT INTO EXOPLANETS(unique_name, hclass, discovery_year, ist, pclass) VALUES (?, ?, ?, ?, ?)');
     //run -> return infos about changes made
-    const info = stmt_insert.run(data.unique_name, data.hclass, data.discovery_year);
+    const info = stmt_insert.run(data.unique_name, data.hclass, data.discovery_year, data.ist, data.pclass);
 };
 
 

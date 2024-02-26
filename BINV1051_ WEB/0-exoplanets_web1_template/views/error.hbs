@@ -2,15 +2,5 @@
     <img src="images/error404.jpg" alt="error404"/>
 </div>
 
-{{#if (eq errorType 'entier')}}
-    <div class="error-message1">
-        <h1>{{message}}</h1>
-    </div>
-{{else}}
-    <div class="error-message2">
-        <h1>{{message}}</h1>
-    </div>
-{{/if}}
-
 <h2>{{status}}</h2>
 <pre>{{error.stack}}</pre>

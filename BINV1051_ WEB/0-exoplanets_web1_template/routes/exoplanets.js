@@ -14,9 +14,11 @@ router.get('/', function (req, res, next) {
 /* POST add exoplanet. */
 router.post('/add', (req, res) => {
     Exoplanet.save({
-      unique_name: req.body.unique_name,
-      hclass: req.body.hclass,
-      discovery_year: req.body.discovery_year,
+        unique_name: req.body.unique_name,
+        hclass: req.body.hclass,
+        discovery_year: req.body.discovery_year,
+        ist: req.body.ist,
+        pclass: req.body.pclass
     });
 
     res.redirect('/exoplanets');
@@ -52,7 +54,7 @@ router.get('/details', function (req, res, next) {
     // another solution is to use == instead of === in if instruction
     const exoplanetIdParam = parseInt(req.query.exoplanet_id);
     const exoplanetFound = Exoplanet.findById(exoplanetIdParam);
-    res.render('exoplanets/details.hbs', { exoplanet: exoplanetFound });
+    res.render('exoplanets/details.hbs', { exoplanets: exoplanetFound });
 
 });
 
