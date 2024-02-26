@@ -1,10 +1,9 @@
 const db = require('../models/db_conf'); 
 
-let listeExoplanetes = []
-
 module.exports.list = () => {
-    const stmt_all = db.prepare("SELECT exoplanet_id, unique_name , hclass, discovery_year, ist, pclass FROM exoplanets;");
-    return stmt_all.all();
+    return db.prepare("SELECT * FROM exoplanets").all();
+    //return db.prepare("SELECT * FROM exoplanets").all();
+
 };
 
   
@@ -16,18 +15,20 @@ module.exports.add = (exoplanet) => {
 
 
 
-module.exports.search = (name) => {
-    if (name) {
-        for (planet of listeExoplanetes) {
-            if(planet.name.toLocaleLowerCase().startsWith(name.toLocaleLowerCase())){  
-                console.log("trouvé");
-                return planet;
-        }
-      }
-    }
-    return null;
+module.exports.search = (unique_name) => {
+
+    return db.prepare('SELECT * FROM exoplanets WHERE unique_name LIKE ?').all(unique_name + '%');
 }
-module.exports.findById = (id) => {
+
+
+module.exports.delete = (id) => {
+    const info = db.prepare('DELETE FROM exoplanets WHERE exoplanet_id = ?').run(id);
+    console.log("exoplanet model delete" + info.changes);
+};
+
+
+
+/*module.exports.findById = (id) => {
     let details = null;
     for (planet of listeExoplanetes) {
         if (planet.exoplanet_id === id) {
@@ -36,7 +37,10 @@ module.exports.findById = (id) => {
         }
     }
     return details;
-}
+}*/
+module.exports.findById = (id) => {
+    return db.prepare("SELECT * FROM exoplanets WHERE exoplanet_id = ?").get(id);
+};
 
 //module.exports.searchResult = searchResult;
 //module.exports.searched = searched;

@@ -1,0 +1,82 @@
+<section>
+    <h1>Liste des exoplanètes</h1>
+    <table>
+        <tr>
+            <th>Id Exoplanète</th>
+            <th>Nom Exoplanète</th>
+            <th>hClass</th>
+            <th>Année de découverte</th>
+            <th>Actions</th>
+            <th>IST</th>
+            <th>pClass</th>            
+            
+        </tr>
+        {{#each listeExoplanetes}}
+        <tr>
+            <td>{{this.exoplanet_id}}</td>
+            <td><a href="http://localhost:3000/exoplanets/details?id={{this.exoplanet_id}}"> {{this.unique_name}} </a>
+            </td>
+            <td>{{this.hclass}} </td>
+            <td>{{this.discovery_year}} </td>
+            <td>
+                <form method="POST" action="/exoplanets/delete">
+                    <input type="hidden" name="id" value="{{this.exoplanet_id}}">
+                    <input type="submit" value="Supprimer">
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</section>
+<section>
+    <h1> Ajouter une Exoplanète découverte</h1>
+
+    <form action="/exoplanets/add" method="post">
+        <div>
+            <label>Nom de l'exoplanète découverte : </label>
+            <input type="text" name="uniqueNameExoplanet" />
+        </div>
+        <div>
+            <label>Classe Habitable de l'exoplanète : </label>
+            <select name="hclass">
+                <option value="Mésoplanète"> Mésoplanète</option>
+                <option value="Psychroplanète">Psychroplanète</option>
+                <option value="Thermoplanète">Thermoplanète</option>
+                <option value="Hypopsychroplanète">Hypopsychroplanète</option>
+                <option value="Non Habitable">Non Habitable</option>
+            </select>
+        </div>
+        <div>
+            <label> Année de découverte </label>
+            <input type="number" min="2000" max="2025" step="1" value="2022" name="discoveryYearExoplanet" />
+        </div>
+        <div>
+            <label>IST</label>
+            <input type="number" name="ist" step="0.01">
+        </div>
+        <div>
+            <label>pClass</label>
+            <input type="text" name="pclass">
+        </div>
+
+        <div>
+            <input type="submit" value="Envoyer">
+        </div>
+    </form>
+</section>
+<section>
+    <h1> Recherche d'une Exoplanète déjà découverte </h1>
+        <form action="/exoplanets/search" method="get">
+            <input type="text" minlength="3"  name="exoplanet_id">
+            <input type="submit" value="Rechercher">
+    </form>
+    {{#exists min3charOK}}
+        {{#unless min3charOK }}
+            <p class="error-message1"> Veuillez entrer 3 caractères au minimum</p>
+        {{else}}
+            {{#unless listeExoplanetes}}
+                <p class="error-message1">Aucune exoplanète trouvée</p>
+            {{/unless}}
+        {{/unless}}
+    {{/exists}}
+</section>
