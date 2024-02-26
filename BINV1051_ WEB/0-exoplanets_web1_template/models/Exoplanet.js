@@ -8,7 +8,7 @@ module.exports.list = () => {
 
   
 module.exports.add = (exoplanet) => {
-    const stmt_insert = db.prepare('INSERT INTO exoplanets (unique_name, hclass, discovery_year, ist, pclass) VALUES (?, ?, ?, ? ,?)');
+    const stmt_insert = db.prepare('INSERT INTO EXOPLANETS(unique_name, hclass, discovery_year, ist, pclass) VALUES (?, ?, ?, ? ,?)');
     //run -> return infos about changes made
     const info = stmt_insert.run(exoplanet.unique_name, exoplanet.hclass, exoplanet.discovery_year, exoplanet.ist, exoplanet.pclass);
 };
@@ -17,12 +17,12 @@ module.exports.add = (exoplanet) => {
 
 module.exports.search = (unique_name) => {
 
-    return db.prepare('SELECT * FROM exoplanets WHERE unique_name LIKE ?').all(unique_name + '%');
+    return db.prepare('SELECT * FROM EXOPLANETS WHERE unique_name LIKE ?').all(unique_name + '%');
 }
 
 
-module.exports.delete = (id) => {
-    const info = db.prepare('DELETE FROM exoplanets WHERE exoplanet_id = ?').run(id);
+module.exports.delete = (exoplanet_id) => {
+    const info = db.prepare('DELETE FROM EXOPLANETS WHERE exoplanet_id = ?').run(exoplanet_id);
     console.log("exoplanet model delete" + info.changes);
 };
 

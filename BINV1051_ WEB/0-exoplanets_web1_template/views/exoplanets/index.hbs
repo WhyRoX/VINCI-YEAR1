@@ -18,12 +18,16 @@
             </td>
             <td>{{this.hclass}} </td>
             <td>{{this.discovery_year}} </td>
+            <td>{{this.ist}}</td>
+            <td>{{this.pclass}}</td>
             <td>
                 <form method="POST" action="/exoplanets/delete">
                     <input type="hidden" name="id" value="{{this.exoplanet_id}}">
                     <input type="submit" value="Supprimer">
                 </form>
             </td>
+            
+
         </tr>
         {{/each}}
     </table>
@@ -34,7 +38,7 @@
     <form action="/exoplanets/add" method="post">
         <div>
             <label>Nom de l'exoplanète découverte : </label>
-            <input type="text" name="uniqueNameExoplanet" />
+            <input type="text" name="unique_name" />
         </div>
         <div>
             <label>Classe Habitable de l'exoplanète : </label>
@@ -48,7 +52,7 @@
         </div>
         <div>
             <label> Année de découverte </label>
-            <input type="number" min="2000" max="2025" step="1" value="2022" name="discoveryYearExoplanet" />
+            <input type="number" min="2000" max="2025" step="1" value="2022" name="discovery_year" />
         </div>
         <div>
             <label>IST</label>
@@ -67,7 +71,7 @@
 <section>
     <h1> Recherche d'une Exoplanète déjà découverte </h1>
         <form action="/exoplanets/search" method="get">
-            <input type="text" minlength="3"  name="exoplanet_id">
+            <input type="text" name="exoplanet_id">
             <input type="submit" value="Rechercher">
     </form>
     {{#exists min3charOK}}

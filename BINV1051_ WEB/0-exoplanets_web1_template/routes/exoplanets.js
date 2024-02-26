@@ -7,7 +7,7 @@ const Exoplanet = require('../models/Exoplanet.js');
 /* GET exoplanets index. */
 router.get('/', (req, res) => {
     const listeExoplanetes = Exoplanet.list();
-  res.render('exoplanets/exoplanets.hbs', { listeExoplanetes });
+  res.render('exoplanets/index.hbs', { listeExoplanetes });
 });
 
 /* POST add exoplanet. */
@@ -25,15 +25,16 @@ router.post('/add', (req, res) => {
 
 
 /* GET search exoplanet. */
-router.get('/search', (req, res) => {
+router.get('/search', function (req, res, next) {
     const uniqueNameExoplanetParam = req.query.unique_name;
-    let details = null;
-    if (uniqueNameExoplanetParam.lenght >= 3) {
+    let min3charOK = false;
+    let listeExoplanetes = null;
+    if (uniqueNameExoplanetParam && uniqueNameExoplanetParam.length >= 3) {
         min3charOK = true;
-        details = Exoplanet.search(uniqueNameExoplanetParam);
+        listeExoplanetes = Exoplanet.search(uniqueNameExoplanetParam);
     }
 
-    res.render('exoplanets/index.hbs', { listeExoplanetes, min3charOK, exoplanet : details });
+    res.render('exoplanets/index.hbs', { listeExoplanetes, min3charOK});
 });
 
 router.post('/delete', (req, res, next) => {
@@ -49,8 +50,8 @@ router.get('/details', function (req, res, next) {
     // convert string req.query.id to int
     // another solution is to use == instead of === in if instruction
     const exoplanetIdParam = parseInt(req.query.exoplanet_id);
-    const details = Exoplanet.findById(exoplanetIdParam);
-    res.render('exoplanets/details.hbs', { exoplanet: details });
+    const exoplanetFound = Exoplanet.findById(exoplanetIdParam);
+    res.render('exoplanets/details.hbs', { exoplanet: exoplanetFound });
 
 });
 
