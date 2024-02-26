@@ -5,20 +5,20 @@ const Exoplanet = require('../models/Exoplanet.js');
 
 
 /* GET exoplanets index. */
-router.get('/', (req, res) => {
-    const listeExoplanetes = Exoplanet.list();
-  res.render('exoplanets/index.hbs', { listeExoplanetes });
+router.get('/', function (req, res, next) {
+    const exoplanetsTable = Exoplanet.list();
+    res.render('exoplanets/index.hbs', { exoplanetsTable });
 });
+
 
 /* POST add exoplanet. */
 router.post('/add', (req, res) => {
-    Exoplanet.add({
+    Exoplanet.save({
       unique_name: req.body.unique_name,
       hclass: req.body.hclass,
       discovery_year: req.body.discovery_year,
-      ist: req.body.ist,
-      pclass: req.body.pclass
     });
+
     res.redirect('/exoplanets');
 });
 
@@ -28,13 +28,13 @@ router.post('/add', (req, res) => {
 router.get('/search', function (req, res, next) {
     const uniqueNameExoplanetParam = req.query.unique_name;
     let min3charOK = false;
-    let listeExoplanetes = null;
-    if (uniqueNameExoplanetParam && uniqueNameExoplanetParam.length >= 3) {
+    let exoplanetsTable = null;
+    if (uniqueNameExoplanetParam.length >= 3) {
         min3charOK = true;
-        listeExoplanetes = Exoplanet.search(uniqueNameExoplanetParam);
+        exoplanetsTable = Exoplanet.search(uniqueNameExoplanetParam);
     }
 
-    res.render('exoplanets/index.hbs', { listeExoplanetes, min3charOK});
+    res.render('exoplanets/index.hbs', { exoplanetsTable, min3charOK });
 });
 
 router.post('/delete', (req, res, next) => {
@@ -42,6 +42,7 @@ router.post('/delete', (req, res, next) => {
     Exoplanet.delete(req.body.exoplanet_id);
     res.redirect('/exoplanets');
 });
+
 
 
 /* GET details exoplanet. */
@@ -54,6 +55,7 @@ router.get('/details', function (req, res, next) {
     res.render('exoplanets/details.hbs', { exoplanet: exoplanetFound });
 
 });
+
 
 
 /*router.get('/details', (req, res) => {

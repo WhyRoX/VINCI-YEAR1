@@ -7,27 +7,20 @@
             <th>hClass</th>
             <th>Année de découverte</th>
             <th>Actions</th>
-            <th>IST</th>
-            <th>pClass</th>            
-            
         </tr>
-        {{#each listeExoplanetes}}
+        {{#each exoplanetsTable}}
         <tr>
             <td>{{this.exoplanet_id}}</td>
             <td><a href="http://localhost:3000/exoplanets/details?id={{this.exoplanet_id}}"> {{this.unique_name}} </a>
             </td>
             <td>{{this.hclass}} </td>
             <td>{{this.discovery_year}} </td>
-            <td>{{this.ist}}</td>
-            <td>{{this.pclass}}</td>
             <td>
                 <form method="POST" action="/exoplanets/delete">
                     <input type="hidden" name="id" value="{{this.exoplanet_id}}">
                     <input type="submit" value="Supprimer">
                 </form>
             </td>
-            
-
         </tr>
         {{/each}}
     </table>
@@ -70,15 +63,16 @@
 </section>
 <section>
     <h1> Recherche d'une Exoplanète déjà découverte </h1>
-        <form action="/exoplanets/search" method="get">
-            <input type="text" name="exoplanet_id">
-            <input type="submit" value="Rechercher">
+
+    <form action="/exoplanets/search" method="get">
+        <input type="text" name="unique_name">
+        <input type="submit" value="Rechercher">
     </form>
     {{#exists min3charOK}}
         {{#unless min3charOK }}
             <p class="error-message1"> Veuillez entrer 3 caractères au minimum</p>
         {{else}}
-            {{#unless listeExoplanetes}}
+            {{#unless exoplanetsTable}}
                 <p class="error-message1">Aucune exoplanète trouvée</p>
             {{/unless}}
         {{/unless}}
