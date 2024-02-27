@@ -54,9 +54,51 @@ router.get('/details', function (req, res, next) {
     // another solution is to use == instead of === in if instruction
     const exoplanetIdParam = parseInt(req.query.exoplanet_id);
     const exoplanetFound = Exoplanet.findById(exoplanetIdParam);
-    res.render('exoplanets/details.hbs', { exoplanets: exoplanetFound });
+    res.render('exoplanets/details.hbs', { exoplanet: exoplanetFound });
 
 });
+
+router.get('/filter', function (req, res, next) {
+    const filter = req.query.filter;
+    let exoplanetsTableFilter = [];
+    if (filter === "Filtrer par hclass") {
+      console.log("GET FILTER EXOPLANET HCLASS");
+      exoplanetsTableFilter = Exoplanet.searchByHclass(req.query.hclass);
+    }
+    if (filter === "Filtrer par année") {
+      console.log("GET FILTER EXOPLANET ANNEE");
+      const discoveryYearParam = parseInt(req.query.discovery_year);
+      exoplanetsTableFilter = Exoplanet.searchByYear(discoveryYearParam);
+      }
+    // param exoplanetsTable must be the same but with a different value (table filtering)
+    res.render('exoplanets/index.hbs', { exoplanetsTable: exoplanetsTableFilter });
+});
+  
+
+// display form to update exoplanet
+router.get('/update', function (req, res, next) {
+    console.log("GET UPDATE EXOPLANET");
+    const exoplanetIdParam = parseInt(req.query.exoplanet_id);
+    const exoplanetFound = Exoplanet.findById(exoplanetIdParam);
+    res.render('exoplanets/update.hbs', { exoplanet: exoplanetFound });
+});
+
+
+/* POST update exoplanet. */
+router.post('/update', function (req, res, next) {
+    console.log("POST UPDATE EXOPLANET");
+    Exoplanet.save({
+        id: parseInt(req.body.exoplanet_id),
+        unique_name: req.body.unique_name,
+        hclass: req.body.hclass,
+        discovery_year: parseInt(req.body.discovery_year),
+        ist: parseFloat(req.body.ist),
+        pclass: req.body.pclass
+    });
+
+    res.redirect('/exoplanets');
+});
+
 
 
 
