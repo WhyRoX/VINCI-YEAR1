@@ -158,7 +158,7 @@ public class Relation extends RelationDeBase {
 	}
 
 	// Clôture la Relation courante pour la transitivité (Warshall)
-	public void cloTrans3() {
+	public void cloTrans() {
 		if (!depart().equals(arrivee())) throw new MathException();
 		for (Elt k : arrivee()) {
 			for (Elt i : arrivee()) {
@@ -196,7 +196,7 @@ public class Relation extends RelationDeBase {
         }
     }
 	int iter = 0;
-	public void cloTrans(){
+	public void cloTrans3(){
 		if (!depart().equals(arrivee())) throw new MathException();
 		for (int i = 0; i < MAX; i++) {
 			ajouter(apres(this));
@@ -243,40 +243,69 @@ public class Relation extends RelationDeBase {
 
 	// renvoie true ssi this est antisymétrique
 	public boolean antisymetrique(){
-		if (!depart().equals(arrivee())) throw new MathException();
-		for (Couple c : clone()){
-			if (contient(c.getY(),c.getX())) return false;
+		if(!this.depart().equals(this.arrivee())) throw new MathException();
+		for(Couple couple : this){
+			if(!couple.getX().equals(couple.getY()) && this.contient(couple.reciproque())) return false;
 		}
 		return true;
 	}
 
 	// renvoie true ssi  this est transitive
 	public boolean transitive(){
-		//TODO
-		return false;
+		if(!depart().equals(arrivee())) throw new MathException();
+		for(Couple couple : this){
+			for(Couple couple2 : this){
+				if(couple.getY().equals(couple2.getX()) && !contient(couple.getX(), couple2.getY())) return false;
+			}
+		}
+		return true;
 	}
 	
 	// Ex 6
 	//Construit une copie de la relation en paramètre
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public Relation(RelationInterface r) {
-		//TODO
-		this();
-
+		super();
+		if(r == null) throw new IllegalArgumentException();
+		for(Elt elt : r.depart()) {
+			this.ajouterDepart(elt);
+		}
+		for(Elt elt : r.arrivee()) {
+			this.ajouterArrivee(elt);
+		}
+		for(Couple c : r) {
+			this.ajouter(c);
+		}
 	}
 
 	//renvoie l'identité sur e
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public static Relation identite(EnsembleAbstrait e) {
-		//TODO
-		return null;
+		if(e == null)
+			throw new IllegalArgumentException();
+		Relation aRenvoyer = new Relation(e, e);
+		for(Elt elt : e ){
+			Couple couple = new Couple(elt, elt);
+			aRenvoyer.ajouter(couple);
+		}
+		return aRenvoyer;
 	}
 
 	//renvoie le produit cartésien de a et b
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public static Relation produitCartesien(EnsembleAbstrait a, EnsembleAbstrait b) {
-			//TODO
-		return null;
+		if(a == null || b == null){
+			throw new IllegalArgumentException();
+		}
+		Relation aRenvoyer = new Relation(a, b);
+		for(Elt elt : a){
+			for(Elt elt2 : b){
+				Couple couple = new Couple(elt, elt2);
+				aRenvoyer.ajouter(couple);
+			}
+		}
+		return aRenvoyer;
 	}
+
 
 } // class Relation

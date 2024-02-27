@@ -38,6 +38,13 @@
                     <input type="submit" value="Supprimer">
                 </form>
             </td>
+            <td>
+                <form method="get" action="/exoplanets/update">
+                    <input type="hidden" name="id" value="{{this.exoplanet_id}}">
+                    <input type="submit" value="Mettre à jour">
+                </form>
+
+            </td>
         </tr>
         {{/each}}
     </table>

@@ -216,6 +216,34 @@ public class ListeRecCaracteres {
 		n2.suivant = new NoeudCaractere(n1.caractere, null);
 		clone(n1.suivant, n2.suivant);
 	}
+	public int supprimerToutesLesOccurrences2(char caractereASupprimer){
+		// check de la tete
+		if(tete == null) return 0;
+		// si tete == a supprimer il faut donc redefenir la tete
+		if(tete.caractere == caractereASupprimer){
+			// avant de redefinir la tete je supprime les autres
+			int o = supprimerToutesLesOccurrences2(tete,caractereASupprimer);
+			// redefinition de la tete
+			tete =  tete.suivant;
+			// si tete donc o + 1
+			return o+1;
+		}
+		return supprimerToutesLesOccurrences2(tete,caractereASupprimer);
+	}
+
+	private int supprimerToutesLesOccurrences2(NoeudCaractere noeudCaractere, char caractereASupprimer){
+		if(noeudCaractere == null)
+			return 0;
+		if(noeudCaractere.suivant == null)
+			return 0;
+
+		// je regarde le suivant (Pourquoi le suivant ? Pour redefinir le .suivant du noeud actuel)
+		if(noeudCaractere.suivant.caractere == caractereASupprimer){
+			noeudCaractere.suivant = noeudCaractere.suivant.suivant;
+			return 1+supprimerToutesLesOccurrences2(noeudCaractere,caractereASupprimer);
+		}
+		return supprimerToutesLesOccurrences2(noeudCaractere.suivant,caractereASupprimer);
+	}
 
 
 	
@@ -227,6 +255,7 @@ public class ListeRecCaracteres {
 	public int supprimerToutesLesOccurrences(char caractereASupprimer){
 		if (!contient(caractereASupprimer)) return 0;
 		// int suppr ne fonctionne pas car la valeur de la variable est perdue a chaque appel recursif
+		// int suppr = 0;
 		int[] suppr = new int[1];
 		tete = supprimerToutesLesOccurrences(tete, caractereASupprimer, suppr);
 		return suppr[0];
@@ -242,6 +271,7 @@ public class ListeRecCaracteres {
 		return noeud;
 	}
 	/*
+
 
 
 
