@@ -7,34 +7,53 @@ public class Ordre extends RelationAbstraite {
 	//construit l'identité sur e
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public Ordre(EnsembleAbstrait e) {
-		//TODO
+		if (e==null) throw new IllegalArgumentException();
+		couples = new Relation(e, e);
+		for (Elt elt : e) {
+			couples.ajouter(new Couple(elt, elt));
+		}
 	}
 
 	//construit le plus petit ordre contenant r
 	//lance une IllegalArgumentException si cette construction n'est pas possible
 	public Ordre(Relation r) {
-		//TODO
+		if (r==null) throw new IllegalArgumentException();
+		if (!r.arrivee().equals(r.depart())) throw new IllegalArgumentException();
+		couples = new Relation(r);
+		couples.cloReflex();
+		couples.cloTrans();
+		if (!couples.antisymetrique()) throw new IllegalArgumentException();
 	}
 	
 	//constructeur pas recopie
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public Ordre(Ordre or) {
-		//TODO
+		if (or==null) throw new IllegalArgumentException();
+		couples = new Relation(or.couples);
+
 	}
 
 	//ajoute x à l'ensemble sous-jacent de la relation d'ordre
 	//ne fait rien si x est déjà dans l'ensemble sous-jacent
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public void ajouterAuSousJacent(Elt x) {
-		//TODO
+		if (x==null) throw new IllegalArgumentException();
+		if (!depart().contient(x)) {
+			couples.ajouterDepart(x);
+			couples.ajouterArrivee(x);
+			couples.ajouter(new Couple(x, x));
+		}
 	}
-
 	//enlève x de l'ensemble sous-jacent de la relation d'ordre
 	//ainsi que toutes les flêches liées à x
 	//ne fait rien si x n'est pas dans l'ensemble sous-jacent 
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public void enleverDuSousJacent(Elt x) {
-		//TODO
+		if (x==null) throw new IllegalArgumentException();
+		if (depart().contient(x)) {
+			couples.supprimerDepart(x);
+			couples.supprimerArrivee(x);
+		}
 	}
 	
 	@Override
@@ -132,22 +151,39 @@ public class Ordre extends RelationAbstraite {
 	//renvoie true ssi x et y sont comparables pour l'ordre courant
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public boolean comparables(Elt x, Elt y) {
-		//TODO
-		return false;
+		if (x==null) throw new IllegalArgumentException();
+		if (y==null) throw new IllegalArgumentException();
+		return contient(new Couple(x, y))  || contient(new Couple(y, x));
 	}
 
 	// Renvoie l'ensemble des éléments minimaux de b
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public EnsembleAbstrait minimaux(EnsembleAbstrait b) {
-		//TODO
-		return null;
+		if (b==null || !b.inclusDans(depart())) throw new IllegalArgumentException();
+		EnsembleAbstrait ensemble = new Ensemble();
+		for (Elt e : b) {
+			boolean min = true;
+			for (Elt f : b){
+				if(!f.equals(e) && contient(new Couple(f,e))) min = false;
+			}
+			if(min) ensemble.ajouter(e);
+		}
+		return ensemble;
 	}
 	
 	// Renvoie l'ensemble des éléments maximaux de b
 	//lance une IllegalArgumentException en cas de paramètre invalide
 	public EnsembleAbstrait maximaux(EnsembleAbstrait b) {
-		//TODO
-		return null;
+		if (b == null || !b.inclusDans(couples.depart())) throw new IllegalArgumentException();
+		EnsembleAbstrait ensemble = new Ensemble();
+		for (Elt e : b){
+			boolean grand = true;
+			for (Elt f : b){
+				if(!f.equals(e) && couples.contient(new Couple(e, f))) grand = false;
+			}
+			if(grand) ensemble.ajouter(e);
+		}
+		return ensemble;
 	}
 
 	// Renvoie le minimum de b s'il existe; renvoie null sinon
