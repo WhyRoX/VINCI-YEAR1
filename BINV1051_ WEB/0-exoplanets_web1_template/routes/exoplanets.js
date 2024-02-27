@@ -55,7 +55,7 @@ router.get('/details', function (req, res, next) {
     const exoplanetIdParam = parseInt(req.query.exoplanet_id);
     const exoplanetFound = Exoplanet.findById(exoplanetIdParam);
     res.render('exoplanets/details.hbs', { exoplanet: exoplanetFound });
-
+// essayer en enlevant exoplanet:
 });
 
 router.get('/filter', function (req, res, next) {
