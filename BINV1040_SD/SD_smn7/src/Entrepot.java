@@ -87,6 +87,30 @@ public class Entrepot {
 		// veuillez suivre les indications donnees dans l'enonce!
 
 	}
+	public int attribuerHangar(int numeroSociete, String nomSociete) {
+		if (!checkHangarDispo()) return -1;
+		Societe societeTemp = new Societe(numeroSociete, nomSociete);
+		if (!societeMap.containsKey(numeroSociete))
+			societeMap.put(numeroSociete, societeTemp);
+		int numeroHangar = -1;
+		if (numeroSociete >= tableHangars.length) numeroHangar = numeroSociete % tableHangars.length;
+		else numeroHangar = numeroSociete;
+		while (tableHangars[numeroHangar].getSociete() != null) {
+			if (numeroHangar >= tableHangars.length - 1)
+				numeroHangar = -1;
+			numeroHangar++;
+		}
+		societeMap.get(numeroSociete).ajouterHangar(numeroHangar);
+		tableHangars[numeroHangar].setSociete(societeTemp);
+		nombreHangarsOccupes++;
+		return numeroHangar;
+	}
+
+	public String listeHangars(int numeroSociete) {
+		if (societeMap.get(numeroSociete) == null)
+			return "La societe n'existe pas ! ";
+		return societeMap.get(numeroSociete).lesHangars();
+	}
 	
 
 
