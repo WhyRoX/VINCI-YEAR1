@@ -1,5 +1,5 @@
 /** Classe Equivalence
-	 Chaque instance de cette classe est une relation d'équivalence sur un sous-ensemble de l'Univers
+	 Chaque instance de cette classe est une relation d'ï¿½quivalence sur un sous-ensemble de l'Univers
  */
 
 import java.util.*;
@@ -7,52 +7,88 @@ import java.util.*;
 public class Equivalence extends RelationAbstraite {
 
 	private EnsembleAbstrait sousJac; // ensemble sous-jacent
-	private Elt[] tabRep; // tableau des représentants
-	private int numVersion; // numéro de version
+	private Elt[] tabRep; // tableau des reprï¿½sentants
+	private int numVersion; // numï¿½ro de version
 
 
-	// Construit l’identité sur e
-	// Lance une IllegalArgumentException en cas de paramètre invalide 
+	// Construit lï¿½identitï¿½ sur e
+	// Lance une IllegalArgumentException en cas de paramï¿½tre invalide 
 	public Equivalence(EnsembleAbstrait e) {
-		//TODO
-	}
-	
-	
-	// ajoute (si nécessaire) l’arête x-y au diagramme de classes de
-	// l’Equivalence courante ; autrement dit, fusionne les classes de
-	// c.getx() et de c.gety(). 
-	// Lance une IllegalArgumentException en cas de paramètre invalide 
-	public void ajouter(Couple c) {
-		//TODO
+		if (e == null)
+			throw new IllegalArgumentException("Equivalence : parametre null");
+		sousJac = new Ensemble(e);
+		tabRep = new Elt[MAX+1];
+		numVersion = 1;
+		for (Elt elt : e) {
+			tabRep[elt.val()] = elt;
+		}
+
 	}
 
-	// Construit la clôture équivalente de r, pour autant que celle-ci soit une relation sur un ensemble.
+
+	// ajoute (si nÃ©cessaire) lâ€™arÃªte x-y au diagramme de classes de
+	// lâ€™Equivalence courante ; autrement dit, fusionne les classes de
+	// c.getx() et de c.gety().
+	// Lance une IllegalArgumentException en cas de paramÃ¨tre invalide
+	public void ajouter(Couple c) {
+		if (c == null || !sousJac.contient(c.getX()) || !sousJac.contient(c.getY()))
+			throw new IllegalArgumentException("Equivalence : parametre null or element not in set");
+		Elt aRemp = tabRep[c.getX().val()];
+		Elt rempPar = tabRep[c.getY().val()];
+		for (Elt elt : sousJac) {
+			if (tabRep[elt.val()].equals(aRemp) && !tabRep[elt.val()].equals(rempPar)) {
+				tabRep[elt.val()] = rempPar;
+				numVersion++;
+			}
+		}
+	}
+
+	// Construit la clï¿½ture ï¿½quivalente de r, pour autant que celle-ci soit une relation sur un ensemble.
 	// lance une IllegalArgumentException sinon
 	public Equivalence(Relation r) {
-		//TODO
+		if (r == null || r.depart() == null || r.arrivee() == null)
+			throw new IllegalArgumentException("Equivalence : parametre null");
+		sousJac = new Ensemble(r.depart());
+		tabRep = new Elt[MAX+1];
+		for (Elt elt : r.depart()) {
+			tabRep[elt.val()] = elt;
+		}
+		for (Couple couple : r) {
+			ajouter(couple);
+		}
+		numVersion = 1;
 	}
 
 	
-	// renvoie true si c.getx() et c.gety() sont dans la même classe et false sinon
-	// Lance une IllegalArgumentException en cas de paramètre invalide 
+	// renvoie true si c.getx() et c.gety() sont dans la mï¿½me classe et false sinon
+	// Lance une IllegalArgumentException en cas de paramï¿½tre invalide 
 	public boolean contient(Couple c) {
-		//TODO
-		return false;
+		if (c == null || !sousJac.contient(c.getX()) || !sousJac.contient(c.getY()))
+			throw new IllegalArgumentException();
+		return tabRep[c.getX().val()].equals(tabRep[c.getY().val()]);
 	}
 
-	// renvoie la classe d'équivalence de x, ou génère une IllegalArgumentException
-	// si e est null ou si e n'appartient pas à l'ensemble sous-jacent
+	// renvoie la classe d'ï¿½quivalence de x, ou gï¿½nï¿½re une IllegalArgumentException
+// si e est null ou si e n'appartient pas ï¿½ l'ensemble sous-jacent
 	public EnsembleAbstrait classe(Elt e) {
-		//TODO
-		return null;
+		if (e == null || !sousJac.contient(e))
+			throw new IllegalArgumentException();
+		EnsembleAbstrait res = new Ensemble();
+		Elt repE = tabRep[e.val()];
+		for (Elt elt : sousJac) {
+			if (tabRep[elt.val()].equals(repE)) {
+				res.ajouter(elt);
+			}
+		}
+		return res;
 	}
 
 	// Si c.getx()et c.gety() sont distincts et si la classe commune
 	// de c.getx() et c.gety() est {c.getx(),c.gety()}, alors cette classe
-	// sera scindée en deux classes.
-	// génère une IllegalArgumentException si le paramètre est invalide,
-	// ou si c.getx(), c.gety() sont dans la même classe  mais qu'on n'est pas 
-	// dans le cas où on peut scindée cette classe.
+	// sera scindï¿½e en deux classes.
+	// gï¿½nï¿½re une IllegalArgumentException si le paramï¿½tre est invalide,
+	// ou si c.getx(), c.gety() sont dans la mï¿½me classe  mais qu'on n'est pas 
+	// dans le cas oï¿½ on peut scindï¿½e cette classe.
 	public void enlever(Couple c) {
 		//TODO
 	}
@@ -63,7 +99,7 @@ public class Equivalence extends RelationAbstraite {
 		return -1;
 	}
 
-	// renvoie le quotient de l’ensemble sous-jacent par l'Equivalence
+	// renvoie le quotient de lï¿½ensemble sous-jacent par l'Equivalence
 	// courante
 	public EnsembleAbstrait[] quotient() {
 		//TODO
@@ -85,7 +121,7 @@ public class Equivalence extends RelationAbstraite {
 		return sousJac.clone();
 	}
 	
-	/** renvoie un itérateur sur l'Equivalence courante */
+	/** renvoie un itï¿½rateur sur l'Equivalence courante */
 	public Iterator<Couple> iterator() {
 		return new EquivalenceIterator();
 	}
