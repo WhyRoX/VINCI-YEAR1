@@ -60,7 +60,7 @@ public class GestionEntrepot {
     }
 
     private static void listerLesHangars() {
-        //TODO
+
         //System.out.println("Vous devez completer la methode listerLesHangars()");
 
     }
