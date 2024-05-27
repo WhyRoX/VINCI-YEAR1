@@ -1,0 +1,21 @@
+A1:
+a) 8,5,3,7,6,9,4,2
+b) 3,5,6,7,8,9,2,4
+c) 3,6,7,5,2,4,9,8
+d) 8  5,9  3,7,4  6,2
+
+A2:
+L’évaluation (a) d’une expression arithmétique, p.ex. exp1 * exp2,
+implique d’évaluer
+d’abord les expressions exp1 (sous-arbre de gauche) et exp2
+(sous-arbre de droite)
+pour pouvoir évaluer ensuite l’opération * (nœud courant).
+L’évaluation correspond donc à un post-ordre.
+
+Par contre, la notation infixe (b) d’une expression arithmétique,
+p.ex. exp1 * exp2, respecte un in-ordre
+puisqu’on note d’abord exp1 (sous-arbre de gauche), puis
+l’opérateur * (nœud courant) et pour finir exp2 (sous-arbre de droite)
+
+A3:
+in-ordre

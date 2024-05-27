@@ -52,7 +52,7 @@ public class DicoSD {
 	 */
 	public String lesURLs(String sd){
 		if (dico.containsKey(sd)) {
-			return dico.get(sd).toString();
+			return dico.get(sd).toString();	
 		} else {
 			return "[]";
 		}
