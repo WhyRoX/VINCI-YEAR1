@@ -15,41 +15,37 @@ public class FileDePrioriteImpl<E> implements FileDePriorite<E>{
 	@Override
 	public void insere(E e) {
 		insere(racine,e);
-		//contrainte : ecrivez cette methode de facon recursive
-		//Lisez bien les explications sur l'utilisation de la methode compare() dans l'enonce
 	}
-	/**On fait le choix que la descendance gauche d’un nœud ne contiendra que des
-	éléments de priorité supérieure à l’élément de ce nœud et
-	la descendance droite d’un nœud ne contiendra que des éléments de priorité inférieure ou égale.**/
-	private void insere(Noeud noeud, E e) {
-		if (noeud == null){
+	private void insere(Noeud n, E e) {
+		if (n == null){
 			racine = new Noeud(e);
-		} else if (comparateur.compare(e, noeud.element) <= 0) {
-			if (noeud.droit == null){
-				noeud.droit = new Noeud(e);
+		} else if (comparateur.compare(e, n.element) <= 0) {
+			if (n.gauche == null){
+				n.gauche = new Noeud(e);
 			}
-			else insere(noeud.droit,e);
+			else insere(n.gauche, e);
 		}
 		else {
-			if (noeud.gauche == null) {
-				noeud.gauche = new Noeud(e);
+			if (n.droit == null){
+				n.droit = new Noeud(e);
 			}
-			else insere(noeud.gauche, e);
+			else insere(n.droit,e);
 		}
 	}
+
 
 
 	@Override
 	public E max() {
-
-		//contrainte : ecrivez cette methode de facon recursive
 		return max(racine);
 	}
-	private E max(Noeud n) {
+	private E max(Noeud n){
 		if (n == null) return null;
-		if (n.gauche == null) return n.element;
-		return max(n.gauche);
+		if (n.droit == null) return n.element;
+		return max(n.droit);
 	}
+
+
 
 	@Override
 	public Iterator<E> iterator() {
@@ -102,16 +98,18 @@ public class FileDePrioriteImpl<E> implements FileDePriorite<E>{
 			file = new ArrayDeque();
 			remplirFile(racine);
 		}
-		/**On fait le choix que la descendance gauche d’un nœud ne contiendra que des
-		 éléments de priorité supérieure à l’élément de ce nœud et
-		 la descendance droite d’un nœud ne contiendra que des éléments de priorité inférieure ou égale.**/
-		private void remplirFile (Noeud n) {
 
+		private void remplirFile (Noeud n) {
 			if (n == null) return;
-			remplirFile(n.gauche);
-			file.add(n.element);
 			remplirFile(n.droit);
-			//cette methode est une methode recursive !
+			file.add(n.element);
+			remplirFile(n.gauche);
+			//TODO
+			// cette methode est une methode recursive
+			// elle est appelee par le constructeur
+			// elle se charge de remplir la file avec tous les elements de l'arbre
+			// les elements y apparaitront du plus prioritaire au moins prioritaire
+
 		}
 
 		public boolean hasNext () {

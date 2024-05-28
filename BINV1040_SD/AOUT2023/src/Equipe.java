@@ -6,66 +6,68 @@ public class Equipe {
     private HashMap<String, Noeud> mapEquipierNoeud;
 
     /**
-     * cree une nouvelle liste avec le chef d'equipe en tete
-     * @param chefEquipe
+     * cree une liste vide
      */
-    public Equipe(String chefEquipe) {
-        if(chefEquipe==null||chefEquipe.length()==0)
-            throw new IllegalArgumentException();
-        mapEquipierNoeud = new HashMap<>();
-        Noeud nvNoeud = new Noeud(chefEquipe);
-        tete = nvNoeud;
-        queue = nvNoeud;
-        mapEquipierNoeud.put(chefEquipe,nvNoeud);
+    public Equipe() {
+        mapEquipierNoeud = new HashMap<String, Noeud>();
+        tete = new Noeud();
+        queue = new Noeud();
+        tete.suivant = queue;
+        queue.precedent = tete;
     }
 
     /**
-     * insere un nouvel equipier dans la liste a condition qu'il ne soit pas deja present
-     * ce nouvel equipier est place directement apres le chef d'equipe
-     * @param nouvelEquipier
-     * @return true si l'ajout a pu etre fait, false sinon
+     * verifie la presence d'un equipier dans la liste
+     * @param equipier l'equipier verifie
+     * @return true si l'equipier est present, false sinon
      */
-    public boolean insererApresChef(String nouvelEquipier){
+    public boolean contient (String equipier){
+        if(equipier==null||equipier.length()==0)
+            throw new IllegalArgumentException();
+        
+        return mapEquipierNoeud.containsKey(equipier);
+    }
+
+    /**
+     * ajoute un nouvel equipier en fin de liste a condition qu'il ne soit pas deja present
+     * @param nouvelEquipier l'equipier a ajouter
+     * @return true si l'ajout a pu se faire, false sinon
+     */
+    public boolean ajouterEnFin(String nouvelEquipier){
         if(nouvelEquipier==null||nouvelEquipier.length()==0)
             throw new IllegalArgumentException();
         if (mapEquipierNoeud.containsKey(nouvelEquipier)) return false;
         Noeud nvNoeud = new Noeud(nouvelEquipier);
-        nvNoeud.suivant = tete.suivant;
-        tete.suivant = nvNoeud;
-        nvNoeud.precedent = tete;
-        if (nvNoeud.suivant == null) nvNoeud = queue;
-        else nvNoeud.suivant.precedent = nvNoeud;
-        mapEquipierNoeud.put(nouvelEquipier,nvNoeud);
-       return true;
+        nvNoeud.precedent = queue.precedent;
+        nvNoeud.suivant = queue;
+        queue.precedent.suivant = nvNoeud;
+        queue.precedent = nvNoeud;
+        mapEquipierNoeud.put(nouvelEquipier, nvNoeud);
+        return true;
     }
 
     /**
-     * supprime tous les equipiers de la liste a partir de l'equipier passe en parametre
-     * ne fait aucune suppression si l'equipier est le chef d'equipe
-     * ou si l'equipier ne fait pas partie de la liste
-     * @param equipier l'equipier a partir duquel les suppressions sont effectuees
+     * supprime tous les equipiers de la liste qui se trouvent apres l'equipier passe en parametre
+     * ne fait aucune suppression si l'equipier ne fait pas partie de la liste ou s'il est le dernier
+     * @param equipier l'equipier apres lequel les suppressions sont effectuees
      * @return true si au moins une suppression a ete faite, false sinon
      */
-    public boolean tronquerAPartir(String equipier){
+    public boolean tronquerApres(String equipier){
         if(equipier==null||equipier.length()==0)
             throw new IllegalArgumentException();
         if(!mapEquipierNoeud.containsKey(equipier)){
             return false;
         }
         Noeud noeud = mapEquipierNoeud.get(equipier);
-        if(noeud==tete){
-            return false;
-        }
-        Noeud avant = noeud.precedent;
-        avant.suivant = null;
-        queue = avant;
-        while (noeud != null) {
-            mapEquipierNoeud.remove(noeud.equipier);
-            noeud = noeud.suivant;
-        }
+        if (noeud.suivant == queue) return false;
 
-        // supprimer egalement l'equipier
-
+        Noeud baladeur = noeud.suivant;
+        baladeur.suivant = queue;
+        queue.precedent = noeud;
+        while (baladeur != null){
+            mapEquipierNoeud.remove(baladeur.equipier);
+            baladeur = baladeur.suivant;
+        }
         return true;
     }
 
@@ -81,20 +83,21 @@ public class Equipe {
     //A NE PAS MODIFIER
     // pour les tests
     public Equipe(String[] tableACopier) {
-        if(tableACopier==null||tableACopier.length==0)
+        if(tableACopier==null)
             throw new IllegalArgumentException();
         mapEquipierNoeud = new HashMap<String, Noeud>();
-        tete = new Noeud(tableACopier[0]);
-        mapEquipierNoeud.put(tableACopier[0],tete);
+        tete = new Noeud();
         Noeud prec = tete;
-        for (int i = 1; i < tableACopier.length; i++) {
+        for (int i = 0; i < tableACopier.length; i++) {
             Noeud nouveauNoeud = new Noeud(tableACopier[i]);
             mapEquipierNoeud.put(tableACopier[i], nouveauNoeud);
             nouveauNoeud.precedent = prec;
             prec.suivant = nouveauNoeud;
             prec = nouveauNoeud;
         }
-        queue = prec;
+        queue = new Noeud();
+        queue.precedent = prec;
+        prec.suivant = queue;
     }
 
     //A NE PAS MODIFIER
@@ -102,9 +105,9 @@ public class Equipe {
     public String teteQueue(){
         try{
             String aRenvoyer = "(";
-            Noeud baladeur = tete;
+            Noeud baladeur = tete.suivant;
             int cpt=0;
-            while (baladeur != null) {
+            while (baladeur != queue) {
                 if(cpt==0)
                     aRenvoyer += baladeur.equipier;
                 else
@@ -130,9 +133,9 @@ public class Equipe {
     public String queueTete(){
         try{
             String aRenvoyer = "(";
-            Noeud baladeur = queue;
+            Noeud baladeur = queue.precedent;
             int cpt=0;
-            while (baladeur != null) {
+            while (baladeur != tete) {
                 if(cpt==0)
                     aRenvoyer += baladeur.equipier;
                 else

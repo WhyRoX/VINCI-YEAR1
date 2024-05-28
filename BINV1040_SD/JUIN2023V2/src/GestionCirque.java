@@ -3,24 +3,24 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 
-public class GestionFancyFair {
+public class GestionCirque {
 	
-	//private static Scanner scanner = new Scanner(System.in);
-	private static MonScanner scanner = new MonScanner("C:/Users/mysti/Desktop/VINCI/BINV1040_SD/JUIN2023V1/InputFF.txt");
 
-	private static FancyFair fancyFair;
+	private static MonScanner scanner = new MonScanner("C:/Users/mysti/Desktop/VINCI/BINV1040_SD/JUIN2023V2/InputCirque.txt");
+
+	private static Cirque cirque;
 
 	public static void main(String[] args) {	
 		
-		System.out.println("*****************************************************");
-		System.out.println("Gestion des reservations d'un spectacle de fancy fair");
-		System.out.println("*****************************************************");
+		System.out.println("*************************************************");
+		System.out.println("Gestion des reservations d'un spectacle de cirque");
+		System.out.println("*************************************************");
 	    System.out.println();
 		System.out.println("Configuration du spectacle");
 		System.out.println("--------------------------");
 		System.out.print("Entrez le nombre total de places : ");
 		int nombreTotalPlaces = scanner.nextInt();
-		System.out.print("Entrez le nombre d'enfants : ");
+		System.out.print("Entrez le nombre d'enfants du village : ");
 		int nombreEnfants = scanner.nextInt();
 		scanner.nextLine();
 		String[] tablePrenoms = new String[nombreEnfants];
@@ -30,7 +30,7 @@ public class GestionFancyFair {
 			tablePrenoms[i] = prenom;
 		}
 		try {
-			fancyFair = new FancyFair(nombreTotalPlaces, tablePrenoms);
+			cirque = new Cirque(nombreTotalPlaces, tablePrenoms);
 			System.out.println();
 			int choix = 0;
 			System.out.println("Reservations");
@@ -58,7 +58,7 @@ public class GestionFancyFair {
 						break;
 				}
 			} while (choix >= 1 && choix <= 3);
-			System.out.println("Fin des rervations!");
+			System.out.println("Fin des reservations!");
 		}catch(IllegalArgumentException e){
 			System.out.println("la configuration s'est mal passee ");
 			System.out.println("nombre de places ou table des prenoms invalide");
@@ -81,7 +81,7 @@ public class GestionFancyFair {
 		}
 		scanner.nextLine();
 		try {
-			if (fancyFair.reserver(prenom, ensemblePlaces)) {
+			if (cirque.reserver(prenom, ensemblePlaces)) {
 				System.out.println("La reservation a reussi!");
 			} else {
 				System.out.println("La reservation a echoue!");
@@ -96,7 +96,7 @@ public class GestionFancyFair {
 		// vous pouvez modifier cette methode comme vous voulez
 		// cette classe ne sera pas evaluee
 		// ne perdez pas de temps sur des affichages!
-		System.out.println(fancyFair);		
+		System.out.println(cirque);
 	}
 
 	private static void afficherEnfant() {
@@ -106,7 +106,7 @@ public class GestionFancyFair {
 		System.out.print("Entrez le prenom : ");
 		String prenom = scanner.nextLine();
 		try {
-			int[] tableReservation = fancyFair.placesReservees(prenom);
+			int[] tableReservation = cirque.placesReservees(prenom);
 			if(tableReservation==null){
 				System.out.println("null");
 			}else{

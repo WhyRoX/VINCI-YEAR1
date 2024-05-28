@@ -14,41 +14,42 @@ public class FileDePrioriteImpl<E> implements FileDePriorite<E>{
 
 	@Override
 	public void insere(E e) {
-		insere(racine,e);
+
+		insere(racine, e);
 		//contrainte : ecrivez cette methode de facon recursive
 		//Lisez bien les explications sur l'utilisation de la methode compare() dans l'enonce
 	}
-	/**On fait le choix que la descendance gauche d’un nœud ne contiendra que des
-	éléments de priorité supérieure à l’élément de ce nœud et
-	la descendance droite d’un nœud ne contiendra que des éléments de priorité inférieure ou égale.**/
-	private void insere(Noeud noeud, E e) {
-		if (noeud == null){
+	private void insere(Noeud n, E e) {
+
+		if (n == null) {
 			racine = new Noeud(e);
-		} else if (comparateur.compare(e, noeud.element) <= 0) {
-			if (noeud.droit == null){
-				noeud.droit = new Noeud(e);
+		} else if (comparateur.compare(e, n.element) <= 0) {
+			if (n.droit == null){
+				n.droit = new Noeud(e);
 			}
-			else insere(noeud.droit,e);
+			else insere(n.droit, e);
 		}
 		else {
-			if (noeud.gauche == null) {
-				noeud.gauche = new Noeud(e);
+			if (n.gauche == null){
+				n.gauche = new Noeud(e);
 			}
-			else insere(noeud.gauche, e);
+			else insere(n.gauche, e);
 		}
 	}
 
 
 	@Override
 	public E max() {
-
+		//TODO
 		//contrainte : ecrivez cette methode de facon recursive
 		return max(racine);
 	}
 	private E max(Noeud n) {
+
 		if (n == null) return null;
 		if (n.gauche == null) return n.element;
 		return max(n.gauche);
+
 	}
 
 	@Override
@@ -102,11 +103,8 @@ public class FileDePrioriteImpl<E> implements FileDePriorite<E>{
 			file = new ArrayDeque();
 			remplirFile(racine);
 		}
-		/**On fait le choix que la descendance gauche d’un nœud ne contiendra que des
-		 éléments de priorité supérieure à l’élément de ce nœud et
-		 la descendance droite d’un nœud ne contiendra que des éléments de priorité inférieure ou égale.**/
-		private void remplirFile (Noeud n) {
 
+		private void remplirFile (Noeud n) {
 			if (n == null) return;
 			remplirFile(n.gauche);
 			file.add(n.element);
