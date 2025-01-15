@@ -1,0 +1,39 @@
+<section>
+    <h1>Inscription Membre</h1>
+
+    <form method="post" action="/users/add">
+        <div>
+            <label>Nom membre : </label>
+            <input type="text" name="userName" value="" placeholder="Exemple : Choquet" />
+        </div>
+        <div>
+            <label>Prénom membre : </label>
+            <input type="text" name="userFirstname" value="" placeholder="Exemple : olivier" />
+        </div>
+        <div>
+            <label>Email membre : </label>
+            <input type="email" name="userEmail" value="" placeholder="Exemple : oli@vinci.be" />
+        </div>
+        <div>
+            <label>Mot de passe membre : </label>
+            <input type="password" name="userPassword" value="" />
+        </div>
+        <div>
+            <label>Confirmation mot de passe membre : </label>
+            <input type="password" name="userPasswordConfirmation" value="" />
+        </div>
+        <div>
+            <input type="submit" value="M'enregistrer">
+        </div>
+    </form>
+</section>
+{{#if errors}}
+<section>
+    <h2>Erreurs : </h2>
+    <ul>
+        {{#each errors}}
+            <li class="error-message"> {{this}} </li>
+        {{/each}}
+    </ul>
+</section>
+{{/if}}

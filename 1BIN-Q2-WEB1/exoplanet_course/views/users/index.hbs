@@ -1,0 +1,22 @@
+<section>
+    <h1>Connexion Utilisateur</h1>
+
+    <form method="post" action="/users/login">
+        <div>
+            <label>Login utilisateur : </label>
+            <input type="text" name="userLogin" value="" placeholder="exo" />
+        </div>
+        <div>
+            <label>Password utilisateur : </label>
+            <input type="password" name="userPassword" value="" />
+        </div>
+        <div>
+            <input type="submit" value="Me connecter">
+        </div>
+    </form>
+</section>
+{{#if session.errors}}
+<section>
+    <p class="error-message"> {{session.errors}} </p>
+</section>
+{{/if}}

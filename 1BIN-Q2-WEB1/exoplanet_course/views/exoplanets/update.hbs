@@ -1,0 +1,69 @@
+
+<section>
+    <h1>Mise à jour d'une Exoplanète </h1>
+    <form method="post" action="/exoplanets/update">
+        <div>
+            <label>ID Exoplanète :</label>
+            <label>{{exoplanet.exoplanet_id}}</label>
+            <input type="hidden" value="{{exoplanet.exoplanet_id}}" name ="idExoplanet">
+        </div>
+        <div>
+            <label>Nom de l'exoplanète : </label>
+            <input type="text" value="{{exoplanet.unique_name}}" name="uniqueNameExoplanet">
+        </div>
+        <div>
+            <label>Classe Habitable de l'exoplanète : </label>
+             <select name="hClassExoplanet">
+                <option {{#if (eq exoplanet.hclass "Mésoplanète")}} 
+                            selected 
+                        {{/if}} value="Mésoplanète"> Mésoplanète</option>
+                <option {{#if (eq exoplanet.hclass "Psychroplanète")}} 
+                            selected 
+                        {{/if}} value="Psychroplanète">Psychroplanète</option>
+                <option {{#if (eq exoplanet.hclass "Thermoplanète")}} 
+                            selected 
+                        {{/if}} value="Thermoplanète">Thermoplanète</option>
+                <option {{#if (eq exoplanet.hclass "Hypopsychroplanète")}} 
+                            selected 
+                        {{/if}}value="Hypopsychroplanète">Hypopsychroplanète</option>
+                <option  {{#if (eq exoplanet.hclass "Non Habitable")}} 
+                            selected 
+                        {{/if}} value="Non Habitable">Non Habitable</option>
+            </select>
+        </div>
+        <div>
+            <label>Annnée de découverte de l'exoplanète : </label>
+            <input type="number" value="{{exoplanet.discovery_year}}" name="discoveryYearExoplanet">
+        </div>
+        <div>
+            <label>IST de l'exoplanète : </label>
+            <input type="text" value="{{exoplanet.ist}}" name ="ISTExoplanet">
+        </div>
+        <div>
+            <label>Classe de planète de l'exoplanète : </label>
+             <select name="pClassExoplanet">
+                <option {{#if (eq exoplanet.pclass "Terrienne chaude")}} 
+                            selected 
+                        {{/if}} value="Terrienne chaude"> Terrienne chaude</option>
+                <option {{#if (eq exoplanet.pclass "Super-terrienne tempérée")}} 
+                            selected 
+                        {{/if}} value="Super-terrienne tempérée">Super-terrienne tempérée</option>
+                <option {{#if (eq exoplanet.pclass "Super-terrienne froide")}} 
+                            selected 
+                        {{/if}} value="Super-terrienne froide">Super-terrienne froide</option>
+                <option {{#if (eq exoplanet.pClass "Super-terrienne chaude")}} 
+                            selected 
+                        {{/if}}value="Super-terrienne chaude">Super-terrienne chaude</option>
+                <option  {{#if (eq exoplanet.pclass "Sous-terrienne froide")}} 
+                            selected 
+                        {{/if}} value="Sous-terrienne froide">Sous-terrienne froide</option>
+                <option  {{#if (eq exoplanet.pclass "Sous-terrienne chaude")}} 
+                            selected 
+                        {{/if}} value="Sous-terrienne chaude">Sous-terrienne chaude</option>
+            </select>
+
+        </div>
+        <input type="submit" value="Mettre à jour">
+    
+    </form>
+</section>
