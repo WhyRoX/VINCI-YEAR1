@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/1BIN-Q1-ALGO.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/1BIN-Q1-ALGO.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/1BIN-Q1-MATH.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/1BIN-Q1-MATH.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_complexite/ALGO_complexite.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_complexite/ALGO_complexite.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_for/ALGO_for.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_for/ALGO_for.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_if/ALGO_if.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_if/ALGO_if.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_methodes/ALGO_methodes.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_methodes/ALGO_methodes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_table2dim/ALGO_table2dim.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_table2dim/ALGO_table2dim.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tables/ALGO_tables.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tables/ALGO_tables.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tablesNonTriees/ALGO_tablesNonTriees.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tablesNonTriees/ALGO_tablesNonTriees.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tablesTriees/ALGO_tablesTriees.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tablesTriees/ALGO_tablesTriees.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tortue/ALGO_tortue.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tortue/ALGO_tortue.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_tri/ALGO_tri.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_tri/ALGO_tri.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/ALGO_while/ALGO_while.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/ALGO_while/ALGO_while.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_complexite/ALGO_complexite.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_complexite/ALGO_complexite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_for/ALGO_for.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_for/ALGO_for.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_if/ALGO_if.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_if/ALGO_if.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_methodes/ALGO_methodes.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_methodes/ALGO_methodes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_table2dim/ALGO_table2dim.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_table2dim/ALGO_table2dim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tables/ALGO_tables.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tables/ALGO_tables.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tablesNonTriees/ALGO_tablesNonTriees.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tablesNonTriees/ALGO_tablesNonTriees.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tablesTriees/ALGO_tablesTriees.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tablesTriees/ALGO_tablesTriees.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tortue/ALGO_tortue.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tortue/ALGO_tortue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tri/ALGO_tri.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_tri/ALGO_tri.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_while/ALGO_while.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_while/ALGO_while.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1040_SD/AOUT2023/AOUT2023.iml" filepath="$PROJECT_DIR$/BINV1040_SD/AOUT2023/AOUT2023.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/APOO_exRecap1/APOO_exRecap1.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/APOO_exRecap1/APOO_exRecap1.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/APOO_exRecap4/APOO_exRecap4.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/APOO_exRecap4/APOO_exRecap4.iml" />
@@ -25,7 +26,6 @@
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/APOO_fiche4/APOO_fiche4.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/APOO_fiche4/APOO_fiche4.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/APOO_fiche5/APOO_fiche5.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/APOO_fiche5/APOO_fiche5.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/APOO_fiche6_1_bar/APOO_fiche6_1_bar.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/APOO_fiche6_1_bar/APOO_fiche6_1_bar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/BINV1010_ALGO.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/BINV1010_ALGO.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1020_APOO/BINV1020_APOO.iml" filepath="$PROJECT_DIR$/BINV1020_APOO/BINV1020_APOO.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1040_SD/BINV1040_SD.iml" filepath="$PROJECT_DIR$/BINV1040_SD/BINV1040_SD.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1100_MATH2/BINV1100_MATH2.iml" filepath="$PROJECT_DIR$/BINV1100_MATH2/BINV1100_MATH2.iml" />
@@ -37,20 +37,20 @@
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Suites 2/Examen - Suites 2.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Suites 2/Examen - Suites 2.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Suites Juin 2023/Examen - Suites Juin 2023.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Suites Juin 2023/Examen - Suites Juin 2023.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Suites Sept 2022/Examen - Suites Sept 2022.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Suites Sept 2022/Examen - Suites Sept 2022.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/Guerrier/Guerrier.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/Guerrier/Guerrier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/Guerrier/Guerrier.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/Guerrier/Guerrier.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/HE-Vinci-2023-24.iml" filepath="$PROJECT_DIR$/.idea/HE-Vinci-2023-24.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1040_SD/JUIN2023V1/JUIN2023V1.iml" filepath="$PROJECT_DIR$/BINV1040_SD/JUIN2023V1/JUIN2023V1.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1040_SD/JUIN2023V2/JUIN2023V2.iml" filepath="$PROJECT_DIR$/BINV1040_SD/JUIN2023V2/JUIN2023V2.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1040_SD/JUIN21JAUNE/JUIN21JAUNE.iml" filepath="$PROJECT_DIR$/BINV1040_SD/JUIN21JAUNE/JUIN21JAUNE.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/JeuDeLaVie/JeuDeLaVie.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/JeuDeLaVie/JeuDeLaVie.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/JeuDePlateau/JeuDePlateau.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/JeuDePlateau/JeuDePlateau.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/JeuPendu/JeuPendu.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/JeuPendu/JeuPendu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/JeuDeLaVie/JeuDeLaVie.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/JeuDeLaVie/JeuDeLaVie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/JeuDePlateau/JeuDePlateau.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/JeuDePlateau/JeuDePlateau.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/JeuPendu/JeuPendu.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/JeuPendu/JeuPendu.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1100_MATH2/MATH2_ensembles/MATH2_ensembles.iml" filepath="$PROJECT_DIR$/BINV1100_MATH2/MATH2_ensembles/MATH2_ensembles.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1100_MATH2/MATH2_matrice/MATH2_matrice.iml" filepath="$PROJECT_DIR$/BINV1100_MATH2/MATH2_matrice/MATH2_matrice.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1100_MATH2/MATH2_relationsBinaires/MATH2_relationsBinaires.iml" filepath="$PROJECT_DIR$/BINV1100_MATH2/MATH2_relationsBinaires/MATH2_relationsBinaires.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/Operations Booleans/Operations Booleans.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/Operations Booleans/Operations Booleans.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/Polynomes/Polynomes.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/Polynomes/Polynomes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1010_ALGO/Quizz/Quizz.iml" filepath="$PROJECT_DIR$/BINV1010_ALGO/Quizz/Quizz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/Quizz/Quizz.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/Quizz/Quizz.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1040_SD/SD_smn1/SD_smn1.iml" filepath="$PROJECT_DIR$/BINV1040_SD/SD_smn1/SD_smn1.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1040_SD/SD_smn10/SD_smn10.iml" filepath="$PROJECT_DIR$/BINV1040_SD/SD_smn10/SD_smn10.iml" />
       <module fileurl="file://$PROJECT_DIR$/BINV1040_SD/SD_smn11/SD_smn11.iml" filepath="$PROJECT_DIR$/BINV1040_SD/SD_smn11/SD_smn11.iml" />
