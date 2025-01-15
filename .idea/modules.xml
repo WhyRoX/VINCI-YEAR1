@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-APOO/1BIN-Q1-APOO.iml" filepath="$PROJECT_DIR$/1BIN-Q1-APOO/1BIN-Q1-APOO.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/1BIN-Q1-MATH.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/1BIN-Q1-MATH.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-SD/1BIN-Q1-SD.iml" filepath="$PROJECT_DIR$/1BIN-Q1-SD/1BIN-Q1-SD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q2-MATH/1BIN-Q2-MATH.iml" filepath="$PROJECT_DIR$/1BIN-Q2-MATH/1BIN-Q2-MATH.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_complexite/ALGO_complexite.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_complexite/ALGO_complexite.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_for/ALGO_for.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_for/ALGO_for.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/ALGO_forDansFor/ALGO_forDansFor.iml" />
@@ -28,7 +29,6 @@
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-APOO/APOO_fiche4/APOO_fiche4.iml" filepath="$PROJECT_DIR$/1BIN-Q1-APOO/APOO_fiche4/APOO_fiche4.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-APOO/APOO_fiche5/APOO_fiche5.iml" filepath="$PROJECT_DIR$/1BIN-Q1-APOO/APOO_fiche5/APOO_fiche5.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-APOO/APOO_fiche6_1_bar/APOO_fiche6_1_bar.iml" filepath="$PROJECT_DIR$/1BIN-Q1-APOO/APOO_fiche6_1_bar/APOO_fiche6_1_bar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1100_MATH2/BINV1100_MATH2.iml" filepath="$PROJECT_DIR$/BINV1100_MATH2/BINV1100_MATH2.iml" />
       <module fileurl="file://$PROJECT_DIR$/EXAM_ALGO/EXAM_ALGO.iml" filepath="$PROJECT_DIR$/EXAM_ALGO/EXAM_ALGO.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Janvier 2022/Examen - Janvier 2022.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Janvier 2022/Examen - Janvier 2022.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Juin 2022/Examen - Juin 2022.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/Examen - Juin 2022/Examen - Juin 2022.iml" />
@@ -45,9 +45,9 @@
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/JeuDeLaVie/JeuDeLaVie.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/JeuDeLaVie/JeuDeLaVie.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/JeuDePlateau/JeuDePlateau.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/JeuDePlateau/JeuDePlateau.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/JeuPendu/JeuPendu.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/JeuPendu/JeuPendu.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1100_MATH2/MATH2_ensembles/MATH2_ensembles.iml" filepath="$PROJECT_DIR$/BINV1100_MATH2/MATH2_ensembles/MATH2_ensembles.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1100_MATH2/MATH2_matrice/MATH2_matrice.iml" filepath="$PROJECT_DIR$/BINV1100_MATH2/MATH2_matrice/MATH2_matrice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BINV1100_MATH2/MATH2_relationsBinaires/MATH2_relationsBinaires.iml" filepath="$PROJECT_DIR$/BINV1100_MATH2/MATH2_relationsBinaires/MATH2_relationsBinaires.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q2-MATH/MATH2_ensembles/MATH2_ensembles.iml" filepath="$PROJECT_DIR$/1BIN-Q2-MATH/MATH2_ensembles/MATH2_ensembles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q2-MATH/MATH2_matrice/MATH2_matrice.iml" filepath="$PROJECT_DIR$/1BIN-Q2-MATH/MATH2_matrice/MATH2_matrice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1BIN-Q2-MATH/MATH2_relationsBinaires/MATH2_relationsBinaires.iml" filepath="$PROJECT_DIR$/1BIN-Q2-MATH/MATH2_relationsBinaires/MATH2_relationsBinaires.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/Operations Booleans/Operations Booleans.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/Operations Booleans/Operations Booleans.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-MATH/Polynomes/Polynomes.iml" filepath="$PROJECT_DIR$/1BIN-Q1-MATH/Polynomes/Polynomes.iml" />
       <module fileurl="file://$PROJECT_DIR$/1BIN-Q1-ALGO/Quizz/Quizz.iml" filepath="$PROJECT_DIR$/1BIN-Q1-ALGO/Quizz/Quizz.iml" />
